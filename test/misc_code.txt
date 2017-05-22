@@ -1,0 +1,71 @@
+					swapIMG4SVG: function( callback ){
+						
+						var that = this;
+						
+						var replaceImgWithSVG = function(svg) {
+
+								that.$img.replaceWith(svg);	
+								
+				    		var json = that.model.get('json'),
+				    				style = json.style,
+				    				width = parseFloat(style.element.width) * scale,
+				    				height = parseFloat(style.element.height) * scale,
+				    				fill = style['svgshape']['fill'],
+				    				stroke = style['svgshape']['stroke'],
+				    				strikeWidth = style['svgshape']['stroke-width'];
+								
+								that.$svgshape = that.$el.find('svg');
+								
+								that.$svgshape.css({
+									fill: fill,
+									stroke: stroke,
+									'stroke-width': strikeWidth,
+									width: width + 'px',
+									height: height + 'px'
+								});
+								
+								if( typeof( callback ) != 'undefined') callback();
+								
+						};
+						
+						if( typeof( this.model.get('json').data.svg  ) != 'undefined'){
+							
+							replaceImgWithSVG(that.model.get('json').data.svg);	
+							
+						} else {
+							
+							var thePath = that.model.get('json').data.svgSrc;
+								
+					    $.get(thePath, null, function(data){// working swapIMG4SVG
+					    	
+					        var svgNode = $("svg", data),
+					        		docNode = document.adoptNode(svgNode[0]);
+					        
+									that.$img.replaceWith(docNode);	
+									
+									that.model.get('json').data.svg = docNode;
+									replaceImgWithSVG(that.model.get('json').data.svg);
+									
+					    }, 'xml');
+							
+						}
+						
+
+				    
+					},
+					
+	var cc = function(idx) {
+		
+		if(  tools.inArray(app.stubs.collections.elements.models[idx].attributes.json.collection, app.settings.hasSvgshapes) ){
+			app.stubs.collections.elements.models[idx].attributes.json.data.svg = 'removed for cc';
+		}
+		
+		var obj = tools.deepCopy(app.stubs.collections.elements.models[idx].attributes.json);
+		
+		delete obj.data.base64;
+		delete obj.data.htmlAsPng;
+
+		if( typeof( obj.style.background ) != 'undefined') delete obj.style.background['background-image'];
+		console.log(JSON.stringify( obj   , null, 2 ));
+		
+	}					

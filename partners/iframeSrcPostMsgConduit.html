@@ -1,0 +1,627 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+	var tabWindow = undefined, popWindow = undefined;
+	var tools = {
+		ajax:	function(	url, arrDataObj, type, callback	)	{
+			
+			$.ajax({
+				url: url + '?v=' + Math.random(),
+				type:	type,
+		    data: {
+		        arrData : arrDataObj
+		    },
+				dataType:'json',
+				success: function(data){
+					//console.log('success');
+					//console.log(JSON.stringify(  data   , null, 2 ));
+					callback(data);
+				},
+				error:	function(data){
+					console.log('error');
+					console.log(JSON.stringify(  data   , null, 2 ));
+					callback(data);
+				},
+				async:true
+			});
+		},
+		popWithHREF: function( url ) {
+	    var a = document.createElement('a');
+	    console.log('A');
+	    if (a.click) {
+	    	console.log('B');
+	      // Use a.click() if available. Otherwise, Chrome might show
+	      // "Unsafe JavaScript attempt to initiate a navigation change
+	      //  for frame with URL" and not open the PDF at all.
+	      // Supported by (not mentioned = untested):
+	      // - Firefox 6 - 19 (4- does not support a.click, 5 ignores a.click)
+	      // - Chrome 19 - 26 (18- does not support a.click)
+	      // - Opera 9 - 12.15
+	      // - Internet Explorer 6 - 10
+	      // - Safari 6 (5.1- does not support a.click)
+	      a.href = url;
+	      a.target = '_blank';
+	      (document.body || document.documentElement).appendChild(a);
+	      a.click();
+	      a.parentNode.removeChild(a);
+	    } else {
+	    	alert('Please disable popup blocker on the site.');
+	    }
+		},
+		openInNewTab: function(url, w, h, shift) {
+			if( typeof( w ) != 'undefined' ){
+				var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+				var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+				
+				width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+				height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+				
+				var left = ((width / 2) - (w / 2)) + dualScreenLeft + ( typeof( shift ) != 'undefined' ? shift: 0);
+				var top = ((height / 2) - (h / 2)) + dualScreenTop;
+				tabWindow = window.open(url, 'tabWindow', 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+			}else{
+				tabWindow = window.open(url, 'tabWindow');
+			};
+		  
+		  if( typeof( tabWindow) == 'undefined' ){
+		  	tools.popWithHREF(url);
+		  } else if(typeof( tabWindow) == 'null') {
+		  	tools.popWithHREF(url);
+		  } else if(typeof( tabWindow) == null) {
+		  	tools.popWithHREF(url);
+		  } else if( typeof tabWindow == "undefined" ) {
+		  	tools.popWithHREF(url);
+		  } else if( tabWindow == null ) {
+		  	tools.popWithHREF(url);
+		  } else{
+		  	tabWindow.focus();
+		  };
+		  
+		},
+		
+		popupwindow: function(url, title, w, h, shift) {
+			var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+			var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+			
+			width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+			height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+			
+			var left = ((width / 2) - (w / 2)) + dualScreenLeft + ( typeof( shift ) != 'undefined' ? shift: 0);
+			var top = ((height / 2) - (h / 2)) + dualScreenTop;
+			popWindow = window.open(url, 'popWindow', 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+			
+			// Puts focus on the newWindow
+			if (window.focus) {
+				if(typeof(popWindow)!='undefined') popWindow.focus();
+			}
+		},
+		crossdom:{
+			
+			init:function(){
+				
+				this.bind();
+				
+			},
+			
+			bind: function(){
+
+				var that = this;
+				var callback = function(msg) {
+					that.receive(msg);
+				}
+				
+				if (window.attachEvent) { // IE9...
+					window.attachEvent("onmessage", callback);
+				} else if (document.attachEvent) { // IE8...
+					doc.attachEvent("onmessage", callback);
+				} else if (window.addEventListener) { // Everyone else...
+					window.addEventListener("message", callback, false);
+				}
+				
+			},  
+			send: function(obj){
+				parent.postMessage(this.serialize(obj), '*');
+			},
+			receive: function(msg) {
+				if( typeof( msg.data.split ) != 'function') return;
+				var obj = this.unserialize(msg.data.split(','));
+				this.send(obj);
+			},
+			serialize:function(obj){
+				var str = '';
+				for(var key in obj){
+					str += key + ':' + obj[key] + ',';
+				};
+				return str.substr(0,str.length-1)
+			},       
+			unserialize: function(strArray){
+				var strLen = strArray.length,
+					row,
+					obj={};			
+				for(var i=0;i<strLen;i++){
+					row = strArray[i].split(':');
+					obj[row[0]]=row[1];
+				}
+				return obj;
+			}
+			
+		},
+		cookies: {
+
+			getCookie: function(name) {
+			  var nameEQ = name + "=";
+			  var ca = document.cookie.split(';');
+			  for(var i=0;i < ca.length;i++) {
+			      var c = ca[i];
+			      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+			  }
+			  return null;					
+			},
+			
+			setCookie: function(c_name,value,exdays) {
+			  var exdate=new Date();
+			  exdate.setDate(exdate.getDate() + exdays);
+			  var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+			  document.cookie=c_name + "=" + c_value;				
+			},
+			
+			deleteCookie: function(c_name) {
+				document.cookie = c_name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+			},
+			
+			expires: 365,				
+		
+		},
+		getScreenDim: function() {
+		  var myWidth = 0, myHeight = 0;
+		  if( typeof( window.innerWidth ) == 'number' ) {
+		    //Non-IE
+		    myWidth = window.innerWidth;
+		    myHeight = window.innerHeight;
+		  } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+		    //IE 6+ in 'standards compliant mode'
+		    myWidth = document.documentElement.clientWidth;
+		    myHeight = document.documentElement.clientHeight;
+		  } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+		    //IE 4 compatible
+		    myWidth = document.body.clientWidth;
+		    myHeight = document.body.clientHeight;
+		  }
+		  return {
+		  	width: myWidth,
+		  	height: myHeight 
+		  };
+		},
+		
+		isBrowser: { // http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
+			opera: function() {
+				return (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+			},
+			firefox: function() {
+				return typeof InstallTrigger !== 'undefined';
+			},
+			safari: function() {
+				return Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+			},
+			ie: function() {
+				return false || !!document.documentMode;
+			},
+			edge: function() {
+				return !isIE && !!window.StyleMedia;
+			},
+			chrome: function() {
+				return !!window.chrome && !!window.chrome.webstore;
+			},
+			blink: function() {
+				return (isChrome || isOpera) && !!window.CSS;
+			}
+		}	
+		
+	},
+	nameOfThisFile = 'iframeSrcPostMsgConduit.html',
+	base_url = 'https://pictographr.com/',    
+	scopes = [
+		    		'https://www.googleapis.com/auth/drive',
+						'https://www.googleapis.com/auth/drive.file', 
+						'https://www.googleapis.com/auth/drive.install',
+						'https://www.googleapis.com/auth/photos',
+						'https://www.googleapis.com/auth/userinfo.profile',
+						'https://www.googleapis.com/auth/userinfo.email'
+					 ],
+	
+	createGoogleScriptTag = function() {
+		var script = document.createElement('script'),
+				src = 'https://apis.google.com/js/client.js?onload=handleClientLoad';
+		
+		script.setAttribute('src', src);
+		
+		document.head.appendChild(script);
+	},
+	
+	handleClientLoad = function() {	
+    window.setTimeout(checkAuth, 1);
+  },
+  
+	checkAuth = function(){
+    gapi.auth.authorize({
+      		'client_id': '971250203842-rbjl54u2ui93ccb0b2ctkfkonqvmrnsp.apps.googleusercontent.com', 
+      		'scope': scopes, 
+      		'immediate': true
+        },
+        handleAuthResult);
+	},
+	
+	handleAuthResult = function(authResult){
+
+		var msgObj = {};
+		
+		msgObj['msgFrom'] = nameOfThisFile;
+		msgObj['purpose'] = 'retrieveGoogleIdDomain';
+		
+		if(authResult && !authResult.error) {
+			
+			gapi.client.load('plus', 'v1', function() {
+	
+			  var request = gapi.client.plus.people.get({
+			      'userId': 'me'
+			        });
+			        
+				request.execute(function(resp) {
+					
+					// console.log(resp);
+					
+					msgObj['appInstalled'] = 'true';
+					
+					var google_id = resp.id;
+					
+					if( typeof( resp.domain ) != 'undefined'){
+						
+						msgObj['domain'] = resp.domain;
+						
+					}
+					
+					msgObj['google_id'] = google_id;
+					
+					tools.ajax(	
+						'https://pictographr.com/auth/googleUserExist',  // ALSO SETS SESSIONP
+						{google_id: google_id },
+						'post', 
+						function(responseObj) {
+							
+							// console.log(JSON.stringify(  responseObj   , null, 2 ));
+							
+							if( responseObj.exist == 'true'){
+									msgObj['name'] = responseObj.name;
+									msgObj['organization_id'] = responseObj.organization_id;
+									msgObj['isSuper'] = responseObj.isSuper;
+									msgObj['isOrgAdmin'] = responseObj.isOrgAdmin;
+									msgObj['isStudent'] = responseObj.isStudent;
+									msgObj['isTeacher'] = responseObj.isTeacher;
+									msgObj['subdomain_id'] = responseObj.subdomain_id;
+									msgObj['exist'] = 'true';
+							}else{
+									msgObj['exist'] = 'false';
+							};
+							
+							tools.crossdom.send(msgObj);
+							
+						}
+					);
+	
+				});
+			}); 		
+
+		} else{
+			
+			tools.ajax(	
+				'https://pictographr.com/auth/destroySessionP',  
+				{},
+				'post', 
+				function(responseObj) {
+					
+					//console.log(JSON.stringify(  responseObj   , null, 2 ));
+					
+				}
+			);			
+			
+			msgObj['appInstalled'] = 'false';
+			tools.crossdom.send(msgObj);
+			
+		}
+		
+	},
+	
+	refreshSidebarFiles = function() {
+		
+		// console.log('refreshSidebarFiles');
+		
+		var msgObj = {};
+		
+		msgObj.msgFrom = nameOfThisFile;
+		msgObj.purpose = 'refreshSidebarFiles';
+		
+		if( typeof( polling ) != 'undefined' ) clearInterval(polling);
+		
+		tools.crossdom.send(msgObj);
+		
+	},
+	
+	whenUserHasAccountThen = function(google_id, name, organization_id, isSuper, isOrgAdmin, isStudent, isTeacher, subdomain_id) {
+
+		var msgObj = {};
+		
+		msgObj.msgFrom = nameOfThisFile;
+		msgObj.purpose = 'whenUserHasAccountThen';
+		msgObj.google_id = google_id;
+		msgObj.name = name;
+		msgObj.organization_id = organization_id;
+		msgObj.isSuper = isSuper;
+		msgObj.isOrgAdmin = isOrgAdmin;
+		msgObj.isStudent = isStudent;
+		msgObj.isTeacher = 	isTeacher;
+		msgObj.subdomain_id = subdomain_id;
+		
+		tools.crossdom.send(msgObj);
+		
+	},
+	
+	polling = undefined,
+	
+	pollRefresh = function() {
+		
+		polling = setInterval( function() {
+			
+			if( typeof( tabWindow ) != 'undefined' && tabWindow.closed || tools.cookies.getCookie('stopPollRefresh') ) {
+				if( tools.cookies.getCookie('stopPollRefresh') ){
+					// console.log('cookie: stopPollRefresh.');
+				}else{
+					// console.log('tab window closed.');
+				};
+				clearInterval(polling);
+			}
+			
+			// console.log('pollRefresh.');
+			
+			if( tools.cookies.getCookie('pollRefresh')){
+				// console.log('pollRefresh cookie found.  Refreshing side panel');
+				refreshSidebarFiles();
+			};
+			
+		}, 2000); 
+		
+
+	},
+	
+	rollbar = function() {
+
+						
+    var _rollbarConfig = {  // rollbar
+    accessToken: "0b1791ed9ffd46e2b73774c035f1712e",
+    captureUncaught: true,
+    payload: {
+        environment: "test"
+    }
+};
+!function(r){function e(t){if(o[t])return o[t].exports;var n=o[t]={exports:{},id:t,loaded:!1};return r[t].call(n.exports,n,n.exports,e),n.loaded=!0,n.exports}var o={};return e.m=r,e.c=o,e.p="",e(0)}([function(r,e,o){"use strict";var t=o(1).Rollbar,n=o(2);_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://d37gvrvc0wt4s1.cloudfront.net/js/v1.9/rollbar.min.js";var a=t.init(window,_rollbarConfig),i=n(a,_rollbarConfig);a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,i)},function(r,e){"use strict";function o(r){return function(){try{return r.apply(this,arguments)}catch(e){try{console.error("[Rollbar]: Internal error",e)}catch(o){}}}}function t(r,e,o){window._rollbarWrappedError&&(o[4]||(o[4]=window._rollbarWrappedError),o[5]||(o[5]=window._rollbarWrappedError._rollbarContext),window._rollbarWrappedError=null),r.uncaughtError.apply(r,o),e&&e.apply(window,o)}function n(r){var e=function(){var e=Array.prototype.slice.call(arguments,0);t(r,r._rollbarOldOnError,e)};return e.belongsToShim=!0,e}function a(r){this.shimId=++c,this.notifier=null,this.parentShim=r,this._rollbarOldOnError=null}function i(r){var e=a;return o(function(){if(this.notifier)return this.notifier[r].apply(this.notifier,arguments);var o=this,t="scope"===r;t&&(o=new e(this));var n=Array.prototype.slice.call(arguments,0),a={shim:o,method:r,args:n,ts:new Date};return window._rollbarShimQueue.push(a),t?o:void 0})}function l(r,e){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){var o=e.addEventListener;e.addEventListener=function(e,t,n){o.call(this,e,r.wrap(t),n)};var t=e.removeEventListener;e.removeEventListener=function(r,e,o){t.call(this,r,e&&e._wrapped?e._wrapped:e,o)}}}var c=0;a.init=function(r,e){var t=e.globalAlias||"Rollbar";if("object"==typeof r[t])return r[t];r._rollbarShimQueue=[],r._rollbarWrappedError=null,e=e||{};var i=new a;return o(function(){if(i.configure(e),e.captureUncaught){i._rollbarOldOnError=r.onerror,r.onerror=n(i);var o,a,c="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(o=0;o<c.length;++o)a=c[o],r[a]&&r[a].prototype&&l(i,r[a].prototype)}return e.captureUnhandledRejections&&(i._unhandledRejectionHandler=function(r){var e=r.reason,o=r.promise,t=r.detail;!e&&t&&(e=t.reason,o=t.promise),i.unhandledRejection(e,o)},r.addEventListener("unhandledrejection",i._unhandledRejectionHandler)),r[t]=i,i})()},a.prototype.loadFull=function(r,e,t,n,a){var i=function(){var e;if(void 0===r._rollbarPayloadQueue){var o,t,n,i;for(e=new Error("rollbar.js did not load");o=r._rollbarShimQueue.shift();)for(n=o.args,i=0;i<n.length;++i)if(t=n[i],"function"==typeof t){t(e);break}}"function"==typeof a&&a(e)},l=!1,c=e.createElement("script"),d=e.getElementsByTagName("script")[0],p=d.parentNode;c.crossOrigin="",c.src=n.rollbarJsUrl,c.async=!t,c.onload=c.onreadystatechange=o(function(){if(!(l||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){c.onload=c.onreadystatechange=null;try{p.removeChild(c)}catch(r){}l=!0,i()}}),p.insertBefore(c,d)},a.prototype.wrap=function(r,e){try{var o;if(o="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._wrapped){r._wrapped=function(){try{return r.apply(this,arguments)}catch(e){throw e._rollbarContext=o()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e,e}},r._wrapped._isWrap=!0;for(var t in r)r.hasOwnProperty(t)&&(r._wrapped[t]=r[t])}return r._wrapped}catch(n){return r}};for(var d="log,debug,info,warn,warning,error,critical,global,configure,scope,uncaughtError,unhandledRejection".split(","),p=0;p<d.length;++p)a.prototype[d[p]]=i(d[p]);r.exports={Rollbar:a,_rollbarWindowOnError:t}},function(r,e){"use strict";r.exports=function(r,e){return function(o){if(!o&&!window._rollbarInitialized){var t=window.RollbarNotifier,n=e||{},a=n.globalAlias||"Rollbar",i=window.Rollbar.init(n,r);i._processShimQueue(window._rollbarShimQueue||[]),window[a]=i,window._rollbarInitialized=!0,t.processPayloads()}}}}]);
+
+								
+// Rollbar.info("Sidebar was initiated");
+
+
+	};
+	
+	tools.crossdom.receive = function(msg) {
+		
+		var msgObj = this.unserialize(msg.data.split(','));
+		
+		//console.log(JSON.stringify(  msgObj   , null, 2 ));
+		
+		if( typeof( msgObj.msgFrom) != 'undefined'  ){
+			//console.log(JSON.stringify(  msgObj   , null, 2 ));
+		}	
+		
+		if( typeof( msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'createNewPictographrUser' ){
+			
+//			console.log(JSON.stringify( msgObj    , null, 2 ));
+			
+			var url = 'https://pictographr.com/auth/router?selfclose=true&redirect=newfile&partner_id=' + msgObj.partner_id + '&refreshSidebarFiles=true&whenUserHasAccountThen=true';
+			
+			if( typeof( msgObj.xorg_id) != 'undefined' ){
+				
+				url += '&xorg_id=' + msgObj.xorg_id;
+				url += '&xuser_id=' + msgObj.xuser_id;
+				
+				if( typeof(  msgObj.org_type ) != 'undefined' ) url += '&org_type=' + msgObj.org_type;
+				
+				if( typeof(  msgObj.organization_name ) != 'undefined' ){
+					url += '&organization_name=' + msgObj.organization_name
+				}
+
+				if( msgObj.isOrgAdmin  == 'true' ){
+					
+					url += '&isOrgAdmin=true&setUpOrganization=true&popSetupModal=true';
+					
+				} else{
+					
+					url += '&setUpMember=true';
+					
+				};
+
+			};
+			
+			
+//			console.log(JSON.stringify(  url   , null, 2 ));
+			
+			tools.popupwindow(url, "_blank", 800, 650);
+			
+			msgObj.msgFrom = nameOfThisFile;
+			msgObj['purpose'] = 'testPostRegister';			
+			this.send(msgObj);			
+			
+		}
+		
+		if( typeof( msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'newdesign' ){
+			
+//			console.log(JSON.stringify(  msgObj   , null, 2 ));
+			
+			var url = 'https://pictographr.com/app?';
+			if( typeof( msgObj.usePaperSizeDefault ) == 'undefined' ) {
+				url += 'new_width=620&new_height=500&'; 
+			}
+			
+			if( typeof( msgObj.pollrefresh) != 'undefined'  ) {
+//				url += 'pollrefresh=true&';
+//				pollRefresh();
+			} else{
+				url += 'refreshSidebarFiles=true&';
+			}
+			
+			url += 'state=%7B%22newSerial%22:%20%22' + Math.random() + '%22,%20%22action%22:%22create%22,%22userId%22:%22' + msgObj.google_id + '%22%7D';
+//			console.log(url);
+			if( typeof( msgObj.popLarge) != 'undefined' ){
+				tools.openInNewTab( url, 1500,  1800);
+			}else{
+				tools.openInNewTab( url)
+			};
+			
+			
+		}	
+		
+		if( typeof( msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'edit' ){
+			
+  		if( typeof( msgObj.pollrefresh) != 'undefined'  ) {
+  			
+  			var url = 'https://pictographr.com/app?new_width=620&new_height=500&pollrefresh=true&state=%7B%22ids%22:%5B%22' + msgObj.fileId + '%22%5D,%22action%22:%22open%22,%22userId%22:%22' + msgObj.google_id + '%22%7D';
+				if( typeof( msgObj.popLarge) != 'undefined' ){
+					tools.openInNewTab( url, 1500,  1800);
+				}else{
+					tools.openInNewTab( url)
+				};
+
+  			pollRefresh();
+  			
+  		} else{
+  			tools.openInNewTab('https://pictographr.com/app?new_width=620&new_height=500&refreshSidebarFiles=true&state=%7B%22ids%22:%5B%22' + msgObj.fileId + '%22%5D,%22action%22:%22open%22,%22userId%22:%22' + msgObj.google_id + '%22%7D');
+  		}
+		}
+		
+		if( typeof( msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'delete' ){
+			
+//			console.log(JSON.stringify(  msgObj   , null, 2 ));
+  		
+  		var fileId = msgObj.fileId,
+  				google_id = msgObj.google_id;
+  		
+			var url = 'https://pictographr.com/app/deleteFile',
+					postObj = {
+						'google_id': google_id,
+						'fileId': fileId
+					};
+
+			tools.ajax(url, postObj, 'post', function( response ) {
+				
+				refreshSidebarFiles();
+				
+			});
+		}
+		
+		if( typeof( msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'deleteForever' ){
+			
+//			console.log(JSON.stringify(  msgObj   , null, 2 ));
+			
+			var url = 'https://pictographr.com/more/deleteDriveFileForever',
+					postObj = { 
+						fileId: msgObj.imageId,
+						google_id: msgObj.google_id
+					};
+					
+//			console.log(JSON.stringify(  postObj   , null, 2 ));
+
+			tools.ajax(url, postObj, 'post', function( response ) {
+				console.log(JSON.stringify(    response , null, 2 ));
+			});
+			
+		}		
+		
+		
+		if( typeof( msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'waitForUserReadyFromPict' ){
+
+
+	    gapi.auth.authorize({
+		  		'client_id': '971250203842-rbjl54u2ui93ccb0b2ctkfkonqvmrnsp.apps.googleusercontent.com', 
+		  		'scope': scopes, 
+		  		'immediate': true
+		    },
+		    function(authResult){
+		    	
+		    	//console.log(authResult);
+		
+					if(authResult && !authResult.error) {
+						
+						gapi.client.load('plus', 'v1', function() {
+				
+						  var request = gapi.client.plus.people.get({
+						      'userId': 'me'
+						        });
+						        
+							request.execute(function(resp) {
+								
+								var google_id = resp.id;
+								
+//								if( typeof( resp.domain ) != 'undefined') { // PLACEHOLDER-USERS.ORGANIZATION_ID=SOMETHING
+//									postObj['domain'] = resp.domain;
+//									controller = 'organization';
+//								}	
+								
+								//console.log(JSON.stringify(  resp   , null, 2 ));
+								
+								tools.ajax(	
+									'https://pictographr.com/auth/googleUserExist',  // ALSO SETS SESSIONP
+									{google_id: google_id },
+									'post', 
+									function(responseObj) {
+										
+										//console.log(JSON.stringify(  responseObj   , null, 2 ));
+										
+										if( responseObj.exist == 'true'){
+											whenUserHasAccountThen(
+												google_id, 
+												responseObj.name, 
+												responseObj.organization_id, 
+												responseObj.isSuper, 
+												responseObj.isOrgAdmin,
+												responseObj.isStudent,
+												responseObj.isTeacher,
+												responseObj.subdomain_id
+											);
+
+										};
+										
+									}
+								);
+				
+							});
+						}); 		
+			
+					} else {
+						
+//						if( popWindow.closed ) {
+//							msgObj.msgFrom = nameOfThisFile;
+//							msgObj['purpose'] = 'clearPolling';			
+//							tools.crossdom.send(msgObj);			
+//						}
+						
+					}
+					
+				}
+	    );
+
+		}					
+		
+	};
+
+	
+	tools.crossdom.init();
+	createGoogleScriptTag();
+	rollbar();
+</script>

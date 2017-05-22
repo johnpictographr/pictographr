@@ -1,0 +1,461 @@
+<head>
+	<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+	<link rel="stylesheet" type="text/css" href="js/lib/bootstrap/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/lib/bootstrap/bootstrap.min.js"></script>
+	<script src="js/lib/popconfirm/popconfirm_adapted.js"></script>
+	<style>
+		button:focus { outline:0 !important; }
+		#main_container{
+			position: absolute;
+			width: 400px;
+//			background: lightblue;
+		}
+		.boxes{
+			position:relative;
+			float: left;
+			margin-right: 2px;
+			margin-bottom: 2px;
+			width: 196px;
+			height: 196px;
+//			background: ivory;
+			white-space: nowrap;
+			text-align: center;
+		}
+		.boxes:hover .buttons_wrapper,
+		.boxes.loading .buttons_wrapper,
+		.boxes.deleting .buttons_wrapper{		
+			display: block;	
+		}
+
+		.boxes.disabled .buttons_wrapper,
+		.boxes.loading .buttons_wrapper .action_buttons.disabled{		
+			display: none;	
+		}
+
+		.boxes.deleting .buttons_wrapper .action_buttons.disabled{		
+			visibility: hidden;	
+		}
+
+		.buttons_wrapper{
+			position:absolute;
+			width: 190px;
+			left: 5px;
+			top: 80px;
+//			background: orange;
+			display: none;
+		}
+		.action_buttons{
+			outline: 0;
+			position: relative;
+			opacity: 1;
+			width: 60px;
+			height: 30px;
+			cursor: pointer;
+			font-family: arial;
+//			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			font-weight: bold;
+			font-size: 13px;
+			border-radius: 2px;
+//			float: left;
+			display: block;
+    	margin: 5px auto;
+	    color: #fff;
+	    padding-top: 6px;
+	    border-radius: 3px;
+		}
+
+		.action_buttons.edit{
+	    background-color: #FF9800;
+	    border-color: #FF9800;
+		}
+		
+		.action_buttons.delete{
+		background-color: #f5f5f5;
+		border-color: #f5f5f5;
+		color: #333;
+		}		
+		
+		
+		.action_buttons.doit{
+	    background-color: #2196F3;
+	    border-color: #2196F3;
+		}	
+		
+		.action_buttons.doit img{
+	     margin-top: 4px;
+		}				
+		
+		.helper {
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+		.boxes .thumbs{
+	    vertical-align: middle;
+	    max-height: 196px;
+	    max-width: 196px;
+	    margin: 0px;
+		}
+		#loadingImg{
+			width: 29px;
+			margin: 2px auto;	
+		}
+	</style>
+
+</head>
+<body>
+	<div  id="main_container" >
+	</div>
+</body>
+<script>
+	
+$(document).ready(function() {
+	
+	var data = [
+	  {
+	    "fileId": "0B5ptY5tUIebjelNCSlhRMTFSb3M",
+	    "thumbnailLink": "https://lh3.googleusercontent.com/uZ0tDIEea3RCoCCYKFYHOpwLROM3fQgJGNytqcy0vuX0G_Zt2u54qmL4WA0DE5DGyMldCg=s220"
+	  },
+	  {
+	    "fileId": "0B5ptY5tUIebjcENSYi1pRUlubUk",
+	    "thumbnailLink": "https://lh4.googleusercontent.com/77iWYsetbpSSNIa9_QEZnOadcBoEMd8xb8kT2mLf0awJTk7nRpgyaFx-jDi6bzI6Jt_ppA=s220"
+	  },
+	  {
+	    "fileId": "0B5ptY5tUIebjMy1PR3BaUklJTzg",
+	    "thumbnailLink": "https://lh4.googleusercontent.com/jOOzF8fWgcsYYxJZnDZakySS0fDfx4EBOPd2F9Ai1Y3YrIGZURrCh_sNoHXvIIZeoyMAGg=s220"
+	  },
+	  {
+	    "fileId": "0B5ptY5tUIebjdFNoNE5SZVV6LXc",
+	    "thumbnailLink": "https://lh6.googleusercontent.com/2VVDOI5r8qswVfHZz7hmWF1Ivgi9UoF8wBKyaPmB7ffxt8RwQU9HbB47VAvj3H9MW3CEGA=s220"
+	  },
+	  {
+	    "fileId": "0B5ptY5tUIebjeVRWVUotY1BqYTQ",
+	    "thumbnailLink": "https://lh6.googleusercontent.com/wK3IX8mwNI-vz4726jPFAPau68iWnVy5L2O0e2OOscRbtI4pEGZhmv-K1A_0ovLkco-Izw=s220"
+	  },
+	  {
+	    "fileId": "0B5ptY5tUIebjMy1PR3BaUklJTzg",
+	    "thumbnailLink": "https://lh4.googleusercontent.com/jOOzF8fWgcsYYxJZnDZakySS0fDfx4EBOPd2F9Ai1Y3YrIGZURrCh_sNoHXvIIZeoyMAGg=s220"
+	  },
+	  {
+	    "fileId": "0B5ptY5tUIebjdFNoNE5SZVV6LXc",
+	    "thumbnailLink": "https://lh6.googleusercontent.com/2VVDOI5r8qswVfHZz7hmWF1Ivgi9UoF8wBKyaPmB7ffxt8RwQU9HbB47VAvj3H9MW3CEGA=s220"
+	  },
+	  {
+	    "fileId": "0B5ptY5tUIebjeVRWVUotY1BqYTQ",
+	    "thumbnailLink": "https://lh6.googleusercontent.com/wK3IX8mwNI-vz4726jPFAPau68iWnVy5L2O0e2OOscRbtI4pEGZhmv-K1A_0ovLkco-Izw=s220"
+	  }
+	]
+		
+		var tools = {
+			ajax:	function(	url, arrDataObj, type, callback	)	{
+				
+				$.ajax({
+					url: url + '?v=' + Math.random(),
+					type:	type,
+			    data: {
+			        arrData : arrDataObj
+			    },
+					dataType:'json',
+					success: function(data){
+						//console.log('success');
+						//console.log(JSON.stringify(  data   , null, 2 ));
+						callback(data);
+					},
+					error:	function(data){
+						console.log('error');
+						console.log(JSON.stringify(  data   , null, 2 ));
+						callback(data);
+					},
+					async:true
+				});
+			},
+			randomIntFromInterval: function(min,max) {
+		    return Math.floor(Math.random()*(max-min+1)+min);
+			},
+			openInNewTab: function(url) {
+			  var win = window.open(url, '_blank');
+			  win.focus();
+			}
+		};
+	
+		var App = function(){
+	
+	    return function() {
+	    	
+				var app = this;
+
+				this.stubs = {};
+
+				this.settings = {
+					dim:{
+						buttons_wrappers: {
+							width: 190, // ideal
+							height: 136, // ideal
+							left: 5	 // ideal
+						},
+						action_buttons: {
+							width: 62,
+							height: 30	
+						}
+					}	
+				};
+
+				this.getFiles = function()	{
+					
+					var url = '/app/getFileList',
+							postObj = {
+								'google_id': '105870981217629422585',
+								'whichFolder': 'files'
+							};
+
+					tools.ajax(url, postObj, 'post', function(data) {
+						
+						console.log(JSON.stringify(  data   , null, 2 ));
+						
+						app.stubs.data = data;
+						app.paint();
+					});		
+					
+				};
+	
+				this.resizeElements = function() {
+					
+					$('#main_container').width( app.settings.dim.main_container );
+					
+					var shrinkByRatio = (app.settings.dim.main_container / 400);  // ideal
+						
+					$('.boxes').width( (app.settings.dim.main_container / 2) - 2);
+					$('.boxes').height( (app.settings.dim.main_container / 2) - 2 );
+					$('.buttons_wrapper')
+					.width( Math.ceil(app.settings.dim.buttons_wrappers.width * shrinkByRatio)  )
+					.height( app.settings.dim.buttons_wrappers.height * shrinkByRatio  )
+					.css('left', (app.settings.dim.buttons_wrappers.left * shrinkByRatio) + 'px')
+					.css('top', ($('.boxes').height() - app.settings.dim.buttons_wrappers.height)  /2 + 'px');
+					
+					var marginSpacingformula = ($('.buttons_wrapper').width() - app.settings.dim.action_buttons.width * 2) / 4 ;
+/*					
+					$('.action_buttons').css({
+						'padding':  '0px',	
+						'margin-left':  marginSpacingformula + 'px',	
+						'margin-right':  marginSpacingformula  + 'px',
+						'width' : app.settings.dim.action_buttons.width
+					});
+					*/
+					$('.thumbs').css({	
+						'max-width':  196 * shrinkByRatio + 'px',	
+						'max-height':  196 * shrinkByRatio + 'px'
+					});
+					
+				};
+	
+				this.paint = function() {
+					
+					var placement = 'left';
+					
+					// https://www.placebear.com/200/300
+					//"http://placehold.it/200x200"
+					// "http://placehold.it/' + tools.randomIntFromInterval(75,450) + 'x' + tools.randomIntFromInterval(75,450) + '"
+					// "http://placehold.it/' + tools.randomIntFromInterval(75,450) + 'x' + tools.randomIntFromInterval(75,450) + '"
+					for( var idx in data){
+						
+						var obj = data[idx];
+						var thumbLink = obj.thumbnailLink;
+						var fileId = obj.fileId;
+						
+						if( placement == 'right') placement = 'left';
+						 else placement = 'right';
+						
+						var box = '\
+							<div  class="boxes">\
+								<div  class="buttons_wrapper">\
+									<div class="action_buttons doit" thumbLink="' +  thumbLink + '" fileId="' + fileId + '" >\
+									</div >\
+									<div  class="action_buttons edit" thumbLink="' +  thumbLink + '" fileId="' + fileId + '" >Edit\
+									</div >\
+									<div  placement="' + placement + '" class="action_buttons delete" thumbLink="' +  thumbLink + '" fileId="' + fileId + '" >Delete\
+									</div >\
+								</div>\
+								<span class="helper"></span>\
+								<img  class="thumbs" src="http://placehold.it/' + tools.randomIntFromInterval(75,450) + 'x' + tools.randomIntFromInterval(75,450) + '">\
+							</div>\
+						';						
+						
+						$('#main_container').append(box);
+						
+					}
+				 	this.resizeElements();	
+					this.bind();				
+				};
+				
+				this.bind = function() {
+					
+			    $('#new_design').click(function(e){
+			    	e.preventDefault();
+			    	tools.openInNewTab('https://pictographr.com/app?state=%7B%22newSerial%22:%20%220.6974779665800683%22,%20%22action%22:%22create%22,%22userId%22:%22%22%7D');
+			    });
+
+			    $('.delete').click(function(e){
+							console.log('server delete');
+					}).popConfirm({
+					    title: "Confirmation",
+					    content: "Are you sure?"
+					})
+			    .click(function(e){
+			    	e.preventDefault();
+			    	var that = this;
+			    	$(this).parent().parent().addClass('deleting');
+						$('.boxes:not(.deleting)').addClass('disabled');
+			    	$('.action_buttons').not(this).addClass('disabled');
+						$(this).css({
+							'background-color': '#d9534f',
+							'border-color': '#d9534f',
+							'color': 'white'	
+						});
+			    });
+
+	        var doWhenClose = function( that ) {
+						$('.delete').parent().parent().removeClass('deleting');
+						$('.delete').css({
+							'background-color': '#f5f5f5',
+							'border-color': '#f5f5f5',
+							'color': '#333'	
+						});							
+						
+						$('.action_buttons, .boxes').removeClass('disabled');
+						
+	        };		    
+			    
+	        $('.boxes').on('click', function () {
+	          	console.log('x');
+	          	doWhenClose();
+	            $('.action_buttons.delete').popover('hide').removeClass('popconfirm-active');
+	        });
+					
+			    $('.edit').click(function(e){
+			    	e.preventDefault();
+			    	tools.openInNewTab('https://pictographr.com/app?state=%7B%22newSerial%22:%20%220.6974779665800683%22,%20%22action%22:%22create%22,%22userId%22:%22%22%7D');
+			    });
+			    					
+					$('.doit').bind('click', function() {
+						
+						var that = this;
+						
+						app.progress.start( this );
+
+						setTimeout(function(){
+							
+								app.progress.stop( that );
+							
+						}, 3000);
+						
+					})
+					
+				};
+				
+				this.progress = {
+					start: function(that) {
+						$(that).parent().parent().addClass('loading');
+						$(that).css({'background': 'white', 'border-color': 'white'}).html('\
+							<img src="img/smallloading.gif" />\
+						');
+						$('.boxes:not(.loading)').addClass('disabled');
+						$('.action_buttons.edit, .action_buttons.delete').addClass('disabled');
+					},
+					stop: function( that ) {
+						$('.boxes').removeClass('disabled');
+						$('.action_buttons.edit, .action_buttons.delete').removeClass('disabled');
+						$(that).parent().parent().removeClass('loading');
+						$(that).css({'background': '#2196F3', 'border-color': '#5cb85c'}).html(app.stubs.doItLabel);
+					}
+				};
+				
+				this.renderFilePngForPost = function(fileId) {
+					
+					var url = '/more/renderPNGFromDrive',
+							postObj = {
+								'google_id': app.stubs.google_id,
+								'fileId': fileId
+							};
+
+					tools.ajax(url, postObj, 'post', function(data) {
+						
+						var url = 'https://pictographr.com/image/streamDriveImage?google_id=' + app.stubs.google_id + '&fileId=' + data.imageId + '&max_width=40000';
+						console.log(url);
+						app.doWithRenderedPNG(url);
+
+					});	
+					
+				};
+				
+			}}();
+			
+		var app = new App();
+		
+		/* CUSTOM */
+		app.settings.dim.main_container = 400;
+
+		app.setUserId = function()	{
+					
+			hsp.getMemberInfo(function(info){
+				app.stubs.userId = info.userId;
+				app.stubs.google_id = '105870981217629422585';
+			});					
+		};
+		
+		app.doWithRenderedPNG = function( url ) {
+			
+			hsp.composeMessage( 'Check out this file.', { shortenLinks: true } );
+			
+			var timestamp = new Date().getTime() / 1000;
+			var new_time = parseInt(timestamp, 10);
+			
+			var token = app.stubs.userId + '' + new_time + url + app.settings.secret;
+			
+			console.log('userId: ' + app.stubs.userId);
+			console.log('new_time: ' + new_time);
+			console.log('token: ' + token);
+			console.log('SHA512: ' + tools.SHA512(token));
+			
+			var obj = {
+				url: url,
+				name: 'logo',
+				extension: 'png',
+				timestamp: new_time,
+				token: tools.SHA512(token)
+			}
+			
+			hsp.attachFileToMessage(obj);
+			
+		};
+		
+		app.stubs.doItLabel = "Attach";
+		
+		app.labelDoItButton = function() {
+			$('.doit').html(app.stubs.doItLabel);
+		};
+		
+		app.init = function() {
+			
+//	    var hsp_params = {
+//	    			apiKey: 'dw6rh5otra8gkwok8c00k8wkc3ie1e2pfdj',
+//	    			useTheme: true,
+//	    			callBack: function( data ) {}
+//	        };
+//	        
+//			hsp.init(hsp_params);
+//			
+//			this.setUserId();
+//			this.getFiles();
+			
+			this.paint();
+			this.labelDoItButton();
+			
+		};
+		
+		app.init();
+		
+});
+	
+
+</script>		

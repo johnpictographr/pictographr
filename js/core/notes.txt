@@ -1,0 +1,7 @@
+app.stubs.saving = true;
+app.stubs.savingWhat = 'Delete';
+app.stubs.recentlySaved = true;
+window.onbeforeunload = null;
+window.onbeforeunload = app.methods.confirmOnPageExit;
+											
+app.stubs.quickSaveCount																					

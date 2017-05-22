@@ -1,0 +1,445 @@
+<head>
+	<style>
+	.oh,.ot,.tt{float:left;padding:0 2% 2% 0;width:48%}.ot{width:31%}.tt{width:65%}.cl{clear:both}
+	body{
+	 font-family: Roboto, Arial, sans-serif;
+	}
+	.trans4s{
+		-webkit-transition: .4s;
+		-moz-transition: .4s;
+		-o-transition: .4s;
+		transition: .4s;	
+	}
+	.container{
+		position:relative;
+		top: 100px;
+		left: 40px;
+		width: 600px;	
+	}
+	#picked-font{
+		width:223px;
+		height:40px;
+		border: 1px solid black;
+		font-size: 22px;
+		padding: 5px;
+		box-sizing: border-box;
+		cursor: pointer;
+	}
+	#listwrapper{
+		border: 1px solid lightgray;
+		width: 223px;
+		height: 400px;
+		overflow-x: hidden;
+		overflow-y: auto; 
+		display:none;
+	}
+	.category{
+		border-bottom: 1px solid lightgray;
+		height:auto;
+	}
+	.category-name{
+		font-size: 20px;
+		padding: 10px;
+		cursor: pointer;
+		background: #F3F3F3;
+	}
+	.fonts{
+		height:0px;
+		width: 100%;
+	}
+	.font-wrapper{
+		margin-left: 7px;
+		background: black;
+		height: 0px;
+		overflow: hidden;
+	}
+	.font-wrapper.selected{
+		background: red;
+	}
+	.fonts.active .font-wrapper{
+		height: 32px;
+		width: 200px;
+	}
+	.fontname{
+		height: 32px;
+		cursor: pointer;
+	}
+	#label-container{
+		position:absolute;
+		top: 110px;
+		left: 300px;
+		width: 1000px;
+		height: 200px;	
+	}
+	#label-container div{
+	 float:left;	
+	}
+	input{
+		font-size:22px;
+		width: 180px;
+	}
+	#realtext{
+		font-size: 22px;
+		width: 400px;
+	}
+	</style>
+	<script src="../../js/lib/jquery/jquery.min.js"></script>
+	<script	src="../../js/lib/scrollto/jquery.scrollto-min.js"></script>
+
+</head>
+<body>
+	<div  class="container">
+		<div  id="picked-font" >
+		</div>
+		<div  id="listwrapper" >
+			<div  id="list" >
+			</div>
+		</div>
+	</div>
+	<div  id="label-container" >
+		<div>Label:&nbsp;&nbsp;<input  id="label-name" />&nbsp;&nbsp;
+		</div>
+		<div>Family:&nbsp;&nbsp;<input  id="family-name" />&nbsp;&nbsp;
+		</div>
+		<div><a href="" id="googlelink" target="_blank">Google</a>&nbsp;&nbsp;
+		</div>
+		<div id="realtext" >The big brown fox jumped over the fence.
+		</div>
+	</div>
+</body>
+<script>
+	var fontlist = {},
+			fontsLoaded = [];
+	$('document').ready(
+		function() {
+			var goToFont = 'calligraffitti',
+					heightOfFontPng = 32,
+					speed = 0,
+					ajax = function( url, arrDataObj, type, callback	)	{
+						$.ajax({
+							url: url + '?v=' + Math.random(),
+							type:	type,
+					    data: {
+					        arrData : arrDataObj
+					    },
+							dataType:'json',
+							success: function(data){
+								callback(data);
+							},
+							error:	function(data){
+								callback(data);
+							},
+							async:true
+						});
+					},
+					doWhenReady = function( condition, callback ){
+						if( !condition() ){
+							setTimeout(function(){
+								doWhenReady(condition, callback);
+							}, 100);
+						}else{
+						  callback();
+						};
+					},
+					findIndexInArrayOfObjects = function(array, callback	){
+							
+						var	matchingIndices	=	[],
+								lengthArray	=	 array.length;
+						
+						for(var	i	=	0;i	<	lengthArray; i++){
+								if(	callback(	array[i] ) )
+									 matchingIndices.push(i);
+						}
+				
+						return matchingIndices;
+					},
+					findCategoryContainingThisFont = function(font) {
+				
+						for( var category in fontlist){
+							var fonts = fontlist[category];
+							for( var idx in fonts){
+								var fontObj = fonts[idx],
+										fontname = fontObj['fontname'];
+										
+								if( font == fontname ) return category;
+								
+							}
+						}
+						
+					},
+					getLabelOfThisFont = function( fontname ){
+						var category = findCategoryContainingThisFont(fontname),
+								fonts = fontlist[category];
+						
+						var idx = findIndexInArrayOfObjects( fonts,	function(	obj	){
+												if(	obj.fontname === fontname)	return true;
+											});
+						
+						return fontlist[category][idx]['label'];
+						
+					},
+					launchListWithThisFont = function( font) {
+				
+						var $categoryName = $('.category-name[category=' + findCategoryContainingThisFont(font) + ']');
+						
+						var $fonts = $categoryName.next();
+						
+						var maxHeight = $fonts.attr('numfonts') * heightOfFontPng;
+						$fonts.addClass('active').height(maxHeight);	
+						
+						var $selectedFont = $('.fontname[fontname=' + font + ']');
+							$('#listwrapper').scrollTo($selectedFont,	speed, function(){
+								$fontWrapper = $selectedFont.parent();
+								$fontWrapper.addClass('selected');
+							});
+						
+					},
+					saveLabelsOfFonts = function(){
+						
+						var obj = {};
+						
+						for( var category in fontlist){
+							var fonts = fontlist[category];
+							for( var idx in fonts){
+								obj[fonts[idx].fontname] =  {
+									label: fonts[idx].label,
+									family: fonts[idx].family 	
+								};
+							}
+						}
+						
+						var url = '../../index.php/admin/save_font_label_names';
+									
+						var	postObj = {
+									'data': JSON.stringify( obj )
+								};
+							
+						ajax(url, postObj, 'post', function( data ) {
+							
+							if( typeof(data.responseText) != 'undefined'){
+								 console.log(data.responseText);
+							}else{
+								console.log(data);
+								console.log('jsonResponse: ' + data.length);
+							}
+						});
+					},
+					inArray = function(needle,	haystack)	{
+						var	length = haystack.length;
+						for(var	i	=	0; i < length; i++)	{
+							if(haystack[i] ==	needle)	return true;
+						}
+						return false;
+					},
+					loadGoogleFontCss = function(family){ //	https://github.com/LukeTheDuke/Lazyloader/blob/master/lazyloader.js
+
+						if(inArray(family,	fontsLoaded)){
+							return;
+						}
+						
+						fontsLoaded.push(family);
+						var	url	=	'http://fonts.googleapis.com/css?family='	+	family,
+							head = document.getElementsByTagName('head')[0],
+							link = document.createElement('link');
+						link.rel = 'stylesheet';
+						link.type	=	'text/css';
+						link.href	=	url;
+						link.media = 'all';
+						
+						head.appendChild(link);
+						
+					},
+					callback = function(list) {
+						
+						fontlist = list;
+						
+						for( var category in list){
+							
+								var fonts = list[category],
+										html = '',
+										numfonts = 0;
+							
+								for( var idx in fonts){
+									var font = fonts[idx];
+									html += '\
+										<div  class="font-wrapper">\
+											<div family="' + font['family'] + '"   fontname="' + font['fontname'] + '" class="fontname" style="background: url(../../img/fonts/sprites/' + category + '.png); background-position-y: -' +  font['pos']+ '"  >\
+											</div>\
+										</div>\
+									';
+									numfonts++;
+								}
+							
+								$('#list').append('\
+									<div  class="category" category="' + category + '" >\
+										<div class="category-name" category="' + category + '" >\
+											' + category + ' \
+										</div>\
+										<div class="fonts" category="' + category + '"  numfonts="' + numfonts + '">\
+											' + html + '\
+										</div>\
+									</div> \
+								');
+						}
+						
+						
+						/* ==================================================== */
+						$('.fonts').on('click', '.fontname',	
+							function() {		
+								
+								var fontname = $(this).attr('fontname'),
+										family = $(this).attr('family'),
+										label = getLabelOfThisFont(fontname);
+
+								var $fontWrapper = $(this).parent();
+								$('.font-wrapper').removeClass('selected');
+								$fontWrapper.addClass('selected');
+
+								$('#picked-font').attr('fontname', fontname).text(label).show();
+								$('#listwrapper').hide();
+								speed = 0;
+								
+								$('#label-name').val(label).attr('fontname', fontname);								
+								$('#family-name').val(family).attr('fontname', fontname);
+								$('#googlelink').attr('href', 'http://fonts.googleapis.com/css?family='	+	family);
+								
+								loadGoogleFontCss(family);
+								
+								$('#realtext').css('font-family', family);
+
+							}
+						)
+						
+						$('.fonts').on('mouseover', '.fontname', function(event) {		
+										
+							var fontname = $(this).attr('fontname'),
+									family = $(this).attr('family'),
+									label = getLabelOfThisFont(fontname);
+									
+							$('#label-name').val(label).attr('fontname', fontname);								
+							$('#family-name').val(family).attr('fontname', family);
+							
+							loadGoogleFontCss( family);
+							
+							setTimeout(function(){
+								$('#realtext').css('font-family', family);
+							}, 500);
+
+						});	
+						
+						$('#label-name').bind('keyup',
+							function() {
+								
+								var fontname = $(this).attr('fontname'),
+										category = findCategoryContainingThisFont(fontname),
+										fonts = fontlist[category];
+								
+								var idx = findIndexInArrayOfObjects( fonts,	function(	obj	){
+														if(	obj.fontname === fontname)	return true;
+													});
+								
+								fontlist[category][idx]['label'] = $(this).val();
+								
+								saveLabelsOfFonts();
+								
+						})
+							
+						$('#family-name').bind('keyup',
+							function() {
+								
+								var that = this,
+										fontname = $(this).attr('fontname'),
+										category = findCategoryContainingThisFont(fontname),
+										fonts = fontlist[category];
+								
+								var idx = findIndexInArrayOfObjects( fonts,	function(	obj	){
+														if(	obj.fontname === fontname)	return true;
+													});
+								
+								fontlist[category][idx]['family'] = $(this).val();
+								
+								saveLabelsOfFonts();
+								
+								$('#googlelink').attr('href', 'http://fonts.googleapis.com/css?family='	+	$(this).val());
+								
+								loadGoogleFontCss( $(this).val());
+								
+								setTimeout(function(){
+									$('#realtext').css('font-family', $(that).val());
+								}, 500);
+								
+							}
+						)
+						/* ==================================================== */
+						
+								
+						$('#list').on('click', '.category-name',
+							function(event) {
+								
+								console.log('category name clicked');
+								
+								var category = $(this).attr('category'),
+										fonts = fontlist[category],
+										$fonts = $(this).next();
+										
+								$('.fonts:not(.fonts[category=' + category + '])').removeClass('active')
+										.height(0);			
+			
+								if( $fonts.hasClass('active')){
+									
+									$fonts.removeClass('active').height(0);
+									
+								} else {
+									
+									var maxHeight = $fonts.attr('numfonts') * heightOfFontPng;
+									$fonts.addClass('active').height(maxHeight);	
+										
+									doWhenReady(
+										function() {
+											return $fonts.height() == maxHeight;
+										},
+										function() {
+											var $selectedCategory = $('.category[category=' + category + ']');
+											$('#listwrapper').scrollTo($selectedCategory,	speed, function(){
+											});
+										}
+									);
+																
+								}
+							}
+						)
+
+						$('#picked-font').attr('fontname', goToFont).text(getLabelOfThisFont(goToFont)).on('click',
+							function(event) {
+								
+								
+								$('#listwrapper').show();
+								launchListWithThisFont($(this).attr('fontname'));
+								$('.fonts, .font-wrapper').each(
+									function() {
+										$(this).addClass('trans4s');
+									}
+								);
+								speed = 400;								
+								$(this).hide();
+							}
+						)
+						
+					},
+					url = '../../uploads/output/fonts.json';
+			
+			$.ajax({
+								url: url + '?v=' + Math.random(),
+								type:	'post',
+								dataType:'json',
+								success: function(data){
+									callback(data);
+								},
+								error:	function(data){
+									callback(data);
+								},
+								async:true
+			});	    		
+		}
+	);
+</script>

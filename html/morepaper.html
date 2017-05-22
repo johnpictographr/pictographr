@@ -1,0 +1,364 @@
+<div  id="morepaper">
+	
+	<div class="modal-title-div">
+		<h3>
+			Sizes
+		</h3>
+	</div>
+	<div  id="close-button-wrapper">
+		<span class="close-button">x</span>
+	</div>
+	<div  id="morepaper-container-wrapper" >
+		<div id="morepaper-container" >
+		</div>		
+	</div>
+</div>
+<style>
+	
+	#close-button-wrapper{
+	}	
+	
+	#morepaper-container-wrapper{
+		height: 513px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding: 0px 35px 0px 35px;
+	}
+
+	
+	#morepaper{
+		font-family: arial;	
+	}
+	#morepaper .section{
+		color: darkgray;
+		position: relative;
+		text-transform: uppercase;
+		font-weight: 700;
+    font-size: 18px;
+    padding-bottom:145px;
+    clear: both;
+	}
+	#morepaper .section .section-title{
+		height: 30px;
+	}
+	#morepaper .papercard{
+		text-transform: capitalize;
+		font-weight: normal;
+		width: auto;
+		height: auto;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		position: relative;
+		float: left;
+	}
+	
+	#morepaper .thumbcard{
+		border: 1px dashed black;
+		border-radius: 0px;
+		overflow: hidden;
+		cursor: pointer;
+	}
+	
+	#morepaper .thumbcard div{
+
+		background: url(https://pictographr.com/img/social-sprite.jpg);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		
+		width: 34px;
+		height: 34px;	
+
+	  position: absolute;
+	  top: 25%;
+	  left: 50%;
+	
+	  transform: translate(-50%, -50%);
+	  opacity: 0.6;
+	  
+	}	
+	#morepaper .papercard .cardname{
+		margin-top: 5px;
+	}		
+	
+	#morepaper .papercard .carddim{
+		font-weight: normal;
+    font-size: 13px;
+    color: black;
+	}		
+	
+</style>
+
+<script>
+(function(){	
+	
+	var categories = [{
+					name: 'social media posts',
+					sizes: [{
+							name: 'pinterest pin',
+							dim: '735x1102',
+							icon: '-206px -75px'
+						},
+						{
+							name: 'facebook',
+							dim: '940x788',
+							icon: '-84px -3px'
+						},
+						{
+							name: 'twitter',
+							dim: '1024x512',
+							icon: '-125px -3px'
+						},
+						{
+							name: 'linkedin',
+							dim: '1400x800',
+							icon: '-330px -3px'
+						},
+						{
+							name: 'youtube thumbnail',
+							dim: '1280x720',
+							icon: '-248px -3px'
+						},
+						{
+							name: 'instagram',
+							dim: '1080x1080',
+							icon: '-330px -39px'
+						}
+					]
+				},
+				{
+					name: 'blogs',
+					sizes: [{
+							name: 'featured',
+							dim: '1200x600',
+							icon: '-84px -40px'
+						},
+						{
+							name: 'image',
+							dim: '750x750',
+							icon: '-84px -40px'
+						}
+					]
+				},
+				{
+					name: 'headers',
+					sizes: [{
+							name: 'facebook cover',
+							dim: '851x315',
+							icon: '-84px -3px'
+						},
+						{
+							name: 'twitter header',
+							dim: '1500x500',
+							icon: '-125px -3px'
+						},
+						{
+							name: 'Google Plus Photo',
+							dim: '2120x1192',
+							icon: '-125px -77px'
+						},
+						{
+							name: 'Email Header',
+							dim: '600x200',
+							icon: '-371px -114px'
+						},
+						{
+							name: 'youtube channel art',
+							dim: '2560x1440',
+							icon: '-248px -3px'
+						},
+						{
+							name: 'youtube channel cover',
+							dim: '1546x423',
+							icon: '-248px -3px'
+						}
+					]
+				},
+				{
+					name: 'social media ads',
+					sizes: [{
+							name: 'facebook ad link',
+							dim: '1200x628',
+							icon: '-84px -3px'
+						},
+						{
+							name: 'linkedin Sponsored ad',
+							dim: '1200x627',
+							icon: '-330px -3px'
+						},
+						{
+							name: 'twitter Sponsored ad',
+							dim: '1024x512',
+							icon: '-125px -3px'
+						},
+						{
+							name: 'twitter website card',
+							dim: '1600x640',
+							icon: '-125px -3px'
+						},
+						{
+							name: 'facebook ad carousel',
+							dim: '600x600',
+							icon: '-84px -3px',
+							style: 'max-width: 90px'
+						},
+						{
+							name: 'instagram ad (original)',
+							dim: '1200x628',
+							icon: '-330px -39px'
+						},
+						{
+							name: 'instagram ad square',
+							dim: '1080x1080',
+							icon: '-330px -39px',
+							style: 'max-width: 90px'
+						},
+						{
+							name: 'youtube ad2',
+							dim: '300x250',
+							icon: '-248px -3px'
+						},
+						{
+							name: 'youtube ad1',
+							dim: '300x60',
+							icon: '-248px -3px'
+						},
+						{
+							name: 'youtube overlay',
+							dim: '480x70',
+							icon: '-248px -3px'
+						},
+						{
+							name: 'twitter lead generation card',
+							dim: '1600x400',
+							icon: '-125px -3px',
+							style: 'max-width: 200px;'
+						}
+					]
+				},
+				{
+					name: 'display ads',
+					sizes: [{
+							name: 'skyscraper',
+							dim: '120x600',
+							icon: '-453px -150px'
+						},
+						{
+							name: 'wide skyscraper',
+							dim: '160x600',
+							icon: '-453px -150px',
+							style: 'max-width: 90px;'
+						},
+
+						{
+							name: 'filmstrip',
+							dim: '300x600',
+							icon: '-453px -150px'
+						},
+						{
+							name: 'medium rectangle',
+							dim: '300x250',
+							icon: '-453px -150px',
+							style: 'max-width: 120px;'
+						},
+						{
+							name: 'rectangle',
+							dim: '180x150',
+							icon: '-453px -150px'
+						},
+						{
+							name: 'billboard',
+							dim: '970x250',
+							icon: '-453px -150px'
+						},
+						{
+							name: 'leaderboard',
+							dim: '728x90',
+							icon: '-453px -150px'
+						},
+						{
+							name: 'pushdown',
+							dim: '970x90',
+							icon: '-453px -150px'
+						}
+					]
+				}
+			];
+	
+	var html = '';
+	for( var idx in categories ){
+		
+		var categoryObj = categories[idx],
+				categoryName = categoryObj['name'],
+				sizes = categoryObj['sizes'];
+		
+		html += '\
+			<div  class="section">\
+				<div  class="section-title">' +  categoryObj['name'] + '</div>\
+				<div>\
+		';
+		
+		
+		for( var idx in sizes){
+			var sizeObj = sizes[idx],
+					sizeName = sizeObj['name'],
+					dim = sizeObj['dim'],
+					dimArr = dim.split('x'),
+					maxdim = 300,
+					width = parseInt(dimArr[0]),
+					height = parseInt(dimArr[1]),
+					aspectRatio = width/height,
+					restrictedWidth = 100,
+					restrictedHeight = 100,
+					showWidth = 0,
+					showHeight = 0;
+
+			if( width > height){
+				
+				showWidth = restrictedHeight / height *  width;
+				showHeight = restrictedHeight;				
+
+			}else{
+				
+				showWidth = restrictedWidth;
+				showHeight = restrictedWidth / width *  height;
+					
+			};
+			
+			var shrinkBy = .5;
+			if( showWidth > maxdim 
+			){
+				showWidth *= shrinkBy;
+				showHeight *= shrinkBy;
+			}
+			
+			
+			var shrinkBy = .9;
+			if( showHeight > maxdim 
+			){
+				showWidth *= shrinkBy;
+				showHeight *= shrinkBy;
+			}
+					
+			html += '\
+				<div class="papercard" style="' +  ( typeof( sizeObj['style'] ) != 'undefined' ? sizeObj['style'] :'' )+ '">\
+					<div dim="' + sizeObj['dim'] + '" class="thumbcard" style="width: ' + showWidth + 'px; height: ' + showHeight + 'px">\
+						<div style="background-position:' +  sizeObj['icon']  + '"></div>\
+					</div>\
+					<div  class="cardlabel cardname">' + sizeName + '</div>\
+					<div  class="cardlabel carddim">' + dim + '</div>\
+				</div>\
+			';
+
+		}
+
+		html += '\
+				</div>\
+			</div>\
+		';
+
+	}
+	
+	$('#morepaper-container').append(html);
+
+})();
+</script>

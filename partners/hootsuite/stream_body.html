@@ -1,0 +1,71 @@
+      <div class="hs_stream">
+
+        <div class="hs_topBar">
+            <div class="hs_topBarContent">
+                <!--Right-Side Controls-->
+                <ul class="hs_topBarControls">
+                  <li class="hideThis hs_topBarControlsBtn" data-dropdown="WriteMessage" title="Write Message">
+                      <span class="icon-app-dir x-compose"></span>
+                  </li>
+                  <li class="hideThis hs_topBarControlsBtn" data-dropdown="Search" title="Search">
+                      <span class="icon-app-dir x-search"></span>
+                  </li>
+                  <li class="hideThis hs_topBarControlsBtn" data-dropdown="MenuList" title="More">
+                      <span class="icon-app-dir x-ellipsis"></span>
+                  </li>
+                  <li class="hs_topBarControlsBtn" title="New Design">
+                    <span  id="new_design" class="icon-app-dir x-plus">New Design</span>
+                  </li>
+                  <li class="hs_topBarControlsBtn" data-dropdown="Settings" title="Settings">
+                      <span  id="my_settings"  class="icon-app-dir x-settings"></span>
+                  </li>
+                </ul>
+
+                <!--Left-Side Title-->
+                <h1 class="hs_topBarTitle"></h1>
+            </div>
+
+            <!--Drop Downs-->
+            <!--Write Message-->
+            <div class="hideThis hs_topBarDropdown hs_dropdownWriteMessage" data-dropdown="WriteMessage" style="display: none;">
+                <button class="hs_btnCtaSml hs_btnTypeSubmit _message_send">Send</button>
+                <div class="hs_searchWrapper">
+                    <label class="hs_isVisuallyHidden" for="hs_writeMessageInputExample">Search:</label>
+                    <input id="hs_writeMessageInputExample" class="_message_text" type="text" placeholder="write something...">
+                </div>
+            </div>
+
+            <!--Search-->
+            <div class="hideThis hs_topBarDropdown hs_dropdownSearch" data-dropdown="Search">
+                <button class="hs_btnCtaSml hs_btnTypeSubmit _user_search">Search</button>
+                <div class="hs_searchWrapper">
+                    <label class="hs_isVisuallyHidden" for="hs_searchInputExample">Search:</label>
+                    <input id="hs_searchInputExample" class="_user_text" type="text" placeholder="e.g. Hootsuite">
+                </div>
+            </div>
+
+
+
+
+						<div  id="disconnect-div" class="hs_topBarDropdown hs_dropdownSettings" data-dropdown="Settings" style="display: none;font-size:12px;">
+							<div style="text-align:left;width:100%;padding-left:0px;padding-top:5px;padding-bottom:5px;border-bottom:1px solid #ddd;margin-bottom:10px;"><b>Google Account</b>
+							</div>
+							<i class="fa fa-google" style="font-size:16px;width:16px;margin-left: 3px;"></i> &nbsp;
+							<span  id="fullname" >TEST</span> &nbsp;&nbsp;
+							<span style="padding-right:4px;"><button  id="disconnect-button" class="hs_btnCtaSml hs_btnTypeSubmit" href="#" >Disconnect</button>
+							</span>
+							<span id="submit_delete_tbid" style="display:none;"><img src="https://apps-dev.synaptive.net/vidpiqt/img/btn-throbber.gif">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						
+						</div>
+
+
+            <!--Menu List-->
+            <ul class="hideThis hs_topBarDropdown hs_dropdownMenuList" data-dropdown="MenuList">
+                <li class="hs_dropdownMenuListItem _showModal"><a href="#">Launch modal</a></li>
+                <li class="hs_dropdownMenuListItem _writeMessage"><a href="#">Write Message</a></li>
+                <li class="hs_dropdownMenuListItem "><a target="_blank" href="https://pictographr.com/app?state=%7B%22newSerial%22:%20%220.6974779665800683%22,%20%22action%22:%22create%22,%22userId%22:%22%22%7D">Create Design</a></li>
+            </ul>
+        </div>
+
+        <div  id="main_container" class="hs_message row">
+        </div>

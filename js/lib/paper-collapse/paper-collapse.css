@@ -1,0 +1,323 @@
+@charset "UTF-8";
+/*
+  Paper Collapse
+
+  Collapsible paper cards.
+
+  Made with love by bbo - ©2014 Alexander Rühle
+  MIT License http://opensource.org/licenses/MIT
+*/
+
+
+
+#collapse-card-container{
+	width: 230px;
+	-moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+	-webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+	
+.collapse-card {
+  background-color: white;
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+  color: #777777;
+  padding: 1rem;
+	padding-bottom: 30px;
+	height: 39px;
+}
+
+.collapse-card{
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;	
+}
+
+.collapse-card .title {
+  font-size: 1.7rem;
+  line-height: 1.8rem;
+}
+.collapse-card .title:before, .collapse-card .title:after {
+  content: " ";
+  display: table;
+}
+.collapse-card .title:after {
+  clear: both;
+}
+.collapse-card .title i {
+  float: left;
+}
+.collapse-card .title span {
+  float: left;
+  margin-left: 1rem;
+}
+.collapse-card .title strong {
+  display: block;
+  margin-left: 4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.collapse-card .title strong::after {
+  color: #404040;
+  font-family: 'FontAwesome';
+  padding-left: .4rem;
+  font-size: 1rem;
+  line-height: 1.49rem;
+}
+.collapse-card .body {
+  padding: 1rem;
+  display: none;
+	overflow:auto;
+	height: 100%;
+}
+.collapse-card img {
+  position: relative;
+/*  top: -4px;*/
+}
+.sub-card{
+	font-family: Roboto, Arial, sans-serif;
+	padding: 4px 0px 4px 12px;
+	height:30px;
+	width:100%;
+	background-color: white;
+	border-bottom:1px solid lightgray;	
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.collapse-card.active {
+  -moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+  z-index: 200;
+  margin: 1rem -1.5rem 1rem 0;
+}
+
+.sub-card.active {
+	position: fixed;
+	left: 5px;
+	width: 270px;
+	top: 65px;
+  -moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+  padding:0px;
+  z-index: 1;
+}
+
+.sub-card.active .sub-card-title{
+	width: 100%;
+	height:39px;
+	padding-left: 16px;
+	font-weight: 300;
+	font-size: 20px;
+	padding-top: 5px;
+	border-bottom: 1px solid #DDDDDD;
+	cursor: pointer;
+}
+
+.sub-card .search-container{
+	display:none;
+}
+
+.sub-card.active .search-container{
+	width: 100%;
+	border-left: 3px solid #4285F4;
+	height:auto;
+	float:left;
+}
+
+.search-field-container{
+width: 248px;
+height: 45px;	
+position:relative;
+padding: 7px 10px 0px 13px;
+}
+
+.search-form{
+	padding-left: 0px;
+	margin-top: 0px;
+}
+
+.search-form input[type=text]{
+	width: 241px !important;
+}
+
+
+.search-result-container{
+	position: relative;
+	overflow: auto;
+}
+
+.error-message{
+	padding-top: 0px;
+	padding-left: 13px;
+	position: relative;		
+}
+
+.tags-wrapper{
+	padding: 10px;
+	position: relative;	
+	bottom: 12px;
+}
+
+.search-result-container .tag{
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+margin: 4px;
+padding: 5px;
+background: rgb(230, 230, 230);
+position: relative;
+float: left;
+cursor: pointer;
+}
+.search-result-container .tag:hover{
+	background: lightgray;
+}
+
+.search-results-set-wrapper{
+	position:absolute;
+	overflow: hidden;
+	cursor:auto;
+}
+
+.search-results-set{
+	width: 267px;
+	position: relative;
+	float: left;
+	padding: 0px 6px 0px 13px;
+	display:none;
+}
+
+.search-results-set.masonry-css-effect{
+	-webkit-column-count: 2;
+	-webkit-column-gap: 2px;
+	-webkit-column-fill: auto;
+	-moz-column-count: 2;
+	-moz-column-gap: 2px;
+	-moz-column-fill: auto;
+	column-count: 2;
+	column-gap: 2px;
+	column-fill: auto;		
+}
+
+.thumb.masonry-css-effect{
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;	
+}
+
+.thumb{
+/*line-height: 75px;*/
+display: inline-block;
+background: transparent;
+margin: 10px;
+height: 118px;
+width: 248px;
+text-align: left;
+/*padding-top: 22px;*/
+position:relative;
+/*float: left;
+background: lightgray;*/
+}
+
+body > .thumb{
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	transition: none !important;
+}
+
+.animated-nonvisible {
+  -webkit-transform: scale(0);
+      -o--transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+
+.animated-visible{
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+			 -o-transform: scale(1);      
+          transform: scale(1);
+  -webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  -o-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.search-nav{
+	height: 30px;
+	position: absolute;
+	color: lightgray;
+	bottom: 0px;
+	width: auto;
+	cursor: pointer;
+}
+
+.search-previous-container{
+	left: 13px;
+}
+
+.search-more-container{
+	right: 13px;
+}
+
+.search-nav:hover{
+	color: gray;
+}
+
+.search-field-container .thumb img{
+width: 100%;
+position: absolute;
+}
+
+#iconArt .thumb img{
+opacity: .7;
+}
+
+
+.thumb.square.small{
+height: 75px;
+width: 75px;
+padding: 0px !important;
+margin: 4px 4px 4px 0px;
+}
+
+.thumb.square.medium{
+height: 116px;
+width: 116px;
+/*padding: auto;
+  background: wheat;*/
+margin: 5px 0px 0px 0px;
+}
+
+.thumb.rectangle.small{
+height: 75px;
+width: 241px;
+padding: 0px;
+margin: 4px 4px 4px 0px;
+}
+
+.thumb.rectangle.medium{
+height: 150px;
+width: 241px;
+padding: 0px;
+margin: 4px 4px 4px 0px;
+}
+
+.thumb.rectangle.large{
+height: 150px;
+width: 241px;
+padding: 0px;
+margin: 20px 4px 20px 0px;
+}
+
+.thumb{ 
+/*	cursor: url(http://www.tampabay.com/specials/2014/graphics/theme-park/open-hand.png), auto;
+*/	
+cursor: -webkit-grab;
+/*background: url(../../../img/transparent.png);*/
+}

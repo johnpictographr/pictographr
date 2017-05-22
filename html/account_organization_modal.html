@@ -1,0 +1,92 @@
+<div id="accountPickerWrapper"  class="organizationModal accounts">
+		<div  class="close-button-wrapper" >
+			<span class="close-button">x</span>
+		</div>
+		<div  class="modal-title-div">
+			<h3>
+				Account Settings
+			</h3>
+		</div>
+		<div  id="top-message" ></div>
+		<ul   style="display: none"  class="nav nav-tabs">
+		  <li  class="refer-stuff"><a>Referral</a></li>
+		  <li class="trial-stuff"><a>Promos</a></li>
+		  <li class="trial-stuff"><a>Credits</a></li>
+			<div  class="moving-line-wrapper" >
+				<div  class="moving-line">
+				</div>
+			</div>
+		</ul>
+		<div    style="display: none"  class="account-content">
+			<div  class="account-stretched-wrapper" ><!--  // view-source:http://www.imaputz.com/cssStuff/bigFourVersion.html -->
+				<div  id="refer_tab_wrapper"   class="account-tab-panel refer-panel refer-stuff" >
+					<div >
+						Invite friends to join Pictographr.&nbsp;&nbsp;For those that sign-up,&nbsp;&nbsp;receive another week on your trial period.&nbsp;&nbsp;Reach out and get 10 friends to join,&nbsp;&nbsp;receive an entire year for free.&nbsp;&nbsp;Click <a target='_blank' href='https://sites.google.com/a/pictographr.com/support/promotions'>here</a> to learn more about this promotion.&nbsp;&nbsp;Each friend you invite must have a Gmail account and be outside your organization.
+					</div>
+					<div   id="refer_form_wrapper" >
+						<form action="" method="POST" id="referral-form">
+							<div >
+								<input   id="friend-email" class="form-control" type="text" placeholder="friend1@gmail.com, friend2@gmail.com, friend3@gmail.com" value="">	<!--asian2see@gmail.com  -->
+							</div>
+							<div>
+								<input   id="setSubject" class="form-control" type="text" placeholder="Subject"  value="Sign up on Pictographr with me.  ">
+							</div>
+							<div>
+								<textarea  id="bodyText" >I found this awesome app for creating graphics with Google Drive. It's great for designing images for school projects, document covers and social media posts.  I get a free week if you sign up with me.  Will you do this?</textarea>
+							</div>
+							<div>
+								<button  id="referral-button" class="btn btn-primary ">Send</button>
+							</div>
+						</form >
+
+					</div>
+				</div>
+				<div   id="promo_tab_wrapper"    class="account-tab-panel trial-stuff">
+					<div  id="promo-top-message" >
+						We have partnered with vendors to distribute promotional codes for extended trial periods.&nbsp;&nbsp;For a list of where to find participating venues, click over to <a id="amabassador_program" target="_blank" href="https://sites.google.com/a/pictographr.com/support/promotions/promo-codes-locations">Pictographr Promotions.</a>
+					</div>
+					<form action="" method="POST" id="promo-form">
+					  <div class="form-row">
+					    <label>
+					      <span>Promotion Code</span>&nbsp;&nbsp;
+					      <input  id="promo-code" name="promo_code" type="text" size="7" value="">
+					    </label>
+					  </div>
+					  <div class="form-row">
+					    <button  id="promotion-button" class="btn btn-primary ">Submit</button >	
+					  </div>
+					</form>
+				</div>
+				<div   id="credit_tab_wrapper"    class="account-tab-panel trial-stuff">
+					<div>
+						<table  id="refer-table"  class="scrollTable">
+							<thead  class="fixedHeader">
+								<tr><th>Email</th><th>Redeemed</th><th>Date</th></tr>
+							</thead>
+							<tbody  id=""  class="referral-list scrollContent">
+							</tbody>
+						</table>
+					</div>
+					<div>
+						Requested:&nbsp;<span id="requested-count" ></span>&nbsp;&nbsp;Credited:&nbsp;<span id="credited-count"></span>
+					</div>
+					<div><br />
+					</div>
+					<div>
+						<table  id="promo-table"  class="scrollTable">
+							<thead  class="fixedHeader">
+								<tr><th>Promotion</th><th>Code</th><th>Date</th></tr>
+							</thead>
+							<tbody  id=""  class="promo-list scrollContent">
+							</tbody>
+						</table>
+					</div>
+					<div>
+						Promo Credits:&nbsp;<span id="promo-count" ></span>
+					</div>
+					<div  id="total-credits" >
+						Total Credits:&nbsp;<span id="credit-count" ></span> with week trial&nbsp;&nbsp;&nbsp;&nbsp;Free Days: <span id="adddays-count" ></span>
+					</div>
+				</div>
+		</div>
+</div>

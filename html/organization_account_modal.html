@@ -1,0 +1,97 @@
+<div id="accountPickerWrapper"  class="organizationModal licensing-setup">
+		<div  class="close-button-wrapper" >
+			<span class="close-button">x</span>
+		</div>
+		<div  class="modal-title-div">
+			<h3>
+				Licensing Setup
+			</h3>
+		</div>
+		<div  id="top-message" ></div>
+		<ul class="nav nav-tabs">
+		  <li ><a id="link-name-1" >New Licenses</a></li>
+		  <li ><a id="link-name-2" >Existing Licenses</a></li>
+		  <li ><a id="link-name-3" >Unlicenced Users</a></li>
+		  <li ><a id="link-name-4" >Payment Information</a></li>
+			<div  class="moving-line-wrapper" >
+				<div  class="moving-line">
+				</div>
+			</div>
+		</ul>
+		<!--  
+		http://www.imaputz.com/cssStuff/bigFourVersion.html#
+		-->
+		<div  id="organization-container" class="account-content">
+			<div  class="account-stretched-wrapper" ><!--  // view-source:http://www.imaputz.com/cssStuff/bigFourVersion.html -->
+				<form action="" method="POST" id="addseats-form">
+					<div class="account-tab-panel" >
+						<div  class="select_title" >
+							Add additional seats for your organization.&nbsp;&nbsp;There is/are <a class="unlicenced-count"   style='cursor: pointer'  ></a> unlicensed user(s) and <span class="unassigned-license-count"   style='cursor: pointer'  ></span> unassigned license(s) available.
+						</div>
+						<div  id="add_blocks_input_container"  class="input_container">
+							<input type="hidden" id="new_subscription_interval" name="new_subscription_interval" value="">
+							<input type="hidden" id="addSeatCount" name="addSeatCount" value="">
+							<input type="hidden" id="cost" name="cost" value="">
+							<table id="add_blocks_table">
+							</table>						
+						</div>
+						<div  id="subscription-button-wrapper"    class="button-wrapper">
+							<div  id="cc-button-wrapper" >
+								<button  id="addsseats-button"  type="button"  class="btn btn-primary  floatright">Add Seats</button>
+							</div>
+						</div>		  
+					</div>
+				</form>
+				<div class="account-tab-panel">
+					<div  class="select_title" >
+						Check/uncheck box to set automatically renewal.
+					</div>
+					<div  id="renew_blocks_input_container"  class="input_container">
+						<table id="renew_blocks_table">
+						</table>						
+					</div>
+				</div>
+				<div class="account-tab-panel">
+					<div   id="unlicensed-explainer"  class="select_title" >
+						No current license(s) exist for the following <span class="unlicenced-count" ></span> user(s),&nbsp;&nbsp;yet <span class="unassigned-license-count"   style='cursor: pointer'  ></span> unassigned license(s) remain available.&nbsp;&nbsp;If and when licenses become available, they will be assigned when a user logs in.
+					</div>
+					<div  id="unlicenced_container"  class="input_container">
+						<table id="unlicenced_table">
+						</table>	
+					</div>
+				</div>
+				<form action="" method="POST" id="update-form"  autocomplete="on" >
+					<div id="cc_form_wrapper"  class="account-tab-panel">
+						
+						  <span class="payment-errors"></span>
+						
+							<div >
+								<span  id="cc-title" >Information</span><img  id="addcc"  src="img/allcc.png">
+							</div>
+							<div id="cc-name-wrapper" >
+								<img src="img/glyphicons/png/glyphicons_003_user.png"  class="icon" />
+								<input  name="name" autocomplete="cc-name" required type="tel" class="form-control empty" placeholder="Full Name"  data-stripe="name"/>
+							</div>
+							<div>
+								<img src="img/glyphicons/png/glyphicons_267_credit_card.png"  class="icon"/>
+								<input  id="cc-number" required type="tel" class="form-control empty  cc-number" placeholder="Credit Card Number" data-stripe="number"/ >
+							</div>
+							<div>
+								<img src="img/glyphicons/png/glyphicons_045_calendar.png"  class="icon"/>
+							<input id="cc-exp" type="tel" class="form-control cc-exp date" autocomplete="cc-exp" placeholder="MM / YYYY" required >
+							<input  id="stripe-card-exp-month" type="hidden" class="hidden_field" data-stripe="exp-month"/ >
+							<input  id="stripe-card-exp-year"  type="hidden" data-stripe="exp-year"/>
+							<input id="cc-cvc" type="tel" class="form-control cc-cvc" autocomplete="off" placeholder="CVC" required>
+							</div>
+							<div>
+								 <a href="https://stripe.com/" target="_blank"><img  id="stripesecurebadge" src="img/stripesecurebadge.png"  /></a>
+							</div>
+							<div  id="cc-button-wrapper"  class="button-wrapper" >
+							  <button id="update-button" type="submit"  class="btn btn-primary  floatright">Update</button>
+							</div>		  
+						
+					</div>
+				</form>
+			</div>
+		</div>
+</div>

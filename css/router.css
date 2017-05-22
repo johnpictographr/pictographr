@@ -1,0 +1,47 @@
+	.oh,.ot,.tt{float:left;padding:0 2% 2% 0;width:48%}.ot{width:31%}.tt{width:65%}.cl{clear:both}
+	#greet-container{
+		text-align: center;
+		padding-top: 95px;
+		font-size: 20px;
+		color: #666;	
+		font-family: Lucida Grande,Tahoma,Verdana,Arial,sans-serif;
+		font-size: 33px;
+	}
+	#greet-container > div > div{	
+		margin-bottom: 20px;
+    width: 406px;
+    margin: 0px auto 23px;
+    	
+	}
+	#greet-container > div > div > div{	
+    width: 200px;
+    position: relative;
+    float: left;
+   	font-size: 25px;
+	}
+	
+	#waitingwords{
+		font-size: 26px;	
+	}
+	#loaderWrapper{
+		float: none;
+		width: 100%;
+		margin-top: 50px;
+   }
+	
+	.choiceWrapper > div{
+    box-sizing: border-box;
+	}   
+   
+	.picLogo{
+		width: 144px;	
+		cursor: pointer;
+		margin-bottom: 18px;
+	}
+	#logoLaunchIn{
+		width: 136px;
+		float: right;
+	}
+	#logoLaunchOut{
+		float: leftt;
+	}

@@ -1,0 +1,45 @@
+<div  class="close-button-wrapper" >
+	<span class="close-button">x</span>
+</div>
+<style>
+#crop-wrapper{
+margin: 40px;
+}	
+#crop-button-wrapper{
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+}
+#crop-button-wrapper a{
+	text-decoration: underline;
+	cursor:pointer;
+}
+
+.jcrop-holder{
+	background: url(img/transparent.png);
+}
+
+#crop-preview, .jcrop-tracker{
+	border: 1px solid lightgray;	
+}
+
+</style>
+<div  id="crop-wrapper" >
+
+	<div>
+	  <div id="crop"  class="tt">
+	  	<img  id="crop-target" src="" />
+	  </div>
+		<div   class="ot">
+			<img  id="crop-preview" src="https://placehold.it/340x340">
+		</div>
+	</div>
+  <div  id="crop-button-wrapper"  style='text-align: right;'  >
+		<button  id="set2free2"  class="btn btn-sm aspect-btn">Free</button>
+		<button  id="set2square2"  class="btn btn-sm aspect-btn">Square</button>
+		<button  id="set2canvas2"  class="btn btn-sm aspect-btn">Canvas</button>&nbsp;&nbsp;&nbsp;  	
+  	<input  id="aspectratio" value="" >
+  	<button  id="aspectIt" class="btn btn-primary save-data">Set Aspect Ratio</button >&nbsp;&nbsp;&nbsp;&nbsp;
+  	<button  id="save" class="btn btn-primary save-data">Save</button >			
+  </div>		
+</div> 

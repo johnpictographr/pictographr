@@ -1,0 +1,339 @@
+                                      <!-- Carousel -->
+                                       <div class="col-md-12">
+                                    
+                                             <div id="carousel" class="owl-carousel">
+                                          
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="icon-wrap wow fadeIn" data-wow-offset="100">
+                                                         <i class="fa fa-laptop icon"></i>
+                                                         <h3>Facebook</h3>
+                                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                                                      </div>
+                                                   </div>
+                                             
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="icon-wrap wow fadeIn" data-wow-delay="0.5s" data-wow-offset="100">
+                                                         <i class="fa fa-cloud icon"></i>
+                                                         <h3>Twitter</h3>
+                                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                                                      </div>
+                                                   </div>
+                                             
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="icon-wrap wow fadeIn" data-wow-delay="1s" data-wow-offset="100">
+                                                         <i class="fa fa-code icon"></i>
+                                                         <h3>Pinterest</h3>
+                                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                                                      </div>
+                                                   </div>
+                                             
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="icon-wrap">
+                                                         <i class="fa fa-laptop icon"></i>
+                                                         <h3>Linked In</h3>
+                                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                                                      </div>
+                                                   </div>
+                                             
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="icon-wrap">
+                                                         <i class="fa fa-cloud icon"></i>
+                                                         <h3>Google Plus</h3>
+                                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                                                      </div>
+                                                   </div>
+                                             
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="icon-wrap">
+                                                         <i class="fa fa-code icon"></i>
+                                                         <h3>Stumble Upon</h3>
+                                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                                                      </div>
+                                                   </div>
+                                       
+                                             </div>
+                                 
+                                       </div>
+                                       <!-- Carousel End -->
+                                       
+               
+               
+               
+               <!-- Pricing Section -->
+               <section id="pricing" class="clearfix" data-scroll-index="5">
+                  
+                     <!-- Price -->
+                     <div class="pricing">
+                        
+                           <div class="container">
+                              <div class="row">
+                                 
+                                       <div class="col-md-8 col-md-offset-2">
+                                          
+                                             <!-- Heading -->
+                                             <div class="heading center">
+                                                <h2>Choose Your Plan And Start</h2>
+                                                <p class="subheadline">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut abore et dolore magna</p>
+                                             </div>
+                                             <!-- Heading End -->
+                                       
+                                       </div>
+                              
+                                       <div class="col-sm-4 col-md-4">
+                                          
+                                             <!-- Price Table -->
+                                             <ul class="plan wow zoomIn" data-wow-offset="100">
+                                                <li class="plan-name">Starter Package</li>
+                                                <li class="plan-price overlay-gradient">Free</li>
+                                                <li>10GB Space</li>
+                                                <li>Website Builder</li>
+                                                <li>Unlimited Subdomains</li>
+                                                <li>Full time support</li>
+                                                <li>-</li>
+                                                <li>-</li>
+                                                <li class="plan-action"><a class="btn btn-sign" href="#" title="">Select Plan</a></li>
+                                             </ul>
+                                             <!-- Price Table End -->
+                                       
+                                       </div>
+                                       
+                                       <div class="col-sm-4 col-md-4">
+                                          
+                                             <!-- Price Table -->
+                                             <ul class="plan featured wow zoomIn" data-wow-delay="0.5s" data-wow-offset="100">
+                                                <li class="plan-name">Standard Package</li>
+                                                <li class="plan-price overlay-gradient">30$<span>/mo</span></li>
+                                                <li>20GB Space</li>
+                                                <li>Website Builder</li>
+                                                <li>Unlimited Subdomains</li>
+                                                <li>Full time support</li>
+                                                <li>5 Domains (.com, .org, .eu)</li>
+                                                <li>600GB Bandwidth</li>
+                                                <li class="plan-action"><a class="btn btn-sign" href="#" title="">Select Plan</a></li>
+                                             </ul>
+                                             <!-- Price Table End -->
+                                       
+                                       </div>
+                                       
+                                       <div class="col-sm-4 col-md-4">
+                                          
+                                             <!-- Price Table -->
+                                             <ul class="plan wow zoomIn" data-wow-delay="1s" data-wow-offset="100">
+                                                <li class="plan-name">Ultimate Package</li>
+                                                <li class="plan-price overlay-gradient">60$<span>/mo</span></li>
+                                                <li>100GB Space</li>
+                                                <li>Website Builder</li>
+                                                <li>Unlimited Subdomains</li>
+                                                <li>Full time support</li>
+                                                <li>10 Domains (.com, .org, .eu)</li>
+                                                <li>2TB Bandwidth</li>
+                                                <li class="plan-action"><a class="btn btn-sign" href="#" title="">Select Plan</a></li>
+                                             </ul>
+                                             <!-- Price Table End -->
+                                       
+                                       </div>                              
+                              
+                              </div><!-- .row End -->
+                           </div><!-- .container End -->
+                     
+                     </div>
+                     <!-- Price -->
+               
+               </section>
+               <!-- Pricing Section End -->
+               
+               
+               
+               <!-- Gallery Section -->
+               <section id="gallery" class="clearfix" data-scroll-index="5">
+               
+                     <!-- Gallery -->
+                     <div class="gallery">
+                        
+                           <div class="container">
+                              <div class="row">
+                                 
+                                       <div class="col-md-8 col-md-offset-2">
+                                          
+                                             <!-- Heading -->
+                                             <div class="heading center">
+                                                <h2>Take a Look at our Gallery</h2>
+                                                <p class="subheadline">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut abore et dolore magna</p>
+                                             </div>
+                                             <!-- Heading End -->
+                                       
+                                       </div>
+                                       
+                                       <div class="col-md-12">
+                                          
+                                             <div id="carousel-gallery" class="owl-carousel">
+                                                
+                                                   <!-- Item -->
+                                                   <div class="wow fadeIn" data-wow-offset="100">
+                                                      <div class="ico"><i class="fa fa-search"></i></div>
+                                                      <a href="img/bg/screen1.jpg" title=""><img class="img-responsive" src="img/200x400.png" alt=""></a>
+                                                   </div>
+                                                   
+                                                   <!-- Item -->
+                                                   <div class="wow fadeIn" data-wow-delay="0.5s" data-wow-offset="100">
+                                                      <div class="ico"><i class="fa fa-search"></i></div>
+                                                      <a href="img/bg/screen2.jpg" title=""><img class="img-responsive" src="img/200x400.png" alt=""></a>
+                                                   </div>
+                                                   
+                                                   <!-- Item -->
+                                                   <div class="wow fadeIn" data-wow-delay="1s" data-wow-offset="100">
+                                                      <div class="ico"><i class="fa fa-search"></i></div>
+                                                      <a href="img/bg/screen3.jpg" title=""><img class="img-responsive" src="img/200x400.png" alt=""></a>
+                                                   </div>
+                                                   
+                                                   <!-- Item -->
+                                                   <div class="wow fadeIn" data-wow-delay="1.5s" data-wow-offset="100">
+                                                      <div class="ico"><i class="fa fa-search"></i></div>
+                                                      <a href="img/bg/screen4.jpg" title=""><img class="img-responsive" src="img/200x400.png" alt=""></a>
+                                                   </div>
+                                                   
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="ico"><i class="fa fa-search"></i></div>
+                                                      <a href="img/bg/screen1.jpg" title=""><img class="img-responsive" src="img/200x400.png" alt=""></a>
+                                                   </div>
+                                                   
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="ico"><i class="fa fa-search"></i></div>
+                                                      <a href="img/bg/screen2.jpg" title=""><img class="img-responsive" src="img/200x400.png" alt=""></a>
+                                                   </div>
+                                                   
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="ico"><i class="fa fa-search"></i></div>
+                                                      <a href="img/bg/screen3.jpg" title=""><img class="img-responsive" src="img/200x400.png" alt=""></a>
+                                                   </div>
+                                                   
+                                                   <!-- Item -->
+                                                   <div>
+                                                      <div class="ico"><i class="fa fa-search"></i></div>
+                                                      <a href="img/bg/screen4.jpg" title=""><img class="img-responsive" src="img/200x400.png" alt=""></a>
+                                                   </div>
+                                             
+                                             </div>
+                                       
+                                       </div>
+                              
+                              
+                              </div><!-- .row End -->
+                           </div><!-- .container End -->
+                     
+                     </div>
+                     <!-- Gallery End -->
+                  
+               </section>
+               <!-- Gallery Section End -->
+               
+             
+               
+               <!-- Newsletter Section -->
+               <section id="newsletter" class="clearfix">
+               
+                     <!-- Newsletter -->
+                     <div class="newsletter overlay-gradient">
+                        
+                           <div class="container">
+                              <div class="row">                                                                                                                                  
+                                    
+                                       <div class="col-md-8 col-md-offset-2">
+                                          
+                                             <!-- Heading -->
+                                             <div class="heading center inverted">
+                                                <h2>Stay Up To Date</h2>
+                                                <p class="subheadline">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut abore et dolore magna</p>
+                                             </div>
+                                             <!-- Heading End -->
+                                             
+                                             <!-- Subscribe Form -->
+                                             <form id="newsletter-form" class="clearfix">
+                                                <input type="email" name="mc-email" id="mc-email" class="input-field form-control" placeholder="Your E-Mail address">
+                                                <label class="subscribe-message"></label>
+                                                <input type="submit" value="Submit" name="subscribe-submit" class="submit">
+                                             </form>                                            
+                                             <!-- Subscribe Form End -->
+                                       
+                                       </div>
+                              
+                              </div><!-- .row End -->
+                           </div><!-- .container End -->
+                     
+                     </div>
+                     <!-- Newsletter End -->
+
+               
+               <!-- Testimonials Section -->
+               <section id="testimonials" class="clearfix"  data-scroll-index="4">
+               
+                     <!-- Testimonials -->
+                     <div class="testis">
+                     
+                           <!-- Overlay -->
+                           <div class="overlay-silver bg"></div>
+                           <!-- Overlay --> 
+                        
+                           <div class="container">
+                              <div class="row">
+                                 
+                              
+                                       <div class="col-md-8 col-md-offset-2">
+                                          
+                                             <!-- Heading -->
+                                             <div class="heading center">
+                                                <h2>More than 1.000 Happy Customers!</h2>
+                                                <p class="subheadline">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut abore et dolore magna</p>
+                                             </div>
+                                             <!-- Heading End -->
+                                             
+                                             <!-- Testi-Carousel -->
+                                             <div id="testi-carousel" class="owl-carousel">
+                                                
+                                                   <div>
+                                                      <blockquote>
+                                                         <img class="img-responsive img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="">
+                                                         <cite>John Doe <span>Co-Founder of Chappi</span></cite>
+                                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                                                      </blockquote>
+                                                   </div>
+                                                   
+                                                   <div>
+                                                      <blockquote>
+                                                         <img class="img-responsive img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg" alt="">
+                                                         <cite>John Doe <span>Co-Founder of Chappi</span></cite>
+                                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                                                      </blockquote>
+                                                   </div>
+                                                   
+                                                   <div>
+                                                      <blockquote>
+                                                         <img class="img-responsive img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jodyferry/128.jpg" alt="">
+                                                         <cite>John Doe <span>Co-Founder of Chappi</span></cite>
+                                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                                                      </blockquote>
+                                                   </div>
+                                             
+                                             </div>
+                                             <!-- Testi-Carousel End -->
+                                       
+                                       </div>
+                              
+                              
+                              </div><!-- .row End -->
+                           </div><!-- .container End -->
+                     
+                     </div>
+                     <!-- Testimonials End -->
+               
+               </section>
+               <!-- Testimonials Section End -->

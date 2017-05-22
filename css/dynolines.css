@@ -1,0 +1,208 @@
+.dynoline{
+position:absolute;
+}
+
+.thumb .dynoline{
+height: 30px;
+width: 79%;
+padding-top: 30px;
+-webkit-box-sizing: initial;
+-moz-box-sizing: initial;
+box-sizing: initial;
+padding-left: 15px;
+}
+.thumb .dynoline .line{
+width:100%;
+transform: rotate(180deg);
+-moz-transform: rotate(180deg);
+-webkit-transform: rotate(180deg);
+}
+.thumb .dynoline .line.leftCircle.rightCircle{
+left: 50px;
+width: 69%;
+}
+
+.thumb .dynoline .line.rightCircle{
+left: 20px;
+width: 90%;
+}
+.thumb .dynoline .line.thicker.rightArrow{
+left: 15px;
+width: 90%;
+}
+.thumb .dynoline .line.thickest.rightArrow{
+left: 15px;
+width: 90%;
+top: 18px;
+}
+.thumb .dynoline .line.thicker.leftArrow.rightArrow{
+left: 42px;
+width: 80%;
+}
+.thumb .dynoline .line.thickest.leftArrow.rightArrow{
+left: 46px;
+width: 75%;
+top: 18px;
+}
+
+/*#canvas .dynoline{
+background:red;
+width:10px;
+height:10px;
+}
+
+.dynoline{
+background-color: red !important;		
+}*/
+
+.dynoline .box{
+width: 70px;
+height: 70px;
+position: absolute;
+text-align: center;
+font-weight: bold;
+color: black;
+opacity:.7;
+border-radius: 50%;
+z-index:1;
+/*background-color: lightgray;*/
+}
+
+#main .dynoline .box{
+	cursor: -webkit-grab !important;
+}
+
+#main:not(.read) .panels > .dynoline .box:hover{
+	background-color: lightgray;
+}
+
+.dynoline .box.active{
+	background-color: lightgray;
+}
+
+.dynoline .line .custom-handle.edit-handle.left{
+	top: -20px;
+}
+
+.dynoline .line .custom-handle.right{
+	right: initial;
+}
+
+.dynoline .line .custom-handle.edit-handle.right{
+	top: -20px;
+}
+.dynoline .line .custom-handle.clone-handle.right{
+	left: -29px;
+}
+.dynoline .line .custom-handle.delete-handle.right{
+	left: initial;
+}
+
+.dynoline .line .custom-handle.active{
+	display:block !important;
+}
+
+
+.dynoline .line .custom-handle{
+	cursor: pointer;
+	display: none;
+}
+
+
+
+.dynoline.locked:hover .box,
+.dynoline.locked.grouped .box {
+opacity:.4;
+border-radius: 0%;
+cursor: default;
+background-image: url(https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/lock-128.png);
+opacity: 0.1;
+background-size: 36px;
+-moz-user-select: none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+user-select: none;		
+}
+
+#left_menu .dynoline .line{
+border: 1px solid black;
+color:black;	
+background:black;	
+}
+.dynoline .line.noborder{
+border: 0px;
+}
+.dynoline .line{
+border: 1px solid;
+height: 0px;
+/*border-top-color: transparent !important;
+border-bottom-color: transparent !important;*/
+position: absolute;
+background-color:  black;
+}
+
+.colorInherit{
+	background:  black;
+}
+
+.dynoline .line:after, 
+.dynoline .line:before
+{
+content: " ";
+position: absolute;
+}
+
+
+.dynoline .line.rightCircle:after{
+right: 100%;
+border:2px solid;
+border-radius: 50%;
+display: inline-block;
+border-color: inherit;
+}
+.dynoline .line.leftCircle:before{
+left: 100%;
+border:2px solid;
+border-radius: 50%;
+display: inline-block;
+border-color: inherit;
+}
+
+.dynoline .line.size10:after,
+.dynoline .line.size10:before{
+width: 10px;
+height: 10px;
+top: -5px;
+}
+
+
+.read .dynoline .line.size10:after,
+.read .dynoline .line.size10:before{
+top: -7px;
+}
+
+
+.dynoline .line.size20:after,
+.dynoline .line.size20:before{
+width: 20px;
+height: 20px;
+top: -10px;
+}
+
+.read .dynoline .line.size20:after,
+.read .dynoline .line.size20:before{
+top: -12px;
+}
+
+
+.dynoline .line.size30:after,
+.dynoline .line.size30:before{
+width: 30px;
+height: 30px;
+top:-15px;
+}
+
+.read .dynoline .line.size30:after,
+.read .dynoline .line.size30:before{
+top:-17px;
+}

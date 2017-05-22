@@ -1,0 +1,251 @@
+.dynoline{
+position:absolute;
+}
+
+.thumb .dynoline{
+height: 30px;
+width: 79%;
+padding-top: 30px;
+-webkit-box-sizing: initial;
+-moz-box-sizing: initial;
+box-sizing: initial;
+padding-left: 15px;
+}
+.thumb .dynoline .line{
+width:100%;
+transform: rotate(180deg);
+-moz-transform: rotate(180deg);
+-webkit-transform: rotate(180deg);
+}
+.thumb .dynoline .line.leftCircle.rightCircle{
+left: 50px;
+width: 69%;
+}
+
+.thumb .dynoline .line.rightCircle{
+left: 20px;
+width: 90%;
+}
+.thumb .dynoline .line.thicker.rightArrow{
+left: 15px;
+width: 90%;
+}
+.thumb .dynoline .line.thickest.rightArrow{
+left: 15px;
+width: 90%;
+top: 18px;
+}
+.thumb .dynoline .line.thicker.leftArrow.rightArrow{
+left: 42px;
+width: 80%;
+}
+.thumb .dynoline .line.thickest.leftArrow.rightArrow{
+left: 46px;
+width: 75%;
+top: 18px;
+}
+
+/*#canvas .dynoline{
+background:red;
+width:10px;
+height:10px;
+}*/
+
+.dynoline .box{
+width: 70px;
+height: 70px;
+position: absolute;
+cursor: -webkit-grab !important;
+text-align: center;
+font-weight: bold;
+color: black;
+opacity:.7;
+cursor:move;
+border-radius: 50%;
+z-index:1;
+}
+
+#main:not(.read) .panels > .dynoline .box:hover{
+	background-color: lightgray;
+}
+
+.dynoline .box.active{
+	background-color: lightgray;
+}
+
+.dynoline .line .custom-handle.edit-handle.left{
+	top: -20px;
+}
+
+.dynoline .line .custom-handle.right{
+	right: initial;
+}
+
+.dynoline .line .custom-handle.edit-handle.right{
+	top: -20px;
+}
+.dynoline .line .custom-handle.clone-handle.right{
+	left: -29px;
+}
+.dynoline .line .custom-handle.delete-handle.right{
+	left: initial;
+}
+
+.dynoline .line .custom-handle.active{
+	display:block !important;
+}
+
+
+.dynoline .line .custom-handle{
+	cursor: pointer;
+	display: none;
+}
+
+
+
+.dynoline.locked:hover .box,
+.dynoline.locked.grouped .box {
+opacity:.4;
+border-radius: 0%;
+cursor: default;
+background-image: url(https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/lock-128.png);
+opacity: 0.1;
+background-size: 36px;
+-moz-user-select: none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+user-select: none;		
+}
+
+#left_menu .dynoline .line{
+border: 1px solid black;
+color:black;	
+background:black;	
+}
+.dynoline .line.noborder{
+border: 0px;
+}
+.dynoline .line{
+border: 1px solid;
+height: 0px;
+/*border-top-color: transparent !important;
+border-bottom-color: transparent !important;*/
+position: absolute;
+background-color:  black;
+}
+
+.colorInherit{
+	background:  black;
+}
+
+.dynoline .line:after, 
+.dynoline .line:before
+{
+content: " ";
+position: absolute;
+}
+.dynoline .line.thicker{
+height: 12px;
+}
+.dynoline .line.thickest{
+height: 28px;
+border-color:transparent !important;
+}
+/*
+.dynoline .line.leftArrow:before{
+width: 0px !important;
+height: 0px !important;
+left: 99%;
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent; 
+border-left:10px solid; 
+top:-6px;
+border-left-color: inherit;
+}
+*/
+
+.dynoline .line.rightArrow:after{
+width: 0px !important;
+height: 0px !important;
+right: 99%;
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent; 
+border-right:10px solid; 
+top:-6px;
+border-right-color: inherit;
+}
+.dynoline .line.leftArrow:before{
+content: url(../img/arrow.svg);
+width: 12px;
+right:-10px;
+top:-11px;
+position: absolute;
+-webkit-transform: rotate(180deg); 
+}
+
+
+
+
+.dynoline .line.thicker.rightArrow:after{
+border-top: 18px solid transparent;
+border-bottom: 17px solid transparent;
+border-right: 28px solid;
+top: -11px;
+}
+.dynoline .line.thicker.leftArrow:before{
+border-top: 18px solid transparent;
+border-bottom: 17px solid transparent;
+border-left: 28px solid;
+top: -11px;
+}
+
+
+
+.dynoline .line.thickest.rightArrow:after{
+border-top: 31px solid transparent;
+border-bottom: 31px solid transparent;
+border-right: 48px solid;
+top: -17px
+}
+.dynoline .line.thickest.leftArrow:before{
+border-top: 31px solid transparent;
+border-bottom: 31px solid transparent;
+border-left: 48px solid;
+top: -16px;
+}
+
+
+.dynoline .line.rightCircle:after{
+right: 100%;
+border:2px solid;
+border-radius: 50%;
+display: inline-block;
+border-color: inherit;
+}
+.dynoline .line.leftCircle:before{
+left: 100%;
+border:2px solid;
+border-radius: 50%;
+display: inline-block;
+border-color: inherit;
+}
+
+.dynoline .line.size30:after,
+.dynoline .line.size30:before
+{
+width: 30px;
+height: 30px;
+top:-17px;
+}
+.dynoline .line.size20:after,
+.dynoline .line.size20:before{
+width: 20px;
+height: 20px;
+top: -10px;
+}
+.dynoline .line.size10:after,
+.dynoline .line.size10:before{
+width: 10px;
+height: 10px;
+top: -5px;
+}

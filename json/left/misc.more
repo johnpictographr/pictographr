@@ -1,0 +1,155 @@
+, {
+    "collection": "paragraphs",
+    "type": "text",
+    "category": "text",
+    "html": "<div style=\"text-align:left;padding:9px;font-size:14px\">\n\tLorem ipsum dolor sit amet, sonetdiscere alienum ei sea. Ad prisoluta omittantur.</div>",
+    "textedit_content": "Double click on text to edit. Did you know that the rain in Spain stays mainly in the plain. In Hertford, Hereford and Hampshire, hurricanes hardly ever happen. How kind of you to let me come.",
+    "textedit_style": "{\n\"width\": \"293px\",\n\"height\": \"132px\",\n\"font-size\": \"14px\",\n\"line-height\": \"144%\"\n}",
+    "name": "",
+    "json": ""
+}, {
+    "collection": "shapes",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+          "desktop": {
+              "shape": {
+								"width": 0,
+								"height": 0,
+								"border-left": "50px solid transparent",
+								"border-right": "50px solid transparent",
+								"border-bottom": "100px solid red"
+              }
+          }
+      },
+      "data":{
+      	"aspectratio": true
+      }
+    }
+}, {
+    "collection": "shapes",
+    "type": "shapes",
+    "category": "shapes",
+    "html": "<svg ><polygon class=\"triangle\" points=\"0,0 100,0 50,100\"></polygon></svg>",
+    "json": {
+      "style": {
+          "desktop": {
+              "svg": {
+							  "fill": "#98d02e",
+							  "stroke": "#65b81d",
+							  "stroke-width": 2
+              }
+          }
+      }
+    }
+}, {
+    "collection": "richtext",
+    "type": "text",
+    "category": "richtext",
+    "html": "<ol><li><b style=\"line-height: 1.42857143;\">Lorem ipsum</b><span style=\"line-height: 1.42857143;\"> dolor sit amet, iriure </span><u style=\"line-height: 1.42857143;\">laoreet</u><span style=\"line-height: 1.42857143;\"> fabellas usu in, vim Lorem ipsum dolor sit amet, iriure laoreet fabellas usu in, vim</span><br></li><li><span style=\"line-height: 1.42857143; font-weight: 700;\">Lorem ipsum</span><span style=\"line-height: 1.42857143;\">&nbsp;dolor sit amet, iriure&nbsp;</span><u style=\"line-height: 1.42857143;\">laoreet</u><span style=\"line-height: 1.42857143;\">&nbsp;fabellas usu in, vim Lorem ipsum dolor sit amet, iriure laoreet fabellas usu in, vim</span><br></li></ol>",
+    "textedit_content": ".XX.",
+    "textedit_style": "{\n\"width\": \"293px\",\n\"height\": \"132px\",\n\"font-size\": \"14px\",\n\"line-height\": \"144%\"\n}",
+    "name": "Rich Text",
+    "json": ""
+}, {
+    "collection": "dynolines",
+    "type": "lines",
+    "category": "straight",
+    "html": "<div class=\"dynoline\"><div class=\"line rightCircle size10\" ></div></div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": "{\"kinds\":\"rightCircle, size10\"}"
+}, {
+    "collection": "dynolines",
+    "type": "lines",
+    "category": "straight",
+    "html": "<div class=\"dynoline\"><div class=\"line rightCircle size20\" ></div></div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": "{\"kinds\":\"rightCircle, size20\"}"
+}, {
+    "collection": "dynolines",
+    "type": "lines",
+    "category": "straight",
+    "html": "<div class=\"dynoline\"><div class=\"line rightCircle size30\" ></div></div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": "{\"kinds\":\"rightCircle, size30\"}"
+}, {
+    "collection": "dynolines",
+    "type": "lines",
+    "category": "straight",
+    "html": "<div class=\"dynoline\"><div class=\"line leftCircle rightCircle size10\" ></div></div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": "{\"kinds\":\"leftCircle, rightCircle, size10\"}"
+}, {
+    "collection": "dynolines",
+    "type": "lines",
+    "category": "straight",
+    "html": "<div class=\"dynoline\"><div class=\"line leftCircle rightCircle size20\" ></div></div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": "{\"kinds\":\"leftCircle, rightCircle, size20\"}"
+}, {
+    "collection": "dynolines",
+    "type": "lines",
+    "category": "straight",
+    "html": "<div class=\"dynoline\"><div class=\"line rightCircle  leftCircle size30\" ></div></div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": "{\"kinds\":\"rightCircle, leftCircle, size30\"}"
+}, {
+    "collection": "angleLines",
+    "type": "lines",
+    "category": "angle",
+    "html": "<div class=\"angle_wrapper\">\n  <div class=\"clipartDiv angle rightBorder topBorder right\">\n\t    </div>\n</div>\t  ",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": ""
+}, {
+    "collection": "angleLines",
+    "type": "lines",
+    "category": "angle",
+    "html": "<div class=\"angle_wrapper\">\n\t    <div class=\"clipartDiv angle leftBorder topBorder left \">\n\t    </div>\n</div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": ""
+}, {
+    "collection": "angleLines",
+    "type": "lines",
+    "category": "angle",
+    "html": "<div class=\"angle_wrapper\">\n <div class=\"clipartDiv angle leftBorder bottomBorder bottom right \">\n\t    </div>\n</div>\t   ",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": ""
+}, {
+    "collection": "angleLines",
+    "type": "lines",
+    "category": "angle",
+    "html": "<div class=\"angle_wrapper\">\n<div  class=\"clipartDiv angle rightBorder bottomBorder bottom left \">\n\t    </div>\n</div>\t    ",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": ""
+}, {
+    "collection": "dynolines",
+    "type": "lines",
+    "category": "straight",
+    "html": "<div class=\"dynoline\"><div class=\"line \" ></div></div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": "{\"kinds\":\"\"}"
+}
+/**/

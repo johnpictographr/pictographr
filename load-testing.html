@@ -1,0 +1,59 @@
+
+<style>
+.loader {
+  font-size: 30px;
+  margin: 200px 0;
+  text-align: center;
+}
+
+.ui.loader.active, .ui.loader.visible {
+  display: block;
+}
+
+.ui.inline.loader {
+  position: relative;
+  vertical-align: middle;
+  margin: 0em;
+  left: 0em;
+  top: 0em;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+.ui.loader:before, .ui.loader:after {
+  width: 1rem;
+  height: 1rem;
+  margin: 0em 0em 0em -0.5rem;
+}
+.ui.loader:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 500rem;
+  border: 0.2em solid rgba(0, 0, 0, 0.1);
+}
+.ui.loader:after {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  -webkit-animation: loader 0.6s linear;
+  animation: loader 0.6s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #aaaaaa transparent transparent;
+  border-style: solid;
+  border-width: 0.2em;
+  box-shadow: 0px 0px 0px 1px transparent;
+}
+</style>
+<div class="loader">
+      <div class="ui active inline loader"></div>
+      <div>We are getting places around you...</div>
+    </div>

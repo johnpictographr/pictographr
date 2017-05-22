@@ -1,0 +1,14 @@
+RewriteEngine on
+
+RewriteCond %{HTTPS} !^on$
+RewriteCond %{HTTP_HOST} ^pictographr.com [NC]
+RewriteRule (.*) https://%{HTTP_HOST}/$1 [R,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php/$0 [PT,L]
+
+# the following routes domain to static file
+# RewriteCond %{HTTP_HOST} ^(www.)?clinton-underwood2016.org$
+# RewriteRule ^(/)?$ js/core/edit.js [L]

@@ -1,0 +1,60 @@
+<head>
+	<script	src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<style>
+		.shape{
+		}
+	</style>
+</head>
+<body>
+	<div  id="shape_wrapper" >
+		<div  id="rectangle"  class="shape">
+		</div>			
+	</div>
+</body>
+<script>
+
+	(function(){
+		
+		var Rectangle = function() {
+			
+			var private_function = function() { // THIS IS A PRIVATE METHOD
+				console.log('The way to make fried chicken');
+			};
+			
+			var private_variable = 123123;
+			
+			return function() {
+				
+				private_function();
+				
+				this.public_variable = private_variable;
+				
+				this.color = 'green';
+				this.width = 300;
+				this.height = 100;
+				
+				this.init = function() {
+					$('#rectangle').css({
+						background: this.color,
+						width: this.width + 'px',
+						height: this.height + 'px',
+					});
+				}
+				
+			}
+			
+		}()
+
+		var square = new Rectangle();z
+		square.width = 100;
+		square.init();
+		console.log(square.public_variable);
+		
+
+		
+		
+	})();
+
+	
+	
+</script>

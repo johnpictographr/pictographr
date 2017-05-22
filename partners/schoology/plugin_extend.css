@@ -1,0 +1,97 @@
+#main_container{
+	box-sizing: border-box;
+	left: 15px;
+	height: auto !important;
+  padding-top: 28px;
+}
+.hideThis{
+	display:none !important;	
+}
+
+.boxes{
+	background: white;
+	border-bottom: 1px solid #E6E6E6;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.boxes:nth-child(odd){
+	border-right: 1px solid #E6E6E6;	
+}
+
+#modal-screen {
+display: none;
+width: 100%;
+height: 100%;
+position: fixed;
+background-color: rgba(255,255,255,0.5);
+z-index: 999999;
+cursor: pointer;
+}
+
+#modal-box{
+background-color: white;
+width: 474px;
+height: 134px;
+overflow: hidden;
+margin: auto;
+position: absolute;
+top: 0; left: 0; bottom: 0; right: 0;
+box-shadow: 0px	5px	20px gray;
+cursor: default;
+padding: 0px;
+}
+.close-button-wrapper{
+	z-index: 999;
+	position: absolute;
+	right: 0px;
+	top: 0px;	
+}
+.close-button{
+	position:absolute;
+	top: 2px;
+	right: 9px;
+	color: lightgray;
+	cursor: pointer;
+}
+.close-button:hover{
+	color: gray;
+}
+.new_design_wrapper{
+    width: 100%;
+    height: 55px;
+    position: fixed;
+    z-index: 1;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.new_design{
+width: 90px;
+background-color: rgb(217, 83, 79);
+margin: 11px;
+position: relative;
+padding-left: 9px;
+float: right;
+}
+#refresh-button{
+height: 30px;
+width: 30px;
+min-width: 0;
+padding: 0px 0px 0px 5px;
+border-top-right-radius: 0;
+top: 11px;
+position: relative;
+float: right;
+border-radius: 3px;
+border-width: 0px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 16px 0 rgba(0, 0, 0, 0.10);
+}
+.refresh-icon{
+	background: no-repeat url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) -63px -21px;
+	height: 21px;
+	width: 21px;
+	opacity: .55;
+}
+
+#nofilesyetImg {
+ top: 36px;
+}

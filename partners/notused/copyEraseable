@@ -1,0 +1,304 @@
+var app = new App();
+
+app.settings.dim.main_container = 290;
+
+app.resizeElements = function() {
+	
+	var shrinkByRatio = (app.settings.dim.main_container / 400);  // ideal
+		
+	$('.boxes').width( (app.settings.dim.main_container / 2) - 2);
+	$('.boxes').height( (app.settings.dim.main_container / 2) - 2 );
+	$('.buttons_wrapper').attr('test', 'test')
+	.width( Math.ceil(app.settings.dim.buttons_wrappers.width * shrinkByRatio)  )
+	.height( app.settings.dim.buttons_wrappers.height * shrinkByRatio  )
+	.css('left', (app.settings.dim.buttons_wrappers.left * shrinkByRatio) + 4 + 'px')
+	.css('top', ($('.boxes').height() - app.settings.dim.buttons_wrappers.height)  /2 + 'px');
+			
+/*
+			$('.action_buttons').css({
+				'padding':  '0px',	
+				'margin-left':  marginSpacingformula + 'px',	
+				'margin-right':  marginSpacingformula  + 'px',
+				'width' : app.settings.dim.action_buttons.width
+			});
+*/
+			
+			$('.thumbs').css({	
+				'max-width':  196 * shrinkByRatio + 'px',	
+				'max-height':  196 * shrinkByRatio + 'px'
+			});
+	
+};
+		
+app.stubs.doItLabel = "Insert";
+
+app.doWithRenderedPNG = function( url ) {
+	
+	console.log(url);
+	
+  google.script.run.withSuccessHandler(function( data ) {
+    console.log(JSON.stringify(  data   , null, 2 ));
+  })
+  .withFailureHandler(app.showError).insertImage(url);		
+
+
+};
+
+app.showError = function(msg, element) {
+	console.log(msg);
+}
+
+app.renderFilePngForPost = function( that ) {
+	
+	app.progress.start( that );
+	
+	var fileId = $(that).attr('fileId');
+	
+	var url = 'https://pictographr.com/more/renderPNGFromDrive',
+			postObj = {
+				'google_id': app.stubs.google_id,
+				'fileId': fileId
+			};
+
+	tools.ajax(url, postObj, 'post', function(data) {
+		
+		app.progress.stop( that );
+		
+		var url = 'https://pictographr.com/image/streamDriveImage?google_id=' + app.stubs.google_id + '&fileId=' + data.imageId + '&max_width=40000';
+		app.doWithRenderedPNG(url);
+
+	});	
+	
+};
+
+app.create_new_button = function() {
+	$('body').prepend('\
+	  <div  id="new_design_wrapper" >\
+    	<button   id="new_design"  class="btn" >Design</button>\
+    	<button   id="reloadIt"  class="btn" >Refresh</button>\
+    </div>\
+	');
+				
+	app.bind.newdesign();
+	app.bind.reloadIt();
+	
+};
+
+app.getFiles = function()	{
+	
+	var url = 'https://pictographr.com/app/getFileList',
+			postObj = {
+				'google_id': app.stubs.google_id,
+				'whichFolder': 'files'
+			};
+
+	console.log('getfiles from docs extend.js');
+	console.log(JSON.stringify(  postObj   , null, 2 ));
+	
+	tools.ajax(url, postObj, 'post', function(data) {
+		
+		console.log(JSON.stringify(  data   , null, 2 ));
+		
+		if( typeof( data.statusText ) != 'undefined' ){
+			setTimeout(function(){
+				app.getFiles();
+			}, 2000);
+		}else{
+			app.stubs.data = data;
+			app.paint();
+			app.labelDoItButton();			
+		};
+		
+	});		
+	
+};
+
+app.bind.newdesign = function() {
+	console.log('binding new design.');
+  $('#new_design').unbind('click').click(function(e){
+  	e.preventDefault();
+  	tools.openInNewTab('https://pictographr.com/app?new_width=620&new_height=500&state=%7B%22newSerial%22:%20%22' + Math.random() + '%22,%20%22action%22:%22create%22,%22userId%22:%22' + app.stubs.google_id + '%22%7D');
+  });	
+		    			
+};
+
+app.bind.reloadIt = function() {
+	console.log('binding reload it');
+  $('#reloadIt').click(function(e){
+  	e.preventDefault();
+  	console.log('reloading');
+  	app.getFiles();
+  	return false;
+  });	
+		    			
+};
+app.giveUserAccountOnPictographr = function() {
+
+	var that = this;
+
+	$('#main_container').load('https://pictographr.com/partners/giveUserAccountOnPictographr.php', function() {
+
+		console.log('giveUserAccountOnPictographr.html');
+		
+		$('#connect_pictographr').click( function(e) {
+			e.preventDefault();
+			app.poll();
+			tools.openInNewTab('https://pictographr.com?new_width=620&new_height=500&partner_id=2&skip_insert=true&market_id=14');
+		});
+			
+	});
+};
+
+app.poll = {
+	init: function() {
+		$('#main_container').append('\
+			<div  id="waitingWords" > Waiting for Connection\
+			<div>\
+			<img id="loading" src="https://pictographr.com/img/smallloading.gif">\
+		');
+	},
+	byGoogleId: function() {
+		
+	},
+	byEmail: function() {
+		this.init();
+	  google.script.run.withSuccessHandler(function( email ) {
+	  	
+	    console.log(JSON.stringify(  email   , null, 2 ));
+	    app.stubs.email = email;
+	    
+			var polling = setInterval( function() {
+				
+				tools.ajax(	
+					'https://pictographr.com/auth/getGoogleIdFromEmail', 
+					{user_email: app.stubs.email },
+					'post', 
+					function(obj) {
+						
+						console.log(JSON.stringify(  obj   , null, 2 ));
+						
+						if( obj.status == 'success'){
+							clearInterval(polling);
+							app.whenUserHasAccountThen(obj);
+		
+						}else{
+							
+						};
+						
+					}
+				);
+		
+			}, 3000); 
+	    
+	  })
+	  .withFailureHandler(app.showError).getUser();	
+	}
+		
+};
+
+
+app.whenUserHasAccountThen = function(obj) {
+	
+	tools.ajax(	
+		'/auth/setPSession', 
+		{ google_id: obj.google_id },
+		'post', 
+		function(obj) {
+		  app.stubs.isGoogleConnected = true;
+		  console.log('isGoogleConnected: ' + app.stubs.isGoogleConnected);
+			app.create_new_button();
+		  app.getFiles();
+		}
+	);
+
+};
+
+app.stubs.email = undefined;
+app.init = function() {
+	
+	console.log('test');
+	
+	$('body, #main_container').width(app.settings.dim.main_container);
+	
+	tools.crossdom.receive = function(msg) {
+		
+		var obj = this.unserialize(msg.data.split(','));
+		
+		console.log(msg);
+	
+		if( typeof( obj.msgFrom) != 'undefined' && obj.msgFrom == 'iframeSrcPostMsgGetGoogleId.html' ){ // ONLY LISTEN FOR MSG FROM PICTOGRAPHR
+			
+			if( obj.appInstalled == 'true'){
+				
+				if( typeof( obj.domain ) != 'undefined' ){
+					
+					console.log('Organization Domain: ' + obj.domain);
+					
+					tools.ajax(	
+						'https://pictographr.com/auth/googleUserExist',  // ALSO SETS SESSIONP
+						{google_id: obj.google_id },
+						'post', 
+						function(obj) {
+							
+							console.log(JSON.stringify(  obj   , null, 2 ));
+							
+							if( obj.exist == 'YES'){
+								
+							  app.stubs.isGoogleConnected = true;
+							  console.log('isGoogleConnected: ' + app.stubs.isGoogleConnected);
+								app.create_new_button();
+							  app.getFiles();
+			
+							}else{
+								
+								console.log('not in pictographr DB');
+								// send to partner.auth
+								app.poll.byGoogleId();
+								
+			
+							};
+							
+						}
+					);
+					
+					
+				}else{
+					
+					app.whenUserHasAccountThen(obj);  // INDIVIDUAL IS PICTOGRAPHR USER
+					
+				};
+				
+
+				
+			} else{
+				
+				console.log('User is buying as indivdual');
+				app.giveUserAccountOnPictographr();
+				
+				app.poll.byEmail();
+				
+				
+			};
+			
+		};
+	}
+	
+	tools.crossdom.init('setSessionIframe', 'https://pictographr.com/partners/iframeSrcPostMsgGetGoogleId.html');
+		
+	
+	return;
+	
+	
+	if( app.stubs.isGoogleConnected ){
+		
+		this.getFiles();
+		
+	}else{
+		
+		app.giveUserAccountOnPictographr();
+		
+	};
+	
+};
+
+app.init();

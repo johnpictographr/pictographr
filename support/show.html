@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<style>
+  	#gifimage{
+  		width: 638px;
+  	}
+  	</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>
+			
+			var urlGet = function(name) {
+						name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+						var	regexS ="[\\?&]"+name+"=([^&#]*)";
+						var	regex	=	new	RegExp(	regexS );
+						var	results	=	regex.exec(location.href);
+						if(	results	== null	)
+							return false;
+						else
+							return results[1];			
+					}
+			$(function(){
+				
+				var gifname = urlGet('gifname');
+				
+				var preLoadGif = new Image();
+				preLoadGif.src = urlGet('gifname') + '.gif';
+				
+				$('#gifimage').attr('src',  urlGet('gifname') + '.png');
+
+		    $('#gifimage').hover(
+		        function()
+		        {
+		            $(this).attr('src', urlGet('gifname') + '.gif');
+		        },
+		        function()
+		        {
+		            $(this).attr('src', urlGet('gifname') + '.png');
+		        }
+		     );
+
+			});
+		</script>
+  </head>
+  <body>
+    <img id="gifimage" src="" />
+  </body>
+</html>

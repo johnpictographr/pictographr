@@ -1,0 +1,42 @@
+<script>
+var tools={
+			cookies: {
+
+				getCookie: function(name) {
+				  var nameEQ = name + "=";
+				  var ca = document.cookie.split(';');
+				  for(var i=0;i < ca.length;i++) {
+				      var c = ca[i];
+				      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+				      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+				  }
+				  return null;					
+				},
+				
+				setCookie: function(c_name,value,exdays) {
+				  var exdate=new Date();
+				  exdate.setDate(exdate.getDate() + exdays);
+				  var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+				  console.log(value);
+				  console.log(c_value);
+				  document.cookie=c_name + "=" + c_value;		
+				  
+				},
+				
+				deleteCookie: function(c_name) {
+					document.cookie = c_name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+				},
+				
+				expires: 365,				
+			
+			}
+}
+
+
+
+				tools.cookies.setCookie('testme', 'john', tools.cookies.expires);
+				console.log(tools.cookies.getCookie('testme'));
+				console.log(tools.cookies.getCookie('p_session'));
+				
+
+</script>

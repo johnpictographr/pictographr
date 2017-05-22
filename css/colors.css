@@ -1,0 +1,148 @@
+.color-row{
+	width: initial;
+	height: auto;
+}
+/*
+.color-row .edit-layer{
+	float: none;
+	position: relative;
+	top: 0px;
+	right: 0px;
+}
+*/
+.sample-box{
+	background: red;
+	border-radius: 99999%;
+	width:30px;
+	height: 30px;
+	cursor:pointer;
+	border: 1px solid lightgray;
+	box-shadow: inset 2px 2px 1px rgba(0,0,0,.15),inset -1px -1px 0 rgba(255,255,255,.25);
+	margin-top: 7px;
+}
+
+.colorPickerWrapper{
+position:absolute;
+z-index: 9999999999;
+background-color: #ffffff;
+box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+width: 252px;
+left: 104px;
+display: none;
+}
+
+
+.colorPickerWrapper .nav{
+	margin-bottom: 6px;
+	background-color: transparent;
+-moz-box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+-webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+position: absolute;
+top: 0px;
+height: 42px;
+}
+.colorPickerWrapper .nav li{
+width: 63px;
+text-align: center;
+cursor: pointer;
+}
+.colorPickerWrapper::before{
+	content: "";
+	position: absolute;
+	top: -7px;
+	left: calc(10% - 5px);
+	width: 13px;
+	height: 7px;
+	background: url(../img/popover-arrow.svg);
+	z-index: 999;
+}
+
+	#modal-screen .colorPickerWrapper.col::before{
+		left: 7px;
+		top: -7px;
+	  transform: rotate(0deg);
+	}
+
+	#modal-screen .colorPickerWrapper.row::before{
+	  left: -10px;
+	  top: 7px;
+	  transform: rotate(270deg);
+	}
+
+	#color-wheel-container .colorPickerWrapper::before{
+	  left: -10px;
+	  transform: rotate(270deg);
+	}
+
+.colorPickerWrapper .nav li a{
+padding: 10px 10px;
+color: #4285f4 !important;
+font-weight: bold;
+}
+
+
+.moving-line-wrapper{
+width:100%;
+height: 3px;
+position: absolute;
+top: 39px;
+left: 0px;
+}
+.moving-line{
+position: absolute;
+width: 63px;
+height: 100%;
+background: #4285f4;
+left: 0px;
+-webkit-transition: left 0.3s ease;
+-moz-transition: left 0.3s ease;
+transition: left 0.3s ease;	
+}
+
+.color-content{
+	overflow: hidden;
+	position:relative;
+top: 42px;
+height: 309px;
+}
+
+.color-stretched-wrapper{
+position: relative;
+width: 1008px;
+}
+
+.color-stretched-wrapper .color-tab-panel{
+position: relative;
+float:left;
+width: 252px;
+padding: 10px;
+}
+
+
+.farbtastic{
+margin-top: 25px;
+margin-left: 21px;
+}
+
+.colorsAlreadyPickedWrapper{
+cursor:pointer;	
+}
+.colorsAlreadyPickedWrapper .btn-color,
+.colorpaletteDiv .btn-color{
+width: 25px;
+height: 25px;	
+border-radius: 9999%;
+box-shadow: inset 2px 2px 1px rgba(0,0,0,.15),inset -1px -1px 0 rgba(255,255,255,.25);
+border-width: 0px;
+margin: 2px 2px 0px;
+outline: 0px;
+}
+
+.colorpaletteDiv div:nth-child(1) button:nth-child(8){
+background: url(../img/transparent.png);
+}
+
+.custom-color-desired{
+	width: 70px;
+}

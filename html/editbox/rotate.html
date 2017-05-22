@@ -1,0 +1,29 @@
+	<div  class="ot">
+		<div class="edit-layer">
+			Rotate:
+		</div>
+	</div>
+	<style>
+		.angle img{
+			width: 35px;
+	    -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+	    filter: grayscale(100%);	
+		}
+	</style>
+	<div   id="align-button-wrapper"   class="tt">
+		<div  id="rotate-button-wrapper" >
+			<table>
+				<tr><td  class="angle" angle=0><img src="img/md-png/48/ic_accessibility_48.png" /></td><td  class="angle" angle=45 ><img src="img/md-png/48/ic_accessibility_48.png" /></td><td  class="angle" angle=90 ><img src="img/md-png/48/ic_accessibility_48.png" /></td><td  class="angle" angle=135 ><img src="img/md-png/48/ic_accessibility_48.png" /></td></tr>
+				<tr><td  class="angle" angle=180 ><img src="img/md-png/48/ic_accessibility_48.png" /></td><td  class="angle" angle=225 ><img src="img/md-png/48/ic_accessibility_48.png" /></td><td  class="angle" angle=270 ><img src="img/md-png/48/ic_accessibility_48.png" /></td><td  class="angle" angle=315 ><img src="img/md-png/48/ic_accessibility_48.png" /></td></tr>
+			</table>
+		</div>
+	</div>
+	
+	<script>
+		$('#rotate-button-wrapper').find('.angle').each( function() {
+			for( var idx in	app.settings.keysInLayout){
+				var rotateAngle = $(this).attr('angle');
+				$(this).find('img').css( app.settings.keysInLayout[idx] + 'transform', 'rotate(' + rotateAngle  + 'deg)');
+			}
+		});
+	</script>

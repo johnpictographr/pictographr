@@ -1,0 +1,365 @@
+<div  id="fb-root" >
+</div>
+<style>
+.load-bar {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background-color: #A6D6FC;
+	z-index:99999999999;
+	display:none;
+}
+.bar {
+  content: "";
+  display: inline;
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 50%;
+  text-align: center;
+}
+.bar:nth-child(1) {
+  background-color: #4285F4;
+  animation: loading 3s linear infinite;
+}
+.bar:nth-child(2) {
+  background-color: #FFFFFF;
+  animation: loading 3s linear 1s infinite;
+}
+.bar:nth-child(3) {
+  background-color: #;
+  animation: loading 3s linear 2s infinite;
+}
+@keyframes loading {
+    from {left: 50%; width: 0;z-index:100;}
+    33.3333% {left: 0; width: 100%;z-index: 10;}
+    to {left: 0; width: 100%;}
+}
+</style>
+<div  id="material-load-bar" class="load-bar">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+<div  id="nav-top" class="navbar navbar-default navbar-fixed-top noselect transition1s">
+    <div class="navbar-header">
+        <i  id="left-menu-button" class="navbar-brand mdi-image-dehaze withripple"></i>
+    </div>
+    <div  id="nav-bar-clickables" class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav"  >
+        	<li>
+        		<div  id="fileTitleLabel" >Untitled
+        		</div>
+        		<input   id="fileTitleInput" type="text" value="Untitled" >
+      		</li>
+          <li class="dropdown" >
+              <a href="javascript:void(0)" class="dropdown-toggle withripple text-dropdown" data-toggle="dropdown">File <b class="caret"></b><div class="ripple-wrapper"></div></a>
+              <ul class="dropdown-menu">
+              		<li><a  id="openNew" href="javascript:void(0)">New</a></li>
+									<li class="dropdown-submenu">
+									    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Open</a>
+									    <ul class="dropdown-menu">
+									        <li><a   id="openFiles" href="javascript:void(0)">File</a></li>
+									        <li><a   class="openPictographrTemplates" href="javascript:void(0)">Templates</a></li>
+									        <li><a id="openFromDesktop" href="javascript:void(0)">From Desktop</a></li>
+									        <li><a   style='display:none'   id="openTemplates" href="javascript:void(0)">Templates</a></li>
+									    </ul>
+									</li>
+									<li class="dropdown-submenu">
+									    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Save</a>
+									    <ul class="dropdown-menu">
+									        <li><a  id="fileSave" href="javascript:void(0)">File&nbsp;&nbsp;<small>(Ctrl+S)</small></a></li>
+									        <li   style='display:none'  ><a  id="saveAsTemplate" href="javascript:void(0)">As Template</a></li>
+									        <li><a  id="saveAsNew" href="javascript:void(0)">As New File</a></li>
+									        <li><a  id="saveToDesktop" href="javascript:void(0)">To Desktop</a></li>
+									    </ul>
+									</li>
+									<li><a  id="renderAsPng"  class="renderPNG" href="javascript:void(0)">Render Image</a></li>
+									<li><a  id="filePrint" href="javascript:void(0)">Print PDF</a></li>
+									<li style='display: none'  ><a  id="save4template" href="javascript:void(0)">Save4template</a></li>
+                  <li style='display: none'  ><a  id="fileDelete" href="javascript:void(0)">Delete</a></li>
+                  <li style='display: none'  ><a  id="fileShare" href="javascript:void(0)">Share</a></li>
+                  <li style='display: none'  ><a href="javascript:void(0)">Name</a></li>
+	             
+                  
+                  <!--
+                  <li class="divider"></li>  
+                  <li><a href="javascript:void(0)">Setup</a></li>  -->
+              </ul>
+          </li>
+          <li class="dropdown" >
+              <a href="javascript:void(0)" class="dropdown-toggle withripple text-dropdown" data-toggle="dropdown">Edit<b class="caret"></b><div class="ripple-wrapper"></div></a>
+              <ul class="dropdown-menu">
+              		<li><a  id="undoLink" href="javascript:void(0)">Undo&nbsp;&nbsp;<small>(Ctrl+Z)</small></a></li>
+              		<li><a  id="redoLink" href="javascript:void(0)">Redo&nbsp;&nbsp;<small>(Ctrl+Y)</small></a></li>
+              		<li><a  id="selectAll" href="javascript:void(0)">Select All&nbsp;&nbsp;<small>(Ctrl+A)</small></a></li>
+
+              </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+<!--  style='display:none'     -->
+						<li data-toggle="tooltip"  title="New File" >
+							<i  id="newFileButton" class="mdi-editor-insert-drive-file"></i>
+						</li>
+						<li data-toggle="tooltip"  title="Open Files" >
+							<i  id="openOldFileButton" class="mdi-file-folder-open withripple"></i>
+						</li>									
+						<li data-toggle="tooltip"  title="Open Templates" >
+							<i  class="openPictographrTemplates mdi-action-assignment withripple"></i>
+						</li>		
+						<li  id="shareLi" data-toggle="tooltip"  title="Share" >
+							<i  id="shareButton" class="mdi-social-share withripple"></i>
+							<ul class="bubble transition2sLinear" id="shareBubble">
+							</ul>
+						</li>
+
+						<!--<li ><i  id="lockButton1" class="mdi-action-lock-open withripple groupyeffect"></i></li>  -->  
+
+						<li  data-toggle="tooltip"  title="Take Image from the Web"  ><i  id="imageDownloadByUrlButton" collection="web" class="mdi-file-cloud-download withripple"></i></li>
+
+        		<li    style='display: none'  ><i  id="openButton" class="mdi-action-open-in-browser withripple"></i></li>
+						<li   data-toggle="tooltip"  title="Grid" ><i id="gridButton" class="mdi-editor-border-clear withripple groupyeffect"></i></li>
+        		<li  data-toggle="tooltip"  title="Render Image" >
+							<i id="imgButton" class="mdi-image-image withripple"  ></i>
+							<ul class="bubble" id="imgBubble">
+								<img  id="imgPic" src="https://placehold.it/300x250" />
+							</ul>
+        		</li>
+						<li  data-toggle="tooltip"  title="Align Elements" >
+								<i id="alignGroupedElementsButton" class="mdi-action-open-with withripple groupyeffect"  ></i>
+								<ul class="bubble transition2s" id="alignGroupedElementsBubble">
+									<img how="alignLeft" src="img/md-png/48/ic_vertical_align_top_48.png" style="transform: rotate(270deg);-webkit-transform: rotate(270deg);-moz-transform: rotate(270deg)"  />
+									<img how="alignLeftRightCenter" src="img/md-png/48/ic_vertical_align_center_48.png"  style="transform: rotate(90deg);-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg)"  />
+									<img how="alignRight" src="img/md-png/48/ic_vertical_align_top_48.png"  style="transform: rotate(90deg);-moz-transform: rotate(90deg);-webkit-transform: rotate(90deg)" />
+									<img how="alignTop" src="img/md-png/48/ic_vertical_align_top_48.png" />
+									<img how="alignTopBottomCenter" src="img/md-png/48/ic_vertical_align_center_48.png" class=" withripple" />
+									<img how="alignBottom" src="img/md-png/48/ic_vertical_align_bottom_48.png" />
+									<img how="centerCenter" src="img/md-png/48/ic_filter_center_focus_48.png" />
+									<img how="distributeHorizontally" src="img/md-png/48/ic_more_horiz_48.png" />
+									<img how="distributeVertically" src="img/md-png/48/ic_more_vert_48.png" />
+									<img how="allAsWide"  class="allas" src="img/allsame.png" />
+									<img how="allAsLong"  class="allas" src="img/allsame.png" />
+								</ul>
+						</li>
+            <li  data-toggle="tooltip"  title="Undo" ><i  id="undoButton" class="mdi-content-undo withripple"></i></li>
+            <li  data-toggle="tooltip"  title="Redo" ><i  id="redoButton" class="mdi-content-redo withripple"></i></li>
+        		<li data-toggle="tooltip"  title="Unlock Elements" >
+        			<i  id="lock2Button" class="mdi-action-lock-open withripple groupyeffect"></i>
+							<ul class="bubble transition2sLinear" id="lock2Bubble">
+								<div  id="locked-group-container" ></div>
+							</ul>
+        		</li>
+						<li style='display: block'    data-toggle="tooltip"  title="Preview"  data-placement="bottom" ><i  id="htmlButton" class="mdi-action-settings-overscan withripple" ></i></li>
+
+            <li  style="display: none"><i  id="clearButton" class="mdi-image-wb-sunny withripple"></i></li>
+            <li  data-toggle="tooltip"  title="Page Size" >
+            	<i  id="pagesizeButton" class="mdi-editor-border-style withripple"></i>
+							<ul class="bubble transition2s" id="pagesizeBubble">
+								<form id="pageSizeForm" class="form-inline" role="form">
+								  <div class="form-group noselect">
+									  <div class="onerow pageOrientation-row">
+									  	<div class="ot labelSide">
+									  		Layout:
+									  	</div>
+									  	<div class="tt">
+												<div class="radio">
+												  <label>
+												    <input type="radio" name="page-orientation" value="portrait" >
+												    <span  class="label-radio">Portrait</span>
+												  </label>
+												</div>
+												<div class="radio">
+												  <label>
+												    <input type="radio" name="page-orientation" value="landscape">
+												    <span  class="label-radio">Landscape</span>
+												  </label>
+												</div> 
+									  	</div>
+									  </div>
+								  	<div  class="onerow">
+								  		<div  class="ot labelSide">
+								  			Page Size:
+								  		</div>
+								  		<div  class="tt">
+												<div class="radio">
+												  <label>
+												    <input type="radio" name="page-size" value="letter" >
+												    <span  class="label-radio">Letter</span>
+												  </label>
+												</div>
+												<div class="radio">
+												  <label>
+												    <input type="radio" name="page-size" value="legal">
+												    <span  class="label-radio">Legal</span>
+												  </label>
+												</div> 
+								  		</div>
+								  	</div>
+
+								  	<div class="onerow"  >
+								  		<div  class="ot labelSide">
+								  			Facebook:
+								  		</div>
+								  		<div  class="tt">
+												<div class="radio">
+												  <label>
+												    <input type="radio" name="facebook" value="post" >
+												    <span  class="label-radio">Post</span>
+												  </label>
+												</div>
+												<div class="radio">
+												  <label>
+												    <input type="radio" name="facebook" value="picture">
+												    <span  class="label-radio">Picture</span>
+												  </label>
+												</div>
+												<div class="radio">
+												  <label>
+												    <input type="radio" name="facebook" value="cover">
+												    <span  class="label-radio">Cover</span>
+												  </label>
+												</div>
+								  		</div>
+								  	</div>
+								  	<div class="onerow"     style="height: 7px; margin-top: 52px;"  >
+								  		<div  class="ot labelSide">
+								  			Twitter:
+								  		</div>
+								  		<div  class="tt">
+												<div class="radio">
+												  <label>
+												    <input type="radio" name="twitter" value="post" >
+												    <span  class="label-radio">Post</span>
+												  </label>
+												</div>
+								  		</div>
+								  	</div>
+								  	<div class="onerow" style="margin-bottom: 0px;"  >
+								  		<div  class="ot labelSide">
+								  			Custom:
+								  		</div>
+								  		<div  class="tt">
+												<div class="radio">
+												  <label>
+												  	<input type="radio" name="custom" value="custom" >
+												    <span  class="label-radio"><input  id="custom-pagesize" type="text" class="" placeholder="300x250" value="300x250"   style="padding:3px;width: 68px;top: -5px; position: relative;"  ></span>
+												  </label>
+												</div>
+												
+								  		</div>
+								  	</div>
+								  	<div class="onerow"     style="height: 20px; margin-top: 10px;"   >
+								  		<div   style='text-align:center;'  >
+								  			<a   style=' cursor:pointer'  id="more-page-formats" >More</a>
+								  		</div>
+								  	</div>
+									</div>
+								</form>	
+							</ul>
+            </li>
+						<li  style='display: none'     data-toggle="tooltip"  title="Print" >
+        			<i  id="print2Button" class="mdi-action-print withripple groupyeffect"></i>
+							<ul class="bubble transition2sLinear" id="print2Bubble">
+								<div  id="print-container" ></div>
+							</ul>
+						</li>
+            <li  data-toggle="tooltip"  title="Save" >
+            	<i  id="saveButton" class="mdi-content-save withripple"></i>
+            	<!-- 
+							<ul class="bubble" id="saveBubble">
+								test
+							</ul> 
+							-->
+            </li>
+
+
+						<!--
+						<li><i  id="trashButton" class="mdi-action-delete withripple groupyeffect"></i></li>
+						<li><i  id="cloneButton" class="mdi-content-content-copy withripple groupyeffect"></i></li>
+						<li><i  id="lockButton" class="mdi-action-lock-open withripple groupyeffect"></i></li>  
+						-->
+
+            <li  id="myaccountli"  data-toggle="tooltip"  title="Settings"   class="dropdown"  >
+								<a id="meLink" href="javascript:void(0)" class="dropdown-toggle withripple" data-toggle="dropdown">
+									<i  id="meIcon" class="mdi-action-account-circle " >
+									</i>
+									<b class="caret">
+									</b>
+									<div class="ripple-wrapper">
+									</div>
+								</a>
+                <ul class="dropdown-menu" >
+                    <li><a href="javascript:void(0)" id="welcomeLink" >Welcome</a></li>
+                    <li><a href="javascript:void(0)" id="accountLink" >My Account Settings</a></li>
+                    <!-- 
+                    <li><a href="javascript:void(0)" id="educationLink" >Education Accounts</a></li>
+                    <li   style='display: none'  ><a href="javascript:void(0)" id="preferencesLink" >Promotional Preferences</a></li>
+                     -->
+                    <li   style='display: none'  ><a href="javascript:void(0)" id="showMeLink" >Show Me How Videos</a></li>
+                    <li   style='display: none'  ><a href="javascript:void(0)" id="faqLink" >Frequently Asked Questions</a></li>
+                    <li  id="addon-li" ><a target="_blank" href="https://sites.google.com/a/pictographr.com/support/integrations" >Add-ons</a></li>
+                    <li><a target="_blank" href="http://support.pictographr.com" id="supportUsLink" >Support Documentation</a></li>
+                    <li><a target="_blank" href="https://sites.google.com/a/pictographr.com/support/contactus" id="contactUsLink" >Contact Pictographr</a></li>
+                    <li><a href=""  id="logout" >Logout</a></li>
+                    <li   style='display: none'  ><a href="javascript:void(0)">Another action</a></li>
+                    <li   style='display: none'  ><a href="javascript:void(0)">Something else here</a></li>
+                    <li   style='display: none'   class="divider"></li>
+                    <li   style='display: none'  ><a href="javascript:void(0)">Separated link</a></li>
+                </ul>
+            </li>
+						<li data-toggle="tooltip"  title="test"   style='width:30px'  ></li>
+
+        </ul>
+    </div>
+</div>
+<div  id="mprogress-bar" >
+</div>
+<div  id="left-menu"  class="transition3s noselect ">
+  <div  id="collapse-card-container" >
+	</div>	
+</div>
+<div  class="resize-container" >
+	<div><a  id="resize-zoomback" class="btn btn-danger btn-fab btn-raised mdi-action-search withripple"><div class="ripple-wrapper"></div></a>
+	</div>
+	<div><a  id="resize-larger" class="btn btn-danger btn-fab btn-raised mdi-content-add withripple"><div class="ripple-wrapper"></div></a>
+	</div>
+	<div><a id="resize-smaller" class="btn btn-danger btn-fab btn-raised mdi-content-remove withripple"><div class="ripple-wrapper"></div></a>
+	</div>
+</div>
+<div  id="edit-box" >
+</div>
+<div  id="debug" >
+</div>
+<div  id="groupy"  class="disappear">
+	<div  id="rotate-wrapper" >
+		<div  class="custom-handle rotate-handle"></div>
+		<div  class="custom-handle zoom-handle"></div>
+		<div  class="custom-handle delete-handle"></div>
+		<div  class="custom-handle edit-handle"></div>
+		<div  class="custom-handle clone-handle"></div>		
+	</div>
+
+</div>
+<div id="load-screen">
+	<div class="spinner2">
+	  <div class="dot1"></div>
+	  <div class="dot2"></div>
+	</div>
+</div>
+
+<div id="modal-screen">
+	<div  id="modal-box" >
+	</div>
+</div>
+<div  id="color-wheel-container" >
+	<div  class="one"> 
+	</div>
+	<div  class="two">
+	</div>
+</div>
+<div id="blur-screen"></div>
+<div style="display:none">
+<input id="uploadFile" type="file" onchange='tools.readFile(this)' />	
+</div>
+<iframe  id="logout_iframe" src="" style="visibility: hidden; width:0;height:0;border:0; border:none;"></iframe>

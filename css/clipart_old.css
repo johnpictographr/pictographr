@@ -1,0 +1,395 @@
+.clipartDiv{
+position:absolute;
+left:0px;
+right:0px;
+top:0px;
+bottom:0px;	
+border-width: 1px;
+box-sizing: content-box;
+-webkit-box-sizing: content-box;
+}
+.clipartDiv:after{
+box-sizing: content-box;
+-webkit-box-sizing: content-box;
+}
+.clipartDiv:before{
+box-sizing: content-box;
+-webkit-box-sizing: content-box;
+}
+.clipartDiv.topBorder{
+border-top: 2px solid black;
+}
+.clipartDiv.bottomBorder{
+border-bottom: 2px solid black;
+}
+.clipartDiv.leftBorder{
+border-left: 2px solid black;
+}
+.clipartDiv.rightBorder{
+border-right: 2px solid black;
+}
+
+.clipartDiv.noAfter:after{
+display:none;
+}
+.clipartDiv.noBefore:before{
+display:none;
+}
+
+.zag_wrapper{
+position:absolute;
+top:10px;
+right:10px;
+bottom:10px;
+left:10px;
+}
+
+.zag_wrapper.arrow{
+top: 12px;
+bottom: 12px;
+}
+.zag_wrapper.arrow.right{
+right: 15px;
+}
+.zag_wrapper.arrow.left{
+left: 15px;
+}
+.zag_wrapper.circle{
+top: 15px;
+bottom: 15px;
+}
+.zag_wrapper.circle.right{
+right: 28px;
+}
+.zag_wrapper.circle.left{
+left: 28px;
+}
+
+.clipartDiv.zagA{
+right: 50%;
+border-right: 2px solid black;
+}
+
+.clipartDiv.zagB{
+left: 50%;
+}
+
+.clipartDiv.angle:before,
+.clipartDiv.angle:after,
+.clipartDiv.zagA:before,
+.clipartDiv.zagB:after{
+content: "";
+position: absolute;	
+}
+
+/****************** ARROW **************/
+
+.clipartDiv.arrow:before,
+.clipartDiv.arrow:after{
+border: solid transparent;
+pointer-events: none;
+border-color: rgba(136, 183, 213, 0);
+border-width: 8px;
+}
+/*
+.clipartDiv.arrow.nobeforeHorizontalArrow:before{
+display:none;	
+}
+.clipartDiv.arrow.noafterHorizontalArrow:after{
+display:none;	
+}
+*/
+.clipartDiv.arrow.bottom:before,
+.clipartDiv.arrow.bottom:after{
+bottom: -9px;
+}
+.clipartDiv.arrow.top:before,
+.clipartDiv.arrow.top:after{
+top: -9px;
+}
+
+.clipartDiv.arrow:before{
+border-right-color: inherit;
+right: 100%;
+}
+.clipartDiv.arrow:after{
+border-left-color: inherit;
+left: 100%;
+}
+
+/****************** CIRCLE **************/
+
+.clipartDiv.circle.left:before,
+.clipartDiv.circle.right:after{
+border: 2px solid;
+border-radius: 50%;
+display: inline-block;
+width: 20px;
+height: 20px;	
+}
+
+.clipartDiv.zagA.circle.bottom:before,
+.clipartDiv.zagB.circle.bottom:after,
+.clipartDiv.angle.circle.bottom:not(.pole):before,
+.clipartDiv.angle.circle.bottom:not(.pole):after{
+bottom: -11px;
+}
+.clipartDiv.zagA.circle.top:before,
+.clipartDiv.zagB.circle.top:after,
+.clipartDiv.angle.circle.top:before,
+.clipartDiv.angle.circle.top:after{
+top: -13px;
+}
+
+.clipartDiv.angle.circle.top.pole:before,
+.clipartDiv.angle.circle.top.pole:after{
+top: -24px;
+}
+.clipartDiv.angle.circle.bottom.pole:before,
+.clipartDiv.angle.circle.bottom.pole:not(.both):after{
+bottom: -24px;
+}
+.clipartDiv.angle.left.circle:not(.ne):not(.nw):not(.se):not(.sw):not(.pole):before,
+.clipartDiv.zagA.left.circle:before{
+right: 100%;
+}
+.clipartDiv.angle.right.circle:not(.ne):not(.nw):not(.se):not(.sw):not(.pole):after,
+.clipartDiv.zagB.right.circle:after{
+left: 100%;
+}
+.clipartDiv.angle.circle.left.pole:before{
+left: -13px;
+}
+.clipartDiv.angle.circle.right.pole:after{
+right: -13px;
+}
+.clipartDiv.angle.circle.right.bottom.pole:after{
+bottom: -24px;
+}
+
+.clipartDiv.angle.circle.ne:before{
+top: -13px;
+left: -24px;
+}
+.clipartDiv.angle.circle.ne:after{
+bottom: -24px;
+right: -13px;
+}
+.clipartDiv.angle.circle.se:before{
+bottom: -13px;
+left: -24px;
+}
+.clipartDiv.angle.circle.se:after{
+top: -24px;
+right: -13px;
+}
+.clipartDiv.angle.circle.nw:before{
+left: -13px;
+bottom: -24px;
+}
+.clipartDiv.angle.circle.nw:after{
+right: -24px;
+top: -13px;
+}
+.clipartDiv.angle.circle.sw:before{
+top: -24px;
+left: -13px;
+}
+.clipartDiv.angle.circle.sw:after{
+bottom: -13px;
+right: -24px;
+}
+/****************** SMALL CIRCLE **************/
+
+.clipartDiv.circle.small:before,
+.clipartDiv.circle.small:after{
+width: 10px;
+height: 10px;		
+}
+.clipartDiv.zagA.small.circle.top:before,
+.clipartDiv.zagB.small.circle.top:after,
+.clipartDiv.angle.small.circle.top:not(.pole):before,
+.clipartDiv.angle.small.circle.top:not(.pole):after{
+top: -8px;
+}
+.clipartDiv.zagA.small.circle.bottom:before,
+.clipartDiv.zagB.small.circle.bottom:after,
+.clipartDiv.angle.small.circle.bottom:not(.pole):before,
+.clipartDiv.angle.small.circle.bottom:not(.pole):after{
+bottom: -8px;
+}
+.clipartDiv.angle.small.circle.top.pole:before,
+.clipartDiv.angle.small.circle.top.pole:after{
+top: -14px;
+}
+.clipartDiv.angle.small.circle.left.pole:before{
+left: -8px;
+}
+
+.clipartDiv.angle.small.circle.right.pole:after{
+right: -8px;
+}
+.clipartDiv.angle.small.circle.bottom.pole:before,
+.clipartDiv.angle.small.circle.bottom.pole:not(.both):after{
+bottom: -14px;
+}
+
+
+.clipartDiv.angle.small.circle.ne:before{
+top: -8px;
+left: -14px;
+}
+
+.clipartDiv.angle.small.circle.ne:after {
+bottom: -14px;
+right: -8px;
+}
+.clipartDiv.angle.small.circle.se:before {
+bottom: -8px;
+left: -14px;
+}
+
+.clipartDiv.angle.small.circle.se:after {
+top: -14px;
+right: -8px;
+}
+
+.clipartDiv.angle.small.circle.nw:before {
+left: -8px;
+bottom: -14px;
+}
+
+.clipartDiv.angle.small.circle.nw:after {
+right: -14px;
+top: -8px;
+}
+
+.clipartDiv.angle.small.circle.sw:before {
+top: -14px;
+left: -8px;
+}
+.clipartDiv.angle.small.circle.sw:after {
+bottom: -8px;
+right: -14px;
+}
+
+
+/****************** ARROW **************/
+.clipartDiv.angle.upArrow:before,
+.clipartDiv.angle.upArrow:after{
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-bottom: 10px solid black;
+top: -10px;
+}
+
+.clipartDiv.angle.downArrow:before,
+.clipartDiv.angle.downArrow:after{
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-top: 10px solid black;
+bottom: -10px;
+}
+
+.clipartDiv.angle.right.upArrow:after,
+.clipartDiv.angle.right.downArrow:after{
+right: -7px;	
+}
+.clipartDiv.angle.left.upArrow:before,
+.clipartDiv.angle.left.downArrow:before{
+left: -7px;
+}
+.clipartDiv.angle.arrow.bottom:not(.pole):before,
+.clipartDiv.angle.arrow.bottom:not(.pole):after{
+bottom: -9px;
+}
+.clipartDiv.angle.arrow.top:before,
+.clipartDiv.angle.arrow.top:after{
+top: -9px;
+}
+/*
+.clipartDiv.angle.dualarrow.ne:before{
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent;
+border-right: 10px solid black;
+left: -10px;
+top: -7px;
+}
+.clipartDiv.angle.dualarrow.ne:after{
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-top: 9px solid black;
+bottom: -9px;
+right: -7px;
+}
+*/
+.clipartDiv.dualarrow::before,
+.clipartDiv.dualarrow::after{
+content: url(../img/arrow.svg);
+width: 13px;
+}
+
+.clipartDiv.angle.dualarrow.ne::before{
+left: -10px;
+top: -10px;
+}
+
+.clipartDiv.angle.dualarrow.ne:after{
+right: -9px;
+bottom: -15px;
+transform: rotate(270deg); 
+}
+
+.clipartDiv.angle.dualarrow.sw:before{
+left: -9px;
+top: -10px;
+transform: rotate(90deg);
+}
+.clipartDiv.angle.dualarrow.sw:after{
+right: -9px;
+bottom: -10px;
+transform: rotate(180deg);
+}
+
+.clipartDiv.angle.dualarrow.se:before{
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent;
+border-right: 10px solid black;
+left: -10px;
+bottom: -7px;
+}
+.clipartDiv.angle.dualarrow.se:after{
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-bottom: 10px solid black;
+top: -9px;
+right: -7px;
+}
+.clipartDiv.angle.dualarrow.nw:before{
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-top: 10px solid black;
+bottom: -10px;
+left: -7px;
+}
+.clipartDiv.angle.dualarrow.nw:after{
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent;
+border-left: 10px solid black;
+right: -10px;
+top: -7px;
+}/*
+.clipartDiv.angle.dualarrow.sw:before{
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-bottom: 10px solid black;
+top: -10px;
+left: -7px;
+}
+.clipartDiv.angle.dualarrow.sw:after{
+border-top: 6px solid transparent;
+border-bottom: 6px solid transparent;
+border-left: 10px solid black;
+right: -10px;
+bottom: -7px;
+}*/

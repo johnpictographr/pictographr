@@ -1,0 +1,55 @@
+.clipartDiv{
+position:absolute;
+left:0px;
+right:0px;
+top:0px;
+bottom:0px;	
+border-width: 1px;
+box-sizing: content-box;
+-webkit-box-sizing: content-box;
+}
+.clipartDiv:after{
+box-sizing: content-box;
+-webkit-box-sizing: content-box;
+}
+.clipartDiv:before{
+box-sizing: content-box;
+-webkit-box-sizing: content-box;
+}
+.clipartDiv.topBorder{
+border-top: 2px solid black;
+}
+.clipartDiv.bottomBorder{
+border-bottom: 2px solid black;
+}
+.clipartDiv.leftBorder{
+border-left: 2px solid black;
+}
+.clipartDiv.rightBorder{
+border-right: 2px solid black;
+}
+
+.clipartDiv.noAfter:after{
+display:none;
+}
+.clipartDiv.noBefore:before{
+display:none;
+}
+
+.zag_wrapper{
+position:absolute;
+top:10px;
+right:10px;
+bottom:10px;
+left:10px;
+}
+
+
+.clipartDiv.zagA{
+right: 50%;
+border-right: 2px solid black;
+}
+
+.clipartDiv.zagB{
+left: 50%;
+}

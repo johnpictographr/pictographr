@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+  <Id>678f8c7b-da2d-49d6-a441-750e29b134aa</Id>
+  <Version>1.0.0.1</Version>
+  <ProviderName>Pictographr</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Pictographr for Office" />
+  <Description DefaultValue="Insert your design into your Office document or launch new window to edit it."/>
+  
+  <IconUrl DefaultValue="https://pictographr.com/favicons/favicon-32x32.png" />
+ 	<SupportUrl DefaultValue="https://sites.google.com/a/pictographr.com/support" />
+  <Hosts>
+  	<Host Name="Presentation" />
+    <Host Name="Workbook" />
+    <Host Name="Document"/>
+    <Host Name="Notebook"/>
+  </Hosts>
+	<Requirements>
+		<Sets DefaultMinVersion="1.1">
+		  <Set Name="ImageCoercion"/>
+		</Sets>
+		<Methods>
+			<Method Name="Document.getSelectedDataAsync"/>
+		</Methods>
+	</Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://pictographr.com/partners/office/add-in/home.html" />
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <!-- Optional, override the description of the Add-in -->
+    <Description resid="residToolTip" />
+    <!--Required, hosts node. Each host can have a different set of commands -->
+    <Hosts>
+      <!--Specific host. Workbook=Excel, Document=Word, Presentation=PowerPoint -->
+      <Host xsi:type="Presentation">
+        <!-- Form factor. Currenly only DesktopFormFactor is supported. We will add TabletFormFactor and PhoneFormFactor in the future-->
+        <DesktopFormFactor>
+          <!--GetStarted information used on the callout that appears when installing the add-in. 
+            Ensure you have build 16.0.6769 or above for GetStarted section to work-->
+          <GetStarted>
+						<!--Title of the Getting Started callout. resid points to a ShortString resource -->
+						<Title resid="Pictoinc.GetStarted.Title"/>
+						
+						<!--Description of the Getting Started callout. resid points to a LongString resource -->
+						<Description resid="Pictoinc.GetStarted.Description"/>
+						
+						<!--Not used right now but you need to provide a valid resource. We will add code in the future to consume this URL. 
+							resid points to a Url resource -->
+						<LearnMoreUrl resid="Pictoinc.GetStarted.LearnMoreUrl"/>
+					</GetStarted>
+          
+           <!--Function file is an html page that includes the javascript where functions for ExecuteAction will be called. 
+            Think of the FunctionFile as the "code behind" ExecuteFunction 
+            This sample doesn't use this file, just adding the element for reference-->
+          <FunctionFile resid="residDesktopFuncUrl" />
+          
+          <!--PrimaryCommandSurface==Main Office Ribbon-->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            
+            <!--Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab -->
+            <!-- Documentation includes all the IDs currently tested to work -->
+            <OfficeTab id="TabInsert">
+               <!--Group. Ensure you provide a unique id. Recommendation for any IDs is to namespace using your companyname-->
+              <Group id="Pictoinc.Image.Group1Id1">
+                <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="residLabel4" />
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                <Icon>
+                  <bt:Image size="16" resid="icon1_16x16" />
+                  <bt:Image size="32" resid="icon1_32x32" />
+                  <bt:Image size="80" resid="icon1_80x80" />
+                </Icon>
+                 <!--Control. It can be of type "Button" or "Menu" -->
+                <Control xsi:type="Button" id="Button3Id1">
+                  <!--Label for your button. resid must point to a ShortString resource -->
+                  <Label resid="residLabel3" />
+                  <Supertip>
+                    <!--ToolTip title. resid must point to a ShortString resource -->
+                    <Title resid="residLabel3" />
+                     <!--ToolTip description. resid must point to a LongString resource -->
+                    <Description resid="residToolTip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon1_16x16" />
+                    <bt:Image size="32" resid="icon1_32x32" />
+                    <bt:Image size="80" resid="icon1_80x80" />
+                  </Icon>
+                  <!--This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFuncion or ShowTaskpane-->
+                  <Action xsi:type="ShowTaskpane">
+                    <!--Provide a url resource id for the location that will be displayed on the taskpane -->
+                    <SourceLocation resid="residImageHomeUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+		 </DesktopFormFactor>
+      </Host>
+      <Host xsi:type="Workbook">
+        <!-- Form factor. Currenly only DesktopFormFactor is supported. We will add TabletFormFactor and PhoneFormFactor in the future-->
+        <DesktopFormFactor>
+          <!--GetStarted information used on the callout that appears when installing the add-in. 
+            Ensure you have build 16.0.6769 or above for GetStarted section to work-->
+          <GetStarted>
+						<!--Title of the Getting Started callout. resid points to a ShortString resource -->
+						<Title resid="Pictoinc.GetStarted.Title"/>
+						
+						<!--Description of the Getting Started callout. resid points to a LongString resource -->
+						<Description resid="Pictoinc.GetStarted.Description"/>
+						
+						<!--Not used right now but you need to provide a valid resource. We will add code in the future to consume this URL. 
+							resid points to a Url resource -->
+						<LearnMoreUrl resid="Pictoinc.GetStarted.LearnMoreUrl"/>
+					</GetStarted>
+          
+           <!--Function file is an html page that includes the javascript where functions for ExecuteAction will be called. 
+            Think of the FunctionFile as the "code behind" ExecuteFunction 
+            This sample doesn't use this file, just adding the element for reference-->
+          
+          <!--PrimaryCommandSurface==Main Office Ribbon-->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            
+            <!--Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab -->
+            <!-- Documentation includes all the IDs currently tested to work -->
+            <OfficeTab id="TabInsert">
+               <!--Group. Ensure you provide a unique id. Recommendation for any IDs is to namespace using your companyname-->
+              <Group id="Pictoinc.Image.Group1Id1">
+                <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="residLabel4" />
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                <Icon>
+                  <bt:Image size="16" resid="icon1_16x16" />
+                  <bt:Image size="32" resid="icon1_32x32" />
+                  <bt:Image size="80" resid="icon1_80x80" />
+                </Icon>
+                 <!--Control. It can be of type "Button" or "Menu" -->
+                <Control xsi:type="Button" id="Button3Id1">
+                  <!--Label for your button. resid must point to a ShortString resource -->
+                  <Label resid="residLabel3" />
+                  <Supertip>
+                    <!--ToolTip title. resid must point to a ShortString resource -->
+                    <Title resid="residLabel3" />
+                     <!--ToolTip description. resid must point to a LongString resource -->
+                    <Description resid="residToolTip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon1_16x16" />
+                    <bt:Image size="32" resid="icon1_32x32" />
+                    <bt:Image size="80" resid="icon1_80x80" />
+                  </Icon>
+                  <!--This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFuncion or ShowTaskpane-->
+                  <Action xsi:type="ShowTaskpane">
+                    <!--Provide a url resource id for the location that will be displayed on the taskpane -->
+                    <SourceLocation resid="residImageHomeUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+		 </DesktopFormFactor>
+      </Host>
+      <Host xsi:type="Document">
+        <!-- Form factor. Currenly only DesktopFormFactor is supported. We will add TabletFormFactor and PhoneFormFactor in the future-->
+        <DesktopFormFactor>
+          <!--GetStarted information used on the callout that appears when installing the add-in. 
+            Ensure you have build 16.0.6769 or above for GetStarted section to work-->
+          <GetStarted>
+						<!--Title of the Getting Started callout. resid points to a ShortString resource -->
+						<Title resid="Pictoinc.GetStarted.Title"/>
+						
+						<!--Description of the Getting Started callout. resid points to a LongString resource -->
+						<Description resid="Pictoinc.GetStarted.Description"/>
+						
+						<!--Not used right now but you need to provide a valid resource. We will add code in the future to consume this URL. 
+							resid points to a Url resource -->
+						<LearnMoreUrl resid="Pictoinc.GetStarted.LearnMoreUrl"/>
+					</GetStarted>
+          
+           <!--Function file is an html page that includes the javascript where functions for ExecuteAction will be called. 
+            Think of the FunctionFile as the "code behind" ExecuteFunction 
+            This sample doesn't use this file, just adding the element for reference-->
+          
+          <!--PrimaryCommandSurface==Main Office Ribbon-->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            
+            <!--Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab -->
+            <!-- Documentation includes all the IDs currently tested to work -->
+            <OfficeTab id="TabInsert">
+               <!--Group. Ensure you provide a unique id. Recommendation for any IDs is to namespace using your companyname-->
+              <Group id="Pictoinc.Image.Group1Id1">
+                <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="residLabel4" />
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                <Icon>
+                  <bt:Image size="16" resid="icon1_16x16" />
+                  <bt:Image size="32" resid="icon1_32x32" />
+                  <bt:Image size="80" resid="icon1_80x80" />
+                </Icon>
+                 <!--Control. It can be of type "Button" or "Menu" -->
+                <Control xsi:type="Button" id="Button3Id1">
+                  <!--Label for your button. resid must point to a ShortString resource -->
+                  <Label resid="residLabel3" />
+                  <Supertip>
+                    <!--ToolTip title. resid must point to a ShortString resource -->
+                    <Title resid="residLabel3" />
+                     <!--ToolTip description. resid must point to a LongString resource -->
+                    <Description resid="residToolTip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon1_16x16" />
+                    <bt:Image size="32" resid="icon1_32x32" />
+                    <bt:Image size="80" resid="icon1_80x80" />
+                  </Icon>
+                  <!--This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFuncion or ShowTaskpane-->
+                  <Action xsi:type="ShowTaskpane">
+                    <!--Provide a url resource id for the location that will be displayed on the taskpane -->
+                    <SourceLocation resid="residImageHomeUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+		 </DesktopFormFactor>
+      </Host>
+      <Host xsi:type="Notebook">
+        <!-- Form factor. Currenly only DesktopFormFactor is supported. We will add TabletFormFactor and PhoneFormFactor in the future-->
+        <DesktopFormFactor>
+          <!--GetStarted information used on the callout that appears when installing the add-in. 
+            Ensure you have build 16.0.6769 or above for GetStarted section to work-->
+          <GetStarted>
+						<!--Title of the Getting Started callout. resid points to a ShortString resource -->
+						<Title resid="Pictoinc.GetStarted.Title"/>
+						
+						<!--Description of the Getting Started callout. resid points to a LongString resource -->
+						<Description resid="Pictoinc.GetStarted.Description"/>
+						
+						<!--Not used right now but you need to provide a valid resource. We will add code in the future to consume this URL. 
+							resid points to a Url resource -->
+						<LearnMoreUrl resid="Pictoinc.GetStarted.LearnMoreUrl"/>
+					</GetStarted>
+          
+           <!--Function file is an html page that includes the javascript where functions for ExecuteAction will be called. 
+            Think of the FunctionFile as the "code behind" ExecuteFunction 
+            This sample doesn't use this file, just adding the element for reference-->
+          
+          <!--PrimaryCommandSurface==Main Office Ribbon-->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            
+            <!--Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab -->
+            <!-- Documentation includes all the IDs currently tested to work -->
+            <OfficeTab id="TabInsert">
+               <!--Group. Ensure you provide a unique id. Recommendation for any IDs is to namespace using your companyname-->
+              <Group id="Pictoinc.Image.Group1Id1">
+                <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="residLabel4" />
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                <Icon>
+                  <bt:Image size="16" resid="icon1_16x16" />
+                  <bt:Image size="32" resid="icon1_32x32" />
+                  <bt:Image size="80" resid="icon1_80x80" />
+                </Icon>
+                 <!--Control. It can be of type "Button" or "Menu" -->
+                <Control xsi:type="Button" id="Button3Id1">
+                  <!--Label for your button. resid must point to a ShortString resource -->
+                  <Label resid="residLabel3" />
+                  <Supertip>
+                    <!--ToolTip title. resid must point to a ShortString resource -->
+                    <Title resid="residLabel3" />
+                     <!--ToolTip description. resid must point to a LongString resource -->
+                    <Description resid="residToolTip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon1_16x16" />
+                    <bt:Image size="32" resid="icon1_32x32" />
+                    <bt:Image size="80" resid="icon1_80x80" />
+                  </Icon>
+                  <!--This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFuncion or ShowTaskpane-->
+                  <Action xsi:type="ShowTaskpane">
+                    <!--Provide a url resource id for the location that will be displayed on the taskpane -->
+                    <SourceLocation resid="residImageHomeUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+		 </DesktopFormFactor>
+      </Host>     
+    </Hosts>
+    <Resources>
+       <bt:Images>
+        <bt:Image id="icon1_16x16" DefaultValue="https://pictographr.com/favicons/favicon-32x32.png">
+          <bt:Override Locale="ja-jp" Value="https://pictographr.com/favicons/favicon-32x32.png" />
+        </bt:Image>
+        <bt:Image id="icon1_32x32" DefaultValue="https://pictographr.com/favicons/favicon-32x32.png">
+          <bt:Override Locale="ja-jp" Value="https://pictographr.com/favicons/favicon-32x32.png" />
+        </bt:Image>
+        <bt:Image id="icon1_80x80" DefaultValue="https://pictographr.com/favicons/favicon-32x32.png">
+          <bt:Override Locale="ja-jp" Value="https://pictographr.com/favicons/favicon-32x32.png" />
+        </bt:Image>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="residDesktopFuncUrl" DefaultValue="https://notusedinthissample">
+          <bt:Override Locale="ja-jp" Value="https://notusedinthissample" />
+        </bt:Url>
+        <bt:Url id="residImageHomeUrl" DefaultValue="https://pictographr.com/partners/office/add-in/home.html">
+        </bt:Url>
+        <!--LearnMore URL currently not used -->
+        <bt:Url id="Pictoinc.GetStarted.LearnMoreUrl" DefaultValue="https://imageaddin.azurewebsites.net/GetStarted.html">
+          </bt:Url>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="residLabel3" DefaultValue="Design Graphics">
+          <bt:Override Locale="ja-jp" Value="JA-JP Design Graphics" />
+        </bt:String>
+        <bt:String id="residLabel4" DefaultValue="Pictographr">
+          <bt:Override Locale="ja-jp" Value="JA-JP Pictographr" />
+        </bt:String>
+         <bt:String id="Pictoinc.GetStarted.Title" DefaultValue="Create professional looking visual content with easy to use tools.">
+          <bt:Override Locale="ja-jp" Value="JA-JP Create professional looking visual content with easy to use tools." />
+        </bt:String>  
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="residToolTip" DefaultValue="Design sophisticated graphics online in an instant.">
+          <bt:Override Locale="ja-jp" Value="JA-JP Multiple Buttons Tooltip" />
+        </bt:String>
+           <bt:String id="Pictoinc.GetStarted.Description" DefaultValue="Design sophisticated graphics online in an instant.  Go to the INSERT tab on the Ribbon then click Pictographr">
+          <bt:Override Locale="ja-jp" Value="JA-JP Get Started Title" />
+        </bt:String>      
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+  <!--EndAddinCommandsMode integration-->
+  
+  </OfficeApp>

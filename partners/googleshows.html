@@ -1,0 +1,147 @@
+<head>
+	<script	src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script>
+		var tools={
+				ajax:	function(	url, arrDataObj, type, callback	)	{
+					$.ajax({
+						url: url + '?v=' + Math.random(),
+						type:	type,
+				    data: {
+				        arrData : arrDataObj
+				    },
+						dataType:'json',
+						success: function(data){
+							callback(data);
+						},
+						error:	function(data){
+							callback(data);
+						},
+						async:false
+					});
+				},
+				cookies: {
+	
+					getCookie: function(name) {
+					  var nameEQ = name + "=";
+					  var ca = document.cookie.split(';');
+					  for(var i=0;i < ca.length;i++) {
+					      var c = ca[i];
+					      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+					      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+					  }
+					  return null;					
+					},
+					
+					setCookie: function(c_name,value,exdays) {
+					  var exdate=new Date();
+					  exdate.setDate(exdate.getDate() + exdays);
+					  var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+					  document.cookie=c_name + "=" + c_value;				
+					},
+					
+					deleteCookie: function(c_name) {
+						document.cookie = c_name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+					},
+					
+					expires: 365,				
+				
+				},
+				urlGet:	function(name) {
+					name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+					var	regexS ="[\\?&]"+name+"=([^&#]*)";
+					var	regex	=	new	RegExp(	regexS );
+					var	results	=	regex.exec(location.href);
+					if(	results	== null	)
+						return false;
+					else
+						return results[1];			
+				},
+				doWhenReady: function( condition, callback, fromWhere ){
+					if( typeof( fromWhere ) != 'undefined'){
+						console.log('from:' + fromWhere);
+					};
+					if( !condition() ){
+						setTimeout(function(){
+							tools.doWhenReady(condition, callback);
+							//console.log('... waiting for ready for: ' + fromWhere);
+						}, 500);
+					}else{
+					  callback();
+					};
+				}
+			},
+	    /************************************************************/
+			base_url = 'https://pictographr.com/',    
+			scopes = [
+				    		'https://www.googleapis.com/auth/drive',
+								'https://www.googleapis.com/auth/drive.file', 
+								'https://www.googleapis.com/auth/drive.install',
+								'https://www.googleapis.com/auth/photos',
+								'https://www.googleapis.com/auth/userinfo.profile',
+								'https://www.googleapis.com/auth/userinfo.email'
+							 ],
+			
+			createGoogleScriptTag = function() {
+				var script = document.createElement('script'),
+						src = 'https://apis.google.com/js/client.js?onload=handleClientLoad';
+				
+				script.setAttribute('src', src);
+				
+				document.head.appendChild(script);
+			},
+			
+			handleClientLoad = function() {	
+	      window.setTimeout(checkAuth, 1);
+	    },
+	    
+			checkAuth = function(){
+	      gapi.auth.authorize({
+	        		'client_id': '971250203842-rbjl54u2ui93ccb0b2ctkfkonqvmrnsp.apps.googleusercontent.com', 
+	        		'scope': scopes, 
+	        		'immediate': true
+	          },
+	          handleAuthResult);
+			},
+			
+			google_id = undefined,
+			domain = undefined,
+			
+			handleAuthResult = function(authResult){
+				
+				$('#authResult').html(JSON.stringify( authResult , null, 2 ));
+				
+				gapi.client.load('plus', 'v1', function() {
+	
+				  var request = gapi.client.plus.people.get({
+				      		'userId': 'me'
+				        });
+				        
+					request.execute(function(resp) {
+						
+						$('#plusResp').html(JSON.stringify( resp    , null, 2 ));
+
+	
+					});
+				}); 
+				
+			};
+		createGoogleScriptTag();
+		</script>
+		<style>
+			.theTextarea{
+				width: 500px; 
+				height: 307px; 
+				overflow: scroll;
+				border: 1px solid black;
+				padding: 25px;
+			}
+		</style>
+</head>
+<body>
+	<textarea     class="theTextarea"   id="authResult">
+	</textarea>
+	<div><br /><br />
+	</div>
+	<textarea  id="plusResp"    class="theTextarea"  >
+	</textarea>
+</body>

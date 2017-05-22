@@ -1,0 +1,19 @@
+#nofilesyetImg{
+	right: 65px;
+}
+
+#greet-container {
+    padding-top: 45px;
+}
+
+#carousel-gallery{
+	margin: 10px auto  !important;
+}
+
+#carousel-gallery .owl-buttons{
+	display: none;	
+}
+
+#carousel-gallery .owl-controls {
+    opacity: 1;
+}

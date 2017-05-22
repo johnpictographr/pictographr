@@ -1,0 +1,146 @@
+<div id="accountPickerWrapper"  class="consumerModal accounts"   style="display:none"  >
+		<div  class="close-button-wrapper" >
+			<span class="close-button">x</span>
+		</div>
+		<div  class="modal-title-div">
+			<h3>
+				Account Settings
+			</h3>
+		</div>
+		<div  id="top-message" ></div>
+		<ul class="nav nav-tabs">
+		  <!--<li  class="refer-stuff trial-stuff"><a>Referral</a></li>-->
+		  <li class="trial-stuff"><a>Promos</a></li>
+		  <!--<li class="trial-stuff"><a>Credits</a></li>-->
+		  <li ><a id="link-name-1" >Subscription</a></li>
+		  <li  class="subscription-stuff"><a id="link-name-2" >Subscription</a></li>
+			<div  class="moving-line-wrapper" >
+				<div  class="moving-line">
+				</div>
+			</div>
+		</ul>
+		<div class="account-content">
+			<div  class="account-stretched-wrapper" ><!--  // view-source:http://www.imaputz.com/cssStuff/bigFourVersion.html -->
+				<!-- 
+				<div  id="refer_tab_wrapper"   class="account-tab-panel refer-panel refer-stuff trial-stuff" >
+					<div >
+						Invite friends to join Pictographr.&nbsp;&nbsp;For those that sign-up,&nbsp;&nbsp;receive another week on your trial period.&nbsp;&nbsp;Reach out and get 10 friends to join,&nbsp;&nbsp;receive an entire year for free.&nbsp;&nbsp;Click <a target='_blank' href='https://sites.google.com/a/pictographr.com/support/promotions'>here</a> to learn more about this promotion.&nbsp;&nbsp;Each friend you invite must also have a Gmail account.
+					</div>
+					<div   id="refer_form_wrapper" >
+						<form action="" method="POST" id="referral-form">
+							<div >
+								<input   id="friend-email" class="form-control" type="text" placeholder="friend1@gmail.com, friend2@gmail.com, friend3@gmail.com" value="">	
+							</div>
+							<div>
+								<input   id="setSubject" class="form-control" type="text" placeholder="Subject"  value="Sign up on Pictographr with me.  ">
+							</div>
+							<div>
+								<textarea  id="bodyText" >I found this awesome app for creating graphics with Google Drive. It's great for designing images for school projects, document covers and social media posts.  I get a free week if you sign up with me.  Will you do this?</textarea>
+							</div>
+							<div>
+								<button  id="referral-button" class="btn btn-primary ">Send</button>
+							</div>
+						</form >
+
+					</div>
+				</div> 
+				-->
+				<div   id="promo_tab_wrapper"    class="account-tab-panel trial-stuff">
+					<!--<div  id="promo-top-message" >
+						We have partnered with vendors to distribute promotional codes for extended trial periods.&nbsp;&nbsp;For a list of where to find participating venues, click over to <a id="amabassador_program" target="_blank" href="https://sites.google.com/a/pictographr.com/support/promotions/promo-codes-locations">Pictographr Promotions.</a>
+					</div>-->
+					<form action="" method="POST" id="promo-form">
+					  <div class="form-row">
+					    <label>
+					      <span>Promotion Code</span>&nbsp;&nbsp;
+					      <input  id="promo-code" name="promo_code" type="text" size="7" value="">
+					    </label>
+					  </div>
+					  <div class="form-row">
+					    <button  id="promotion-button" class="btn btn-primary ">Submit</button >	
+					  </div>
+					</form>
+				</div>
+				<!--
+				<div   id="credit_tab_wrapper"    class="account-tab-panel trial-stuff">
+					<div>
+						<table  id="refer-table"  class="scrollTable">
+							<thead  class="fixedHeader">
+								<tr><th>Email</th><th>Redeemed</th><th>Date</th></tr>
+							</thead>
+							<tbody  id=""  class="referral-list scrollContent">
+							</tbody>
+						</table>
+					</div>
+					<div>
+						Requested:&nbsp;<span id="requested-count" ></span>&nbsp;&nbsp;Credited:&nbsp;<span id="credited-count"></span>
+					</div>
+					<div><br />
+					</div>
+					<div>
+						<table  id="promo-table"  class="scrollTable">
+							<thead  class="fixedHeader">
+								<tr><th>Promotion</th><th>Code</th><th>Date</th></tr>
+							</thead>
+							<tbody  id=""  class="promo-list scrollContent">
+							</tbody>
+						</table>
+					</div>
+					<div>
+						Promo Credits:&nbsp;<span id="promo-count" ></span>
+					</div>
+					<div  id="total-credits" >
+						Total Credits:&nbsp;<span id="credit-count" ></span> with week trial&nbsp;&nbsp;&nbsp;&nbsp;Free Days: <span id="adddays-count" ></span>
+					</div>
+				</div>
+				 -->
+				<div id="cc_form_wrapper"  class="account-tab-panel">
+					<form action="" method="POST" id="payment-form"  autocomplete="on" >
+					  <span class="payment-errors"></span>
+					
+						<div ><!--  -->
+							<span  id="cc-title" >Information</span><img  id="addcc"  src="img/allcc.png">
+						</div>
+						<div id="cc-name-wrapper" >
+							<img src="img/glyphicons//png/glyphicons_003_user.png"  class="icon" />
+							<input name="name"  autocomplete="cc-name"  required type="tel" class="form-control empty" placeholder="Full Name"   data-stripe="name"/>
+						</div>
+						<div>
+							<img src="img/glyphicons/png/glyphicons_267_credit_card.png"  class="icon"/>
+							<input  id="cc-number" required type="tel" class="form-control empty  cc-number" placeholder="Credit Card Number" data-stripe="number"/ >
+						</div>
+						<div>
+							<img src="img/glyphicons/png/glyphicons_045_calendar.png"  class="icon"/>
+							<input id="cc-exp" type="tel" class="form-control cc-exp date" autocomplete="cc-exp" placeholder="MM / YYYY" required >
+							<input  id="stripe-card-exp-month" type="hidden" class="hidden_field" data-stripe="exp-month"/ >
+							<input  id="stripe-card-exp-year"  type="hidden" data-stripe="exp-year"/>
+
+							<input id="cc-cvc" type="tel" class="form-control cc-cvc" autocomplete="off" placeholder="CVC" required>
+						</div>
+					  <div id="plan_wrapper">
+					    <label >
+					      <span>Plan&nbsp;&nbsp;&nbsp;</span>
+					     </label>
+					     <span>
+					     	<input type='radio' id='interval_1' name='interval' value='1' />&nbsp;$<span  id="price-monthly" ></span>/month&nbsp;&nbsp;
+					     </span>
+						  <input type='radio' id='interval_2' checked  name='interval' value='2' />&nbsp;$<span  id="price-yearly" ></span>/year
+						  <a href="https://stripe.com/" target="_blank"><img  id="stripesecurebadge" src="img/stripesecurebadge.png"  /></a>
+					  </div>
+						<div  id="cc-button-wrapper"  >
+						  <button id="update-button" type="submit"  whichAction="update" class="btn btn-primary subscription">Update</button>
+						  <button id="subscribe-button" type="submit"  whichAction="subscribe" class="btn btn-primary subscription">Subscribe</button>
+						  <button id="unsubscribe-button" type="button"  whichAction="unsubscribe" class="btn btn-primary subscription">Unsubscribe</button>
+						  <button id="resubscribe-button" type="button"  whichAction="resubscribe" class="btn btn-primary subscription">Resubscribe</button>
+						  <button id="switch-button" type="button"  whichAction="switchPlan" class="btn btn-primary subscription">Switch Plan</button>
+						  
+						</div>		  
+					</form>
+				</div>
+				<div id="subscription_form_wrapper"  class="subscription-stuff account-tab-panel">
+						<div  id="subscription-button-wrapper"  >
+						</div>		  
+
+				</div>
+		</div>
+</div>

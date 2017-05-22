@@ -1,0 +1,38 @@
+		$this->fileTitle = $this->__getPropertiesFromDataPgr('fileTitle' , $this->READ_JSON);
+		$this->parentFolderId = $this->__getPropertiesFromDataPgr('parentFolderId' , $this->READ_JSON);
+		
+		if( !isset($this->copy) && $this->fileId != 'false' && $this->__fileIdExist( $this->fileId )) {
+			
+		  try {
+		  	
+				if( !$this->__isFolderShared( $this->parentFolderId )
+				
+				/*  ||
+				
+						$this->__isFolderShared( $this->parentFolderId &&
+						$this->__getFolderOwnerEmail(  $this->parentFolderId  ) != $this->user_email */
+						
+				){
+						$this->service->files->trash($this->fileId);
+				}
+				
+		  } catch (Exception $e) {
+				$this->server_responseobj['trash_response'] = $e;
+		    
+		  }
+			
+		}
+
+
+			if( $this->parentFolderId == false || 
+					$this->__isFolderShared( $this->parentFolderId ) 
+					&& $this->__getFolderOwnerEmail(  $this->parentFolderId  ) != $this->user_email
+				){
+					
+						$this->__setParentFolder( 'pictographr_folder' );
+				
+			} else{
+				
+						$this->parent = new Google_ParentReference();
+						$this->parent->setId( $this->parentFolderId );
+			}

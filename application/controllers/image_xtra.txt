@@ -1,0 +1,726 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Image extends Base_Controller {
+
+	public function __construct() {
+		parent::__construct();
+	}
+
+	public function index(){   //  localhost/pictographr/html/image
+		echo base_url();
+	}
+	
+	public function yo(){//  localhost/pictographr/html/image/yo?new_width=300&url=http://assets-s3.rollingstone.com/assets/images/album_review/lady-gaga-artpop-1384296044.jpg
+		$max_width = 500;
+		$this->__setGraphicsToolsForm( $this->input->get() );
+		$this->imgUrl = $this->graphics_tools->stripHTTPS($this->imgUrl);
+		$this->binaryString = $this->graphics_tools->curlIntoBinaryString( $this->imgUrl );
+		$this->dim = array(
+			'width' => getimagesizefromstring($this->binaryString)[0],
+			'height' => getimagesizefromstring($this->binaryString)[1]
+		);
+
+		echo '<pre>';print_r( $this->dim );echo '</pre>';  exit;
+	}
+	
+	public function uploadTemplateThumb(){   //  localhost/pictographr/html/image
+		?>
+			<script type="text/javascript" language="Javascript">
+				parent.app.methods.refreshTemplateThumb();
+			</script>
+		<?php 
+	}
+	
+	
+		private function __turnWhitesIntoTransparent($picture){
+			
+			$img_w = imagesx($picture);
+			$img_h = imagesy($picture);
+			
+			$newPicture = imagecreatetruecolor( $img_w, $img_h );
+			imagesavealpha( $newPicture, true );
+			$rgb = imagecolorallocatealpha( $newPicture, 0, 0, 0, 127 );
+			imagefill( $newPicture, 0, 0, $rgb );
+			
+			$color = imagecolorat( $picture, $img_w-1, 1);
+			
+			for( $x = 0; $x < $img_w; $x++ ) {
+			    for( $y = 0; $y < $img_h; $y++ ) {
+			        $c = imagecolorat( $picture, $x, $y );
+			        if($color!=$c){         
+			            imagesetpixel( $newPicture, $x, $y,    $c);             
+			        }           
+			    }
+			}
+			
+			ob_start();  
+				imagepng($newPicture);
+				$rawImg = ob_get_contents();
+				imageDestroy($newPicture); 
+				imagedestroy($picture);
+			ob_end_clean();
+			
+			return $rawImg;
+
+		}
+		
+	public function svgPngHtml(){ //  http://pictographr.com/image/svgPngHtml?url=http://img2.wikia.nocookie.net/__cb20111203090229/havealaugh/images/7/7f/Mickey_Mouse.svg
+		$url = $this->input->get('url');
+		echo "
+			<img src='" . $url . "' />
+		";
+	}
+	
+	public function testBadImage(){ // http://pictographr.com/image/testBadImage?url=
+		
+		
+			$this->__setGraphicsToolsForm();
+
+			$url = $this->input->get('url');
+			$this->google_id = '105870981217629422585';		
+		
+			$urlArr = explode('://', $url);		
+			if($urlArr[0] == 'https'){
+				$url = 'http://' . $urlArr[1];
+			}
+					
+			$urlPar = explode('?', $url);
+			$url = $urlPar[0];
+	
+			$extArr = explode('.', $url);
+			$ext = $extArr[sizeof($extArr)-1];
+			
+			$url = str_replace(" ", "%20", $url);
+			
+			$ch = curl_init ($url);
+		  curl_setopt($ch, CURLOPT_HEADER, 0);
+		  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		  curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
+		  $this->rawImg = curl_exec($ch);
+		  curl_close ($ch);
+
+			if( $ext == 'jpg' || $ext == 'jpeg'){
+				ob_start(); 
+					imagepng(imagecreatefromstring($this->rawImg));
+					$this->rawImg = ob_get_contents(); 
+				ob_end_clean();
+				//$this->rawImg = $this->__turnWhitesIntoTransparent($this->rawImg);
+			}
+
+			$this->google_id = '105870981217629422585';
+			$this->__setFileNames();
+			$this->__removeTempFiles();
+			
+			$this->__shrinkImgFileSize();
+
+		  $this->imgObj = $this->graphics_tools->convertToBase64('false', $this->rawImg);
+
+
+			echo "<textarea  rows='14' cols='50'>".$this->imgObj['base64Data']."</textarea>";
+			
+//			echo "<br /><hr />";
+//			
+//			get_instance()->load->helper('lzstring');
+//			$compressed = $this->lz->compressToBase64($this->imgObj['base64Data']);	
+//			echo "<textarea  rows='14' cols='50'>".$compressed."</textarea>";
+//			
+//			echo "<br /><hr />";	
+			
+	    echo "
+	    	<img src='data:image/png;base64, " . $this->imgObj['base64Data']. "' />
+	    ";
+	    
+	    $this->__removeTempFiles(); 
+	}
+
+	public function getSrcFromThisImage(){ //  http://pictographr.com/image/getSrcFromThisImage?url=http://assets-s3.rollingstone.com/assets/images/album_review/lady-gaga-artpop-1384296044.jpg
+		//  http://pictographr.com/image/getSrcFromThisImage?url=http://img2.wikia.nocookie.net/__cb20111203090229/havealaugh/images/7/7f/Mickey_Mouse.svg
+		//  http://pictographr.com/image/getSrcFromThisImage?url=http://worldoffancydress.com/images/Fringe%20Cowboy%20Fancy%20Dress%20Western%2022656.jpg
+
+
+		ini_set("memory_limit", "256M"); 
+		$this->__setGraphicsToolsForm();
+		
+		$max_width = 1800; // also need to change edit.js app.settings.maxWidthForExternalImages
+		
+		if(isset($this->input->post('arrData')['saveToDrive']))  $this->saveToDrive = TRUE;
+
+		if( isset($this->input->post('arrData')['fileId']) ){
+			
+			$this->fileId = $this->input->post('arrData')['fileId'];
+			$this->google_id = $this->input->post('arrData')['google_id'];
+			$this->__getDriveImage();
+
+			if( $this->mimeType == "image/jpeg"){
+				
+					ob_start(); 
+						imagepng(imagecreatefromstring($this->rawImg));
+						$this->rawImg = ob_get_contents(); 
+					ob_end_clean();				
+				
+			}
+
+				
+		} else{
+			
+			if( $this->input->get('url') ){
+				$url = $this->input->get('url');
+				$this->google_id = $this->input->get('google_id');
+			} else{
+				$this->google_id = $this->input->post('arrData')['google_id'];
+				$url = $this->input->post('arrData')['url'];
+			}
+
+			
+			$urlArr = explode('://', $url);		
+			if($urlArr[0] == 'https'){
+				$url = 'http://' . $urlArr[1];
+			}
+					
+			$urlPar = explode('?', $url);
+			$url = $urlPar[0];
+	
+			$extArr = explode('.', $url);
+			$ext = $extArr[sizeof($extArr)-1];
+			
+			if($ext == 'svg'){
+	
+				$this->load->library('tools');
+				
+				$this->ext = 'png';
+				$this->filename = 'svg_' . $this->google_id . '.' .  $this->ext;
+				$this->img_path = $this->upload_path . '/' . $this->filename;
+				$this->root_filepath = $this->web_server_path . '/' . $this->img_path;
+		
+				$this->phantomUrl = $this->web_server_path . 'phantomjs/bin/phantomjs ' . $this->web_server_path . 'phantomjs/render.js ' . base_url() . '/image/svgPngHtml?url=' . $url . ' ' . $this->root_filepath;
+		
+				$last_line = system( $this->phantomUrl, $retval);
+				
+				$url = base_url() . '/' . $this->img_path;
+
+			}
+			
+			$url = str_replace(" ", "%20", $url);
+			
+			$this->rawImg  = file_get_contents($url);
+			
+			if( $ext == 'jpg' || $ext == 'jpeg'){
+				ob_start(); 
+					imagepng(imagecreatefromstring($this->rawImg));
+					$this->rawImg = ob_get_contents(); 
+				ob_end_clean();
+				//$this->rawImg = $this->__turnWhitesIntoTransparent($this->rawImg);
+			}
+				
+							
+		}
+		
+		$x = getimagesizefromstring($this->rawImg);
+		$width  = $x['0'];
+		$height = $x['1'];
+		
+		if(  $width > $max_width){
+			$this->new_width = $max_width;
+			$this->rawImg = $this->__shrinkIntoPng($this->rawImg);
+			
+			ob_start();  // http://stackoverflow.com/questions/1206884/php-gd-how-to-get-imagedata-as-binary-string
+			imagepng($this->rawImg);
+			$this->rawImg = ob_get_contents(); 
+			ob_end_clean(); 
+			// $zdata = gzdeflate($stringdata);
+			
+		}else{
+			
+			$this->new_width = $width;
+			$this->new_height = $height;
+		}
+
+		if( isset($this->input->post('arrData')['fileId']) ) $this->__setFileNames();
+			
+		$this->__shrinkImgFileSize();
+
+		$this->imgObj = $this->graphics_tools->convertToBase64('false', $this->rawImg);
+		
+//		if( isset( $this->saveToDrive ) ){
+//			
+//			if( !$this->connected ) $this->__connect();
+//			$this->__createImgInDrive();
+//			
+//		}
+
+    $obj = array(
+    	'width' => $this->new_width,
+    	'height' => $this->new_height,
+    	'base64Data' => $this->imgObj['base64Data']
+    );
+	
+		if( isset($url)){
+			$obj['orgUrl'] = $url;
+		}		
+	
+		if( isset($ext) && $ext == 'svg'){
+			unlink($this->root_filepath);
+		}
+		
+		$this->__removeTempFiles();
+
+    echo json_encode($obj);
+	}
+
+	public function convertSVGtoPng(){ //http://pictographr.com/image/convertSVGtoPng
+		
+		$this->__setGraphicsToolsForm();
+		
+		$url = "http://img2.wikia.nocookie.net/__cb20111203090229/havealaugh/images/7/7f/Mickey_Mouse.svg";
+
+		$filename = 'Mickey';
+		
+		$inputimage = file_get_contents($url);
+		
+    $image = new Imagick();
+    $image->setBackgroundColor(new ImagickPixel('transparent'));
+    $image->readImageBlob( $inputimage );
+    $image->setImageFormat("png32");
+    $image->setImageCompressionQuality(100);
+    
+    $x = getimagesizefromstring($image);
+    
+    echo '<pre>';print_r( $x );echo '</pre>'; 
+    
+    $this->imgObj = $this->graphics_tools->convertToBase64('false', $image);
+    
+    echo "
+    	<img src='data:image/png;base64, " . $this->imgObj['base64Data']. "' />
+    ";
+    
+    echo '<pre>';print_r(  $this->imgObj  );echo '</pre>';  exit;
+    
+
+	}
+
+	public function shrinkAndStreamExternalLargeImage(){ //  http://pictographr.com/image/shrinkAndStreamExternalLargeImage?new_width=300&url=http://assets-s3.rollingstone.com/assets/images/album_review/lady-gaga-artpop-1384296044.jpg
+		
+		$max_width = 500;	
+
+		$this->new_width = ( $this->input->get('new_width') > $max_width ? $max_width: $this->input->get('new_width') );
+		$url = $this->input->get('url');
+		
+		$urlArr = explode('://', $url);
+		
+		if($urlArr[0] == 'https'){
+			$url = 'http://' . $urlArr[1];
+		}
+		
+		$ch = curl_init ($url);
+	  curl_setopt($ch, CURLOPT_HEADER, 0);
+	  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	  curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
+	  $rawImg = curl_exec($ch);
+	  curl_close ($ch);
+	  
+
+		$new_png = $this->__shrinkIntoPng($rawImg);
+
+		header('Content-Type: image/png');
+		imagepng($new_png);
+
+		imagedestroy($new_png);
+  
+	}
+	
+	public function doit(){
+		
+		$this->__setGraphicsToolsForm();		
+		
+		$url = $this->input->get('url');
+//		$url = 'https://lh6.googleusercontent.com/-UOZZGH__2rs/UzhKxLqRIoI/AAAAAAAAAnU/kpK2GnwHZjI/w200-h266/mickey_logo1.jpg';
+	
+		$jpgStr = $this->graphics_tools->curlIntoBinaryString( $url );
+		
+	/* ------------------------------------------------------------------- */
+		$jpgRaw = imagecreatefromstring($jpgStr);
+		
+		$pngStr = $this->graphics_tools->convertToPng($jpgRaw);
+		
+	/* ------------------------------------------------------------------- */
+	
+		// SHRINK IT
+	
+		$this->new_width = $this->input->get('w');
+		$pngRaw = $this->__shrinkIntoPng($pngStr);
+
+		ob_start();
+		imagepng($pngRaw);
+		$pngStr = ob_get_contents();
+		imageDestroy($pngRaw); 
+		ob_end_clean();
+		
+	/* ------------------------------------------------------------------- */
+	
+		// TURN BACKGROUND TRANSPARENT
+	
+		$pngRaw = imagecreatefromstring($pngStr);
+		imagealphablending($pngRaw, true);
+		
+		$bg_color = imagecolorat($pngRaw, 1, 1);
+		//$white = imagecolorallocate($pngRaw, 255,255,255);
+		
+		imagecolortransparent($pngRaw, $bg_color);
+
+		ob_start();
+		imagepng($pngRaw);
+		$pngStr = ob_get_contents();
+		imageDestroy($pngRaw); 
+		ob_end_clean();
+		
+	/* ------------------------------------------------------------------- */
+	
+		$pngObj = $this->graphics_tools->convertToBase64('false', $pngStr);
+		
+		echo "
+		<style>
+		img{
+			position:absolute;
+			top: 15%;
+			left:35%;
+			width:" . $pngObj['width'] . "px;
+			height:" . $pngObj['height'] . "px;
+		}
+		</style>
+		<div style='background:pink; width:100%; height:100%'  >
+			<img src='data:image/png;base64, " . $pngObj['base64Data'] . "'/>
+		</div>";		
+
+		
+	}
+	
+	public function doit2(){ // http://pictographr.com/image/doit2?w=200&url=http://upload.wikimedia.org/wikipedia/commons/9/90/Maximilienne-p1000557.jpg
+		
+		$this->__setGraphicsToolsForm();		
+		
+		$url = $this->input->get('url');
+//		$url = 'https://lh6.googleusercontent.com/-UOZZGH__2rs/UzhKxLqRIoI/AAAAAAAAAnU/kpK2GnwHZjI/w200-h266/mickey_logo1.jpg';
+	
+		$jpgStr = $this->graphics_tools->curlIntoBinaryString( $url );
+		
+	/* ------------------------------------------------------------------- */
+		$jpgRaw = imagecreatefromstring($jpgStr);
+		
+		$pngStr = $this->graphics_tools->convertToPng($jpgRaw);
+		
+	/* ------------------------------------------------------------------- */
+	
+		// SHRINK IT
+	
+		$this->new_width = $this->input->get('w');
+		$pngRaw = $this->__shrinkIntoPng($pngStr);
+
+		ob_start();
+		imagepng($pngRaw);
+		$pngStr = ob_get_contents();
+		imageDestroy($pngRaw); 
+		ob_end_clean();
+		
+	/* ------------------------------------------------------------------- */
+	
+		// TURN BACKGROUND TRANSPARENT
+	
+		$pngRaw = imagecreatefromstring($pngStr);
+
+$img_w = imagesx($pngRaw);
+$img_h = imagesy($pngRaw);
+
+$newPicture = imagecreatetruecolor( $img_w, $img_h );
+imagesavealpha( $newPicture, true );
+$rgb = imagecolorallocatealpha( $newPicture, 0, 0, 0, 127 );
+imagefill( $newPicture, 0, 0, $rgb );
+
+$color = imagecolorat( $pngRaw, $img_w-1, 1);
+
+for( $x = 0; $x < $img_w; $x++ ) {
+    for( $y = 0; $y < $img_h; $y++ ) {
+        $c = imagecolorat( $pngRaw, $x, $y );
+        if($color!=$c){         
+            imagesetpixel( $newPicture, $x, $y,    $c);             
+        }           
+    }
+}
+
+imagedestroy($pngRaw);
+
+		ob_start();
+		imagepng($newPicture);
+		$pngStr = ob_get_contents();
+		imageDestroy($newPicture); 
+		ob_end_clean();
+		
+	/* ------------------------------------------------------------------- */
+	
+		$pngObj = $this->graphics_tools->convertToBase64('false', $pngStr);
+		
+		echo "
+		<style>
+		img{
+			position:absolute;
+			top: 15%;
+			left:35%;
+			width:" . $pngObj['width'] . "px;
+			height:" . $pngObj['height'] . "px;
+		}
+		</style>
+		<div style='background:pink; width:100%; height:100%'  >
+			<img src='data:image/png;base64, " . $pngObj['base64Data'] . "'/>
+		</div>";		
+
+		
+	}
+	
+	public function makework(){ //  http://pictographr.com/image/makework??url=
+		
+		$this->__setGraphicsToolsForm();		
+		
+//		$pngRaw = imagecreatefrompng('uploads/output/105870981217629422585.png');
+		
+//		ini_set("memory_limit", "256M");
+
+		$url = 'http://3.bp.blogspot.com/-6wMW_Vox_Tc/URqijJCzkFI/AAAAAAAABoE/7f_SBVxwFGc/s1600/mickey_mouse__png__by_matteoprincipe-d5hnsrl.png';
+		$url = 'http://img1.wikia.nocookie.net/__cb20120316061454/dragonball/images/f/fd/Mickey_mouse_.jpg';
+		
+		$imageStr = $this->graphics_tools->curlIntoBinaryString( $url );
+
+		$pngRaw = imagecreatefromstring($imageStr);
+		header('Content-Type: image/png');
+			imagepng($pngRaw);
+	
+			imagedestroy($pngRaw);
+			
+			exit;		
+	/* ------------------------------------------------------------------- */
+				
+
+/* ------- Convert PNG to JPG ------------------------------------------------- */
+
+		$rawJpg = imagecreatetruecolor(imagesx($pngRaw), imagesy($pngRaw)); // http://stackoverflow.com/questions/1201798/use-php-to-convert-png-to-jpg-with-compression
+		imagefill($rawJpg, 0, 0, imagecolorallocate($rawJpg, 255, 255, 255));
+		imagealphablending($rawJpg, TRUE);
+		imagecopy($rawJpg, $pngRaw, 0, 0, 0, 0, imagesx($pngRaw), imagesy($pngRaw));
+		imagedestroy($pngRaw);
+		
+/* ------------------------------------------------------------------- */
+		$quality = 100;// 0 = worst / smaller file, 100 = better / bigger file
+		 
+		ob_start();  // http://stackoverflow.com/questions/1206884/php-gd-how-to-get-imagedata-as-binary-string
+		imagejpeg($rawJpg, NULL, $quality);
+		$jpgStr = ob_get_contents();
+		imageDestroy($rawJpg); 
+		ob_end_clean();
+
+		$newJpg = imagecreatefromstring($jpgStr);
+
+/* ------------------------------------------------------------------- */				
+
+		 
+		header("Content-Type: image/jpeg");
+		imagejpeg($newJpg, NULL, $quality);
+		imageDestroy($newJpg);
+	
+		
+		
+		exit;
+		
+/* ------------------------------------------------------------------- */
+	
+		$this->imgObj = $this->graphics_tools->convertToBase64('false', $jpgStr);
+		
+	    $obj = array(
+	    	'base64Data' => $this->imgObj['base64Data'],
+	    	'width' => $this->imgObj['width'],
+	    	'height' => $this->imgObj['height']
+	    );    	
+    	
+//    	echo '<pre>';print_r(  $obj );echo '</pre>';  exit;
+    	
+    	echo json_encode($obj);
+    	  
+		exit;    	
+/* ------------------------------------------------------------------- */	
+	
+	}
+
+	
+		private function __shrinkIntoPng($rawImg){
+
+			$image = imagecreatefromstring($rawImg);
+			
+			/*
+		    function getimagesizefromstring($data){
+		        $uri = 'data://application/octet-stream;base64,' . base64_encode($data);
+		        return getimagesize($uri);
+		    }
+		  */
+		    
+			$x = getimagesizefromstring($rawImg);
+			$width  = $x['0'];
+			$height = $x['1'];
+			
+			$percent = $this->new_width/$width;
+	
+			$this->new_height  = $height * $percent;
+			
+			$new_image = imagecreatetruecolor($this->new_width, $this->new_height);
+			
+			imagecolortransparent($new_image, imagecolorallocatealpha($new_image, 0, 0, 0, 127));
+			
+			imagealphablending($new_image, false);
+			
+			imagesavealpha($new_image, true);
+			
+			imageCopyResampled($new_image, $image, 0, 0, 0, 0, $this->new_width, $this->new_height, $width, $height);
+
+			imagedestroy($image);
+
+			return $new_image;
+			
+		}
+		
+		
+		public function testGetDriveImage() { // http://pictographr.com/image/testGetDriveImage
+			
+			$this->fileId = '0B5ptY5tUIebjVS1WWHZvZFI0Z1E';
+			$this->google_id = '105870981217629422585';	
+			$this->__getDriveImage();	
+			
+			echo $this->mimeType;
+			
+		}
+
+		private function __getDriveImage(){
+			
+			$this->__setUsersModel();
+		  $this->__getUserIdAndSessionIdWithGoogleId();		
+			$this->__connectGAPI();
+			$this->__connectDriveServices();
+			$this->client->setAccessToken( $this->__getTokenFromDB() );
+			$file_data = $this->service->files->get( $this->fileId );
+			
+			$this->width =  $file_data['imageMediaMetadata']['width'];
+			$this->height = $file_data['imageMediaMetadata']['height'];
+			$this->mimeType = $file_data['mimeType'];
+
+			$downloadUrl = $file_data['downloadUrl'];
+	
+	    $request = new Google_HttpRequest($downloadUrl, 'GET', null, null);
+	    $httpRequest = Google_Client::$io->authenticatedRequest($request);
+	      
+	    $this->rawImg = $httpRequest->getResponseBody();
+		}
+	
+	
+	public function streamDriveImage(){ //  localhost/pictographr/html/image/streamDriveImage?google_id=&fileId=
+		
+	    $this->__setUsersModel();
+	    
+	    if( $this->input->get('google_id') == ''){ // FOR TESTING
+	    	$this->user_id = 1;
+	    	$this->google_id = $this->__getGoogleIdFromDB();
+	    }else{
+	    	$this->google_id = $this->input->get('google_id');
+	    	$this->__getUserIdAndSessionIdWithGoogleId();
+	    }
+	    
+	    $max_width = 500;	
+	    	
+			$new_width = $this->input->get('new_width');
+			
+			$fileId = $this->input->get('fileId');
+
+			$this->__connectGAPI();
+			$this->__connectDriveServices();
+			$this->client->setAccessToken( $this->__getTokenFromDB() );
+			
+			$file_data = $this->service->files->get( $fileId );
+			$width =  $file_data['imageMediaMetadata']['width'];
+			$height = $file_data['imageMediaMetadata']['height'];
+
+			$downloadUrl = $file_data['downloadUrl'];
+	
+	    $request = new Google_HttpRequest($downloadUrl, 'GET', null, null);
+	    $httpRequest = Google_Client::$io->authenticatedRequest($request);
+	    
+	    $rawImg = $httpRequest->getResponseBody();
+
+	    
+	    if( $width > $max_width ){
+
+	    	$this->new_width = ( $new_width != ''  && $new_width <= $max_width ? $new_width : $max_width );
+
+	    } else{
+	    	
+	    	if( $new_width != '' && $new_width <= $max_width){
+	    		
+	    		$this->new_width = $new_width;
+	    		
+	    	} else{
+	    		
+					header('Content-Type: image/jpeg');
+					echo $rawImg;
+					exit;
+							
+	    	}
+				   	
+	    }
+	    
+			$new_png = $this->__shrinkIntoPng($rawImg);
+	
+			header('Content-Type: image/png');
+			imagepng($new_png);
+			
+			imagedestroy($new_png);	 
+			
+	}
+	
+		
+	public function streamDrive(){
+		
+		$this->__getBinaryFromDrive();
+		
+		header('Content-Type: image/jpg');
+		echo $this->binary;
+		
+	}
+	
+	public function downloadImgToDesktop(){ //  
+		
+			$this->__getBinaryFromDrive();
+
+			header('Content-Type: image/jpg');
+			header("Content-Disposition:attachment;filename='pictographr.jpg'");
+			echo $this->binary;
+			
+	}
+
+}
+
+				
+				/*				
+				$rawImg = new Imagick();
+				$rawImg->setBackgroundColor(new ImagickPixel('transparent'));
+				$rawImg->readImageBlob( $inputimage );
+				$rawImg->setImageFormat("png32");
+				$rawImg->setImageCompressionQuality(100);
+				
+				------------------------------------------------
+				$xml = simplexml_load_file($url);
+				
+				$attr = $xml->attributes();
+				
+				$obj = array(
+					'svgData' => $rawImg,
+					'width' => round((string) $attr->width),
+				'height' => round((string) $attr->height)
+				);
+				
+				echo json_encode($obj);
+				
+				*/	
+				

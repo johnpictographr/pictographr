@@ -1,0 +1,8 @@
+delete FROM `users` WHERE email = 'johnpictographr@gmail.com'
+delete FROM `users` WHERE email = 'jamesming@pictographr.com'
+
+clear Local Storage: chrome://settings/cookies#cont
+
+/testing/react-tutorial/public
+
+01185267719938 Albert Ming

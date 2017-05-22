@@ -1,0 +1,1 @@
+https://pictographr.com/auth/router?redirect=newfile&setUpOrganization=true&mustBeInGoogleOrg=true

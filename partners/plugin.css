@@ -1,0 +1,148 @@
+.oh,.ot,.tt{float:left;padding:0 2% 2% 0;width:48%}.ot{width:31%}.tt{width:65%}.cl{clear:both}
+button:focus { outline:0 !important; }
+#main_container{
+	position: absolute;
+	width: 400px;
+//background: lightblue;
+}
+iframe { 
+	display:none;
+}
+#loading{
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+#waitingWords{
+	margin-top: 24px;
+	text-align: center;
+}
+
+#connect_pictographr{
+	cursor: pointer;
+}
+.boxes{
+	position:relative;
+	float: left;
+	width: 196px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	white-space: nowrap;
+	text-align: center;
+}
+.boxes:hover .buttons_wrapper,
+.boxes.loading .buttons_wrapper,
+.boxes.deleting .buttons_wrapper,
+.boxes.choosing .buttons_wrapper
+{		
+	display: block;	
+}
+
+.boxes.disabled .buttons_wrapper,
+.boxes.loading .buttons_wrapper .action_buttons.disabled{		
+	display: none;	
+}
+
+.boxes.deleting .buttons_wrapper .action_buttons.disabled,
+.boxes.choosing .buttons_wrapper .action_buttons.disabled
+{		
+	visibility: hidden;	
+}
+
+.buttons_wrapper{
+	position:absolute;
+	width: 190px;
+	left: 5px;
+	top: 80px;
+	display: none;
+}
+.action_buttons{
+	outline: 0;
+	position: relative;
+	opacity: 1;
+	width: 60px;
+	height: 30px;
+	cursor: pointer;
+	font-family: arial;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	font-weight: bold;
+	font-size: 13px;
+	border-radius: 2px;
+	display: block;
+	margin: 5px auto;
+  color: #fff;
+  padding-top: 6px;
+  border-radius: 3px;
+}
+
+
+.ui-state-default .ui-icon{
+	background-image:	url("https://ssl.gstatic.com/ui/v1/dialog/close-x.png");
+  height: 11px;
+  width: 11px;
+  background-position: 0 0;
+  background-size: 7px;
+}
+
+.action_buttons.edit{
+background-color: #f5f5f5;
+color: #333;
+}
+
+.action_buttons.delete{
+background-color: #f5f5f5;
+border-color: #f5f5f5;
+color: #333;
+}		
+.action_buttons.doit{
+background-color: #4285F4;
+border-color: #4285F4;
+}	
+
+.action_buttons.doit img{
+ margin-top: 1px;
+}
+				
+.helper {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+.boxes .thumbs{
+  vertical-align: middle;
+  max-height: 200px;
+  max-width: 200px;
+	margin: 0px;
+  cursor: pointer;
+}
+
+
+.boxes .thumbs.active {
+  opacity: 1;
+}
+
+
+#loadingImg{
+	width: 29px;
+	margin: 2px auto;	
+}
+#nofilesyetImg{
+	position: relative;
+	right: 32px;
+	float: right;
+}
+
+	#greet-container{
+		text-align: center;
+		padding-top: 95px;
+		font-size: 20px;
+		color: #666;	
+		font-family: Lucida Grande,Tahoma,Verdana,Arial,sans-serif;
+	}
+	#greet-container > div:not(#carousel-gallery){	
+		margin-bottom: 20px;	
+	}
+	.picLogo{
+		width: 144px;	
+		cursor: pointer;
+	}

@@ -1,0 +1,202 @@
+There's also the option to join Office 365 Developer Subscription program (free), and get a 1 year long trial.
+ -http://dev.office.com/devprogram
+- https://dev.office.com/docs/add-ins/testing/debug-add-ins-in-office-online
+- https://msdn.microsoft.com/en-us/library/office/fp179924.aspx
+
+Latest Build:
+
+Download for build 16.0.6769.0000 ... see below for xml config
+found here https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117
+RUN:  Setup.exe /configure configuration.xml
+more explanation:  https://support.office.com/en-us/article/How-Office-365-commercial-customers-can-get-early-access-to-new-Office-2016-features-4dd8ba40-73c0-4468-b778-c7b744d03ead?ui=en-US&rs=en-US&ad=US
+
+Add-in commands are currently supported on the following platforms:
+Office Desktop 2016 (build 16.0.6769.0000 or later)
+
+
+http://answers.microsoft.com/en-us/msoffice/forum/msoffice_officeinsider-mso_other/announcing-insider-build-16067692011-for-office/d535aa35-bf71-4d25-858b-3e37e4826b0b?auth=1
+
+
+if (Office.context.requirements.isSetSupported('WordApi', 1.1)) {
+    // Do something that is only available via the new APIs
+    $('#emerson').click(insertEmersonQuoteAtSelection);
+    $('#checkhov').click(insertChekhovQuoteAtTheBeginning);
+    $('#proverb').click(insertChineseProverbAtTheEnd);
+    $('#supportedVersion').html('This code is using Word 2016 or greater.');
+}
+else {
+    // Just letting you know that this code will not work with your version of Word.
+    $('#supportedVersion').html('This code requires Word 2016 or greater.');
+}
+
+if (Office.context.requirements.isSetSupported('ExcelApi', 1.1)) {
+    // Do something that is only available via the new APIs
+}
+
+
+if (window.top == window) {
+//the add-in is not running in Excel Online
+}
+else
+{
+//the add-in is running in Excel online
+}
+
+
+								
+								
+	/*							
+								var imgHTML = "<img src='" + url + "'  alt ='apps for Office image1' />";
+								
+						    Office.context.document.setSelectedDataAsync( 
+						        imgHTML, 
+						        { coercionType: "html" }, 
+						        function (asyncResult) { 
+						            if (asyncResult.status == "failed") { 
+						                console.log(asyncResult.error.message);
+						            } 
+						        });
+	*/
+	
+	
+	
+						
+					
+					
+					
+					return;
+					
+          if (Office.context.requirements.isSetSupported('WordApi', 1.1)) {
+          	
+						tools.convertImgToBase64(url, 'image/png', function(base64Img, width,  height) { 
+							
+							$('#console-container').empty().html('new word');
+							
+							var baseArray  = base64Img.split(',');
+	
+					    Word.run(function (context) {
+					    	
+					      var thisDocument = context.document,
+					      		mySelection = thisDocument.getSelection();
+					
+					      mySelection.insertInlinePictureFromBase64(baseArray[1],"start");
+					      
+					      return context.sync().then(function () {
+				          console.log('Successfully inserted Pic');
+									app.deleteRenderedPNGForeverFromDriveTempFolder();
+					      });
+					        
+					    })
+					    .catch(function (error) {
+					      console.log('Error: ' + JSON.stringify(error));
+					    });
+	
+						});
+          }
+          else {
+          	
+						tools.convertImgToBase64(url, 'image/png', function(base64Img, width,  height) { 
+							
+							$('#console-container').empty().html('old word');
+							
+			        if (Office.context.document.setSelectedDataAsync){ 
+			        	
+			        	//http://dev.office.com/reference/add-ins/office-add-in-requirement-sets
+								//https://dev.office.com/reference/add-ins/javascript-api-for-office
+								// https://code.msdn.microsoft.com/office/How-to-insert-from-apps-441703c6#content
+								//http://stackoverflow.com/questions/38179333/office-add-in-development-insert-image-picture-in-word-2016/38194807
+								
+								var baseArray  = base64Img.split(',');
+								
+		            Office.context.document.setSelectedDataAsync(baseArray[1], {
+		                coercionType: Office.CoercionType.Image
+		            }, function (asyncResult) { 
+		            	
+								  	app.deleteRenderedPNGForeverFromDriveTempFolder();
+		            	              
+		            });
+								
+								console.log('old word');
+								
+								return;
+								
+								
+	/*							
+								var imgHTML = "<img src='" + url + "'  alt ='apps for Office image1' />";
+								
+						    Office.context.document.setSelectedDataAsync( 
+						        imgHTML, 
+						        { coercionType: "html" }, 
+						        function (asyncResult) { 
+						            if (asyncResult.status == "failed") { 
+						                console.log(asyncResult.error.message);
+						            } 
+						        });
+	*/
+	
+	
+			        }
+
+	
+						});
+          	
+
+          }
+          
+			        	
+			        	//http://dev.office.com/reference/add-ins/office-add-in-requirement-sets
+								//https://dev.office.com/reference/add-ins/javascript-api-for-office
+								// https://code.msdn.microsoft.com/office/How-to-insert-from-apps-441703c6#content
+								//http://stackoverflow.com/questions/38179333/office-add-in-development-insert-image-picture-in-word-2016/38194807
+								
+
+
+xml config:
+
+<!-- Office 365 client configuration file sample. To be used for Office 365 ProPlus 2016 apps, 
+     Office 365 Business 2016 apps, Project Pro for Office 365 and Visio Pro for Office 365. 
+
+     For detailed information regarding configuration options visit: http://aka.ms/ODT. 
+     To use the configuration file be sure to remove the comments
+
+     For Office 365 client apps (verion 2013) you will need to use the 2013 version of the 
+     Office Deployment Tool which can be downloaded from http://aka.ms/ODT2013
+
+     The following sample allows you to download and install Office 365 ProPlus 2016 apps 
+     and Visio Pro for Office 365 directly from the Office CDN using the Current Channel
+     settings  -->
+
+
+
+<Configuration>
+
+  <Add OfficeClientEdition="32" Channel="InsiderFast">
+    <Product ID="O365ProPlusRetail">
+      <Language ID="en-us" />
+    </Product>
+    <Product ID="VisioProRetail">
+      <Language ID="en-us" />
+    </Product>
+  </Add>
+
+
+</Configuration>
+
+
+Our app requires a Google account.   Please use account:  joanpictographr@gmail.com and password: pictojoan
+
+ This app requires a Google account.
+ 
+ 512w x 384h
+ 
+ 
+ Pictographr - Graphic Designer
+
+Design visual content for Excel. Search images, drag/drop to layout
+
+The perfect graphic design companion for Excel.  Insert your Pictographr designs directly into Excel or launch the graphics editor with the precise canvas size for creating images that will fit into Excel.  Our app requires a Google account.   
+
+The perfect graphic design companion for Excel.  Insert your Pictographr designs directly into Excel or launch the graphics editor with the precise canvas size for creating images that will fit into Excel.
+
+Create beautiful graphic designs with Pictographr.  Our quick and simple drag and drop tools allow you to easily unleash your inner creativity.  Design highly engaging images for digital marketing, business presentations or academic projects.  Even non-designers can produce stunning visuals in minutes.  No more waiting around for in-house designers or having to contract out the work… save yourself time and money.   Our app requires a Google account.   
+

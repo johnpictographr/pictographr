@@ -1,0 +1,35 @@
+<script	src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script>
+	var tools={
+			ajax:	function(	url, arrDataObj, type, callback	)	{
+				$.ajax({
+					url: url + '?v=' + Math.random(),
+					type:	type,
+			    data: {
+			        arrData : arrDataObj
+			    },
+					dataType:'json',
+					success: function(data){
+						callback(data);
+					},
+					error:	function(data){
+						callback(data);
+					},
+					async:false
+				});
+			}
+	};
+			
+						
+	tools.ajax(	
+			"test10.html", 
+			{},
+			'get', 
+			function( response ) {
+				
+				console.log(JSON.stringify(  response   , null, 2 ));
+				
+			}
+	);
+				
+</script>

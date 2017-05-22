@@ -1,0 +1,211 @@
+body{
+	overflow: hidden;	
+}
+
+button{
+ cursor: pointer !important;	
+}
+button.disabled{
+ cursor: default !important;	
+}
+
+.sidebar{
+	width: 300px;	
+	overflow-x: hidden;
+}
+#logo{
+	display: block;
+	margin:auto;
+	width:114px;
+}
+
+#greet-container{
+	border: 1px solid lightgray;
+	width: 272px;
+	padding-top: 45px;
+}
+
+#greet-container > div:not(#carousel-gallery){
+	padding-top: 45px;
+	font-size: 16px;
+	color: black;
+	text-align:center;
+}
+
+
+#carousel-gallery{
+	margin: 10px auto  !important;
+}
+
+
+#carousel-gallery .owl-buttons{
+	display: none;	
+}
+
+#carousel-gallery .owl-controls {
+    opacity: 1;
+}
+
+#carousel-gallery .owl-item img {
+    width: 265px;
+}
+
+#thumb-container{
+	padding-top: 5px;
+	border: 1px solid darkgray;
+	height: 415px;
+	font-size: 17px;
+	color: gray;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.boxes .thumbs {
+  opacity: .5;
+}
+.boxes .thumbs.active {
+  opacity: 1;
+}
+
+.buttons-container{
+	height: 32px;
+	position: relative;
+}
+#get-started-button{
+	height: 45px;
+	width: 160px;
+	font-size: 17px;
+}
+#refresh-button{
+	height: 26px;
+	width: 26px;
+	min-width: 0;
+	padding: 0px 0px 0px 2px;
+	border-top-right-radius: 0;
+	top: 8px;
+	position: relative;
+}
+.refresh-icon{
+	background: no-repeat url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) -63px -21px;
+	height: 21px;
+	width: 21px;
+	opacity: .55;
+}
+
+#dialog-confirm{
+	display:none;
+	overflow: hidden;
+	padding: 0;
+	height: 48px;
+	font-size: 13px;
+	text-align: center;
+}
+
+.ui-widget-overlay{
+	opacity: 0.2 !important;
+}
+
+.ui-dialog{
+	width: 200px !important;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-box-shadow: 0 4px 16px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 4px 16px rgba(0,0,0,.2);
+	box-shadow: 0 4px 16px rgba(0,0,0,.2);
+	background: #fff;
+	background-clip: padding-box;
+	border: 1px solid #acacac;
+	border: 1px solid rgba(0,0,0,.333);
+	outline: 0;
+	position: absolute;
+}
+
+.ui-state-default .ui-icon{
+	background-image:	url("https://ssl.gstatic.com/ui/v1/dialog/close-x.png");
+  height: 11px;
+  width: 11px;
+  background-position: 0 0;
+}
+
+.ui-dialog-titlebar{
+	width: 100%;
+	background: white !important;
+	font-size: 16px !important;	
+	border: 0px !important;	
+	font-weight: normal  !important;
+}
+
+.ui-dialog .ui-dialog-titlebar-close{
+	background: transparent !important;
+	border: 0px !important;
+}
+
+.ui-state-hover .ui-icon{
+	opacity: .7;
+}
+
+.ui-widget-content{
+	border: 0px  !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane button{
+	margin-left: 12px !important;	
+}
+
+.ui-dialog .ui-dialog-buttonpane button:hover{
+  background: -moz-linear-gradient(top, #f8f8f8, #f1f1f1)  !important;
+  background: -ms-linear-gradient(top, #f8f8f8, #f1f1f1) !important;
+  background: -o-linear-gradient(top, #f8f8f8, #f1f1f1) !important;
+  background: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1) !important;
+  background: linear-gradient(top, #f8f8f8, #f1f1f1) !important;
+  border: 1px solid #c6c6c6 !important;
+  color: #111 !important;
+  text-decoration: none !important;	
+}
+
+button.ui-button {
+  background: -moz-linear-gradient(top, #f5f5f5, #f1f1f1) !important;
+  background: -ms-linear-gradient(top, #f5f5f5, #f1f1f1) !important;
+  background: -o-linear-gradient(top, #f5f5f5, #f1f1f1) !important;
+  background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1) !important;
+  background: linear-gradient(top, #f5f5f5, #f1f1f1) !important;
+  border: 1px solid #dcdcdc  !important;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #333  !important;
+  cursor: default;
+  font-family: arial, sans-serif;
+  font-size: 11px   !important;
+  font-weight: bold  !important;
+  height: 29px;
+  line-height: 27px;
+  margin: 0;
+  min-width: 72px;
+  outline: 0;
+  padding: 0 8px;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0;
+}
+
+#delete-button{
+  margin-right: 14px;	
+}
+
+#insert-button.waiting{
+	background: white !important;
+	border: 1px solid #D0D3D7 !important;
+}
+
+#insert-button.waiting img{
+	width: 28%;
+}
+
+#nofilesyetImg {
+  right: 23px;
+}

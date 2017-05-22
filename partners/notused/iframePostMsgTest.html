@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+	  <div  id="main_container" >HELLO
+	  </div>
+    <iframe id="setSessionIframe" src="" width="0" height="0" tabindex="-1" title="empty"   style='display:none'  ></iframe>
+  </body>
+  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		var tools = {
+			crossdom:{
+				
+				init: function( iframe_id, src) {
+					this.setIframeTarget(iframe_id, src);
+					this.bind();
+					
+				},
+				
+				setIframeTarget: function(iframe_id, src) {
+					var that = this;
+					$('#' + iframe_id).attr('src', src).load(function () {
+						that.iframeTarget = document.getElementById(iframe_id).contentWindow;
+						that.send({msg: 'connect from parent'});
+					});
+					
+				},
+				bind: function() {
+					
+					var that = this;
+					var callback = function(msg) {
+						that.receive(msg);
+					}
+					
+					if (window.attachEvent) { // IE9...
+						window.attachEvent("onmessage", callback);
+					} else if (document.attachEvent) { // IE8...
+						doc.attachEvent("onmessage", callback);
+					} else if (window.addEventListener) { // Everyone else...
+						window.addEventListener("message", callback, false);
+					}
+		
+				},
+				send: function(obj){
+					var msg = this.serialize(obj);
+					this.iframeTarget.postMessage(msg, '*');						
+				},
+				receive: function(msg) {
+					console.log(msg);
+					var obj = this.unserialize(msg.data.split(','));
+					console.log(JSON.stringify(   obj  , null, 2 ));
+				},
+		
+				serialize: function(obj){
+					var str = '';
+					for(var key in obj){
+						str += key + ':' + obj[key] + ',';
+					};
+					return str.substr(0,str.length-1)
+				},
+		        
+				unserialize: function(strArray){
+					var strLen = strArray.length,
+						row,
+						obj={};			
+					for(var i=0;i<strLen;i++){
+						row = strArray[i].split(':');
+						obj[row[0]]=row[1];
+					}
+					return obj;
+				}
+			}
+		};
+		
+		tools.crossdom.init('setSessionIframe', 'iframeSrcPostMsgGetGoogleId.html');
+		
+	</script>
+</html>
+

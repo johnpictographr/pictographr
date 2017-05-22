@@ -1,0 +1,36 @@
+
+
+											var request = {
+														get: function( options, callback) {
+														
+															var a = 1, b = 2;
+															callback(err, response, body);
+														}
+													}
+													
+													
+											var options = {
+												url: ""
+											};
+
+											request.get( options, function( err, response, body) {;
+													console.log(a);
+													console.log(b);
+											});
+											
+											
+											// ***		
+											
+											request.get({
+											  url: "https://api.gettyimages.com/v3/search/images",
+											  qs: {
+											    'page_size': 5,
+											    'phrase': "Candy"
+											  },
+											  headers: {
+											    'Api-Key': "lucybot-key"
+											  },
+											}, function(err, response, body) {
+											  body = JSON.parse(body);
+											  console.log(body);
+											})

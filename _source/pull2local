@@ -1,0 +1,5 @@
+cd c:/wamp/www/pictographr; ssh ec2-user@52.9.12.131 'mysqldump -uroot -pPr0spac3 pictographr_db > ~/pictographr_db.sql'; scp ec2-user@52.9.12.131:~/pictographr_db.sql _source/pictographr_db.sql; c:/wamp/bin/mysql/mysql5.6.12/bin/mysql -u jamesming -pJam3sM1n6 pictographr_db < c:/wamp/www/pictographr/_source/pictographr_db.sql
+
+
+
+cd c:/wamp/www/pictographr/temp; sftp ec2-user@52.9.12.131

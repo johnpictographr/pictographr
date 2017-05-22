@@ -1,0 +1,3511 @@
+[{
+    "collection": "pies",
+    "version": 1,
+    "type": "widget",
+    "category": "pies",
+    "html": "pie",
+    "name": "pies",
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+		                "pieSliceTextStyle": {
+		                	"fontSize": 13
+		                },
+                    "is3D": false,
+                    "title": "Company Performance",
+                    "legend": {
+                      "position": "right",
+                      "alignment": "center",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      }
+                    },
+                    "chartArea": {
+                      "left": "20",
+                      "top": "45",
+                      "width": "100%",
+                      "height": "85%"
+                    },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    },
+      							"colors": ["#990099", "#109618", "#FF9900", "#DC3912", "#3366CC"]
+                }
+            },
+            "preData": [
+                ["Task", "Hours per Day"],
+                ["Work", 11],
+                ["Eat", 2],
+                ["Commute", 2],
+                ["TV", 2],
+                ["Sleep", 7]
+            ],
+            "resolution": {
+                "width": 420,
+                "height": 300
+            },
+            "whichside" : "both"
+        }
+    }
+}, {
+    "collection": "pies",
+    "version": 2,
+    "type": "widget",
+    "category": "pies",
+    "html": "pie",
+    "name": "pies",
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+		                "pieSliceTextStyle": {
+		                	"fontSize": 13
+		                },
+                    "is3D": true,
+                    "title": "Company Performance",
+                    "legend": {
+                      "position": "right",
+                      "alignment": "center",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      }
+                    },
+                    "chartArea": {
+                        "left": "20",
+                        "top": "45",
+                        "width": "100%",
+                        "height": "85%"
+                    },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    },
+      							"colors": ["#990099", "#109618", "#FF9900", "#DC3912", "#3366CC"]
+                }
+            },
+            "preData": [
+                ["Task", "Hours per Day"],
+                ["Work", 11],
+                ["Eat", 2],
+                ["Commute", 2],
+                ["TV", 2],
+                ["Sleep", 7]
+            ],
+            "resolution": {
+                "width": 420,
+                "height": 300
+            },
+            "whichside" : "both"
+        }
+    }
+}, {
+    "collection": "pies",
+    "version": 3,
+    "type": "widget",
+    "category": "pies",
+    "html": "pie",
+    "name": "pies",
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+		                "pieSliceTextStyle": {
+		                	"fontSize": 13
+		                },
+                    "pieHole": "0.4",
+                    "title": "Company Performance",
+                    "legend": {
+                      "position": "right",
+                      "alignment": "center",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      }
+                    },
+                    "chartArea": {
+                      "left": "20",
+                      "top": "45",
+                      "width": "100%",
+                      "height": "85%"
+                    },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    },
+      							"colors": ["#990099", "#109618", "#FF9900", "#DC3912", "#3366CC"]
+                }
+            },
+            "preData": [
+                ["Task", "Hours per Day"],
+                ["Work", 11],
+                ["Eat", 2],
+                ["Commute", 2],
+                ["TV", 2],
+                ["Sleep", 7]
+            ],
+            "resolution": {
+                "width": 420,
+                "height": 300
+            },
+            "whichside" : "both"
+        }
+    }
+}, {
+    "collection": "bars",
+    "version": 1,
+    "type": "widget",
+    "category": "bars",
+    "html": "bar",
+    "name": "bars",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+										"title": "Motivation and Energy",
+					          "legend": { 
+					          	"position": "none"
+	                   },
+										"vAxis": {
+										  "title": "Rating (scale of 1-10)",
+										  "textStyle": {
+										  	"fontSize": 13,
+                    		"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},										
+										"hAxis": {
+										  "title": "Time of Day",
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    		"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    }
+							}
+            },
+            "preData": [
+							["Element", "Density"],
+							["Copper", 8.94],           
+							["Silver", 10.49],           
+							["Gold", 19.30],
+							["Platinum", 21.45]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "colorsInChart" : ["#990099", "#109618", "#FF9900", "#DC3912"],
+            "whichside" : "rows"
+        }
+    }
+}, {
+    "collection": "bars",
+    "version": 2,
+    "type": "widget",
+    "category": "bars",
+    "html": "bar",
+    "name": "bars",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+        						"isStacked": "true",
+										"title": "Stacked Motivation and Energy",
+					          "legend": { 
+					          	"position": "right",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      } 
+	                   },
+										"hAxis": {
+										  "title": "Time of Day",
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+										"vAxis": {
+										  "title": "Rating (scale of 1-10)",
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    		"color": "#424242"
+										  }
+										},
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    },
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+      							"colors": ["#990099", "#109618", "#FF9900"]
+							}
+            },
+            "preData": [
+							["Element", "Density", "Fluidity", "Lorum"],
+							["Copper", 8.94, 7.94, 4.94],           
+							["Silver", 10.49, 4.94, 2.94],           
+							["Gold", 19.30, 7.94, 12.94],
+							["Platinum", 21.45, 22.94, 11.94]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "whichside" : "cols"
+        }
+    }
+}, {
+    "collection": "columns",
+    "version": 1,
+    "type": "widget",
+    "category": "columns",
+    "html": "column",
+    "name": "columns",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+										"title": "Motivation and Energy",
+					          "legend": { 
+					          	"position": "none"
+	                   },
+										"vAxis": {
+										  "title": "Units",
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},										
+										"hAxis": {
+										  "title": "Type",
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    }
+							}
+            },
+            "preData": [
+							["Element", "Density"],
+							["Copper", 8.94],           
+							["Silver", 10.49],           
+							["Gold", 19.30],
+							["Platinum", 21.45]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "colorsInChart" : ["#990099", "#109618", "#FF9900", "#DC3912"],
+            "whichside" : "rows"
+        }
+    }
+}, {
+    "collection": "columns",
+    "version": 2,
+    "type": "widget",
+    "category": "columns",
+    "html": "column",
+    "name": "columns",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+										"title": "Motivation and Energy",
+					          "legend": { 
+					          	"position": "right",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      } 
+	                  },
+										"vAxis": {
+										  "title": "Units",
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},										
+										"hAxis": {
+										  "title": "Type",
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    },
+						        "trendlines": {
+						          "0": {
+						            "type": "linear",
+						            "color": "green",
+						            "lineWidth": 3,
+						            "opacity": "0.9",
+						            "showR2": true,
+						            "visibleInLegend": true
+						          }
+						        },
+      							"colors": ["#DC3912", "#3366CC"]
+							}
+            },
+            "preData": [
+							["Element", "Density", "Fluidity"],
+							["Copper", 8.94, 7.94],           
+							["Silver", 10.49, 4.94],           
+							["Gold", 19.30, 7.94],
+							["Platinum", 21.45, 22.94]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "whichside" : "cols"
+        }
+    }
+}, {
+    "collection": "columns",
+    "version": 3,
+    "type": "widget",
+    "category": "columns",
+    "html": "column",
+    "name": "columns",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+        						"isStacked": "true",
+										"title": "Motivation and Energy",
+					          "legend": { 
+					          	"position": "right",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      } 
+	                  },
+										"vAxis": {
+										  "title": "Units",
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }										
+										},										  
+										"hAxis": {
+										  "title": "Type",
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+
+
+										},
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    },
+      							"colors": ["#990099", "#109618", "#FF9900"]
+							}
+            },
+            "preData": [
+							["Element", "Density", "Fluidity", "Lorum"],
+							["Copper", 8.94, 7.94, 4.94],           
+							["Silver", 10.49, 4.94, 2.94],           
+							["Gold", 19.30, 7.94, 12.94],
+							["Platinum", 21.45, 22.94, 11.94]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "whichside" : "cols"
+        }
+    }
+}, {
+    "collection": "lines",
+    "version": 1,
+    "type": "widget",
+    "category": "lines",
+    "html": "line",
+    "name": "lines",
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+				          "title": "Company Performance",
+				          "curveType": "function",
+				          "legend": { 
+				          	"position": "right",
+                    "textStyle": {
+                    	"fontSize": 12,
+                    	"color": "#424242"
+                    } 
+                   },
+                  "chartArea": {
+                    "left": "90",
+                    "top": "45",
+                    "width": "65%",
+                    "height": "75%"
+                  },
+                  "titleTextStyle":{
+                  	"fontSize": 23,
+                    	"color": "#424242"
+                  },
+                  "vAxis": {
+                		"title": "Units",
+									  "textStyle": {
+									  	"fontSize": 13,
+                    	"color": "#424242"
+									  },
+									  "titleTextStyle": {
+									  	"fontSize": 13,
+                    	"color": "#424242"
+									  }
+                  },
+                  "hAxis": {
+                		"title": "Year",
+                		"format": "",
+									  "slantedText": false,
+									  "slantedTextAngle": 0,
+									  "textStyle": {
+									  	"fontSize": 13,
+                    	"color": "#424242"
+									  },
+									  "titleTextStyle": {
+									  	"fontSize": 13,
+                    	"color": "#424242"
+									  }
+                  },
+      						"colors": ["#990099", "#109618", "#FF9900"]
+				        }
+            },
+            "preData": [
+		          ["Year", "Sales", "Expenses", "Misc"],
+		          ["2004",  1000,      400,      230],
+		          ["2005",  1170,      460,      120],
+		          ["2006",  660,       1120,     340],
+		          ["2007",  1030,      540,      150],
+		          ["2008",  1230,      540,      550]
+						],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "whichside" : "cols"
+        }
+    }
+}, {
+    "collection": "lines",
+    "version": 2,
+    "type": "widget",
+    "category": "lines",
+    "html": "line",
+    "name": "lines",
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+				          "title": "Company Performance",
+				          "curveType": "none",
+				          "legend": { 
+				          	"position": "right",
+                    "textStyle": {
+                    	"fontSize": 12,
+                    	"color": "#424242"
+                    } 
+                   },
+                  "chartArea": {
+                    "left": "90",
+                    "top": "45",
+                    "width": "65%",
+                    "height": "75%"
+                  },
+                  "titleTextStyle":{
+                  	"fontSize": 23,
+                    	"color": "#424242"
+                  },
+                  "vAxis": {
+                		"title": "Units",
+									  "textStyle": {
+									  	"fontSize": 13,
+                    	"color": "#424242"
+									  },
+									  "titleTextStyle": {
+									  	"fontSize": 13,
+                    	"color": "#424242"
+									  }
+                  },
+                  "hAxis": {
+                		"title": "Year",
+                		"format": "",
+									  "slantedText": false,
+									  "slantedTextAngle": 0,
+									  "textStyle": {
+									  	"fontSize": 13,
+                    	"color": "#424242"
+									  },
+									  "titleTextStyle": {
+									  	"fontSize": 13,
+                    	"color": "#424242"
+									  }
+                  },
+      						"colors": ["#990099", "#109618", "#FF9900"]
+				        }
+            },
+            "preData": [
+		          ["Year", "Sales", "Expenses", "Misc"],
+		          ["2004",  1000,      400,      230],
+		          ["2005",  1170,      460,      120],
+		          ["2006",  660,       1120,      340],
+		          ["2007",  1030,      540,      550]
+						],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "whichside" : "cols"
+        }
+    }
+}, {
+    "collection": "scatter",
+    "version": 1,
+    "type": "widget",
+    "category": "scatter",
+    "html": "scatter",
+    "name": "scatter",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+        						"isStacked": "true",
+										"title": "Age vs. Weight comparison",
+					          "legend": { 
+					          	"position": "right",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      } 
+	                   },
+										"hAxis": {
+										  "title": "Age", 
+										  "minValue": 0, 
+										  "maxValue": 15,
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+										"vAxis": {
+										  "title": "Weight", 
+										  "minValue": 0, 
+										  "maxValue": 15,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    }
+							}
+            },
+            "preData": [
+		          ["Age", "Weight"],
+		          [ 8,      12],
+		          [ 4,      5.5],
+		          [ 11,     14],
+		          [ 4,      5],
+		          [ 3,      3.5],
+		          [ 6.5,    7]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            }
+        }
+    }
+}, {
+    "collection": "scatter",
+    "version": 1,
+    "type": "widget",
+    "category": "scatter",
+    "html": "scatter",
+    "name": "scatter",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+        						"isStacked": "true",
+										"title": "Age vs. Weight comparison",
+					          "legend": { 
+					          	"position": "right",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      } 
+	                   },
+    								"trendlines": { 
+    									"0": {} 
+    								},
+										"hAxis": {
+										  "title": "Age", 
+										  "minValue": 0, 
+										  "maxValue": 15,
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+										"vAxis": {
+										  "title": "Weight", 
+										  "minValue": 0, 
+										  "maxValue": 15,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    }
+							}
+            },
+            "preData": [
+		          ["Age", "Weight"],
+		          [ 8,      12],
+		          [ 4,      5.5],
+		          [ 11,     14],
+		          [ 4,      5],
+		          [ 3,      3.5],
+		          [ 6.5,    7]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            }
+        }
+    }
+}, {
+    "collection": "stepped",
+    "version": 1,
+    "type": "widget",
+    "category": "stepped",
+    "html": "stepped",
+    "name": "stepped",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+        						"isStacked": "true",
+										"title": "The 39 Steps",
+					          "legend": { 
+					          	"position": "right",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      } 
+	                   },
+										"hAxis": {
+										  "title": "XXX",
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+										"vAxis": {
+										  "title": "Accumulated Rating",
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  }
+										},
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    },
+      							"colors": ["#DC3912", "#3366CC"]
+							}
+            },
+            "preData": [
+		          ["Director (Year)",  "Rotten", "IMDB"],
+		          ["Alfred Hitchcock (1935)", 8.4,         7.9],
+		          ["Ralph Thomas (1959)",     6.9,         6.5],
+		          ["Don Sharp (1978)",        6.5,         6.4],
+		          ["James Hawes (2008)",      4.4,         6.2]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "whichside" : "cols"
+        }
+    }
+}, {
+    "collection": "area",
+    "version": 1,
+    "type": "widget",
+    "category": "area",
+    "html": "area",
+    "name": "area",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+        						"isStacked": "false",
+										"title": "Company Performance",
+					          "legend": { 
+					          	"position": "right",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      } 
+	                   },
+										"hAxis": {
+										  "title": "Year",
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+          						"format": ""
+										},
+										"vAxis": {
+										  "title": "Accumulated Rating",
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+          						"minValue": 0
+										},
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    },
+      							"colors": ["#DC3912", "#3366CC"]
+							}
+            },
+            "preData": [
+		          ["Year", "Sales", "Expenses"],
+		          ["2013",  1000,      400],
+		          ["2014",  1170,      460],
+		          ["2015",  660,       1120],
+		          ["2016",  1030,      540]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "whichside" : "cols"
+        }
+    }
+}, {
+    "collection": "area",
+    "version": 2,
+    "type": "widget",
+    "category": "area",
+    "html": "area",
+    "name": "area",
+
+    "json": {
+        "data": {
+            "charts": {
+                "options": {
+        						"isStacked": "true",
+										"title": "Company Performance",
+					          "legend": { 
+					          	"position": "right",
+                      "textStyle": {
+                      	"fontSize": 12,
+                    	"color": "#424242"
+                      } 
+	                   },
+										"hAxis": {
+										  "title": "Year",
+										  "slantedText": false,
+										  "slantedTextAngle": 0,
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+          					"format": ""
+										},
+										"vAxis": {
+										  "title": "Accumulated Rating",
+										  "textStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+										  "titleTextStyle": {
+										  	"fontSize": 13,
+                    	"color": "#424242"
+										  },
+          						"minValue": 0
+										},
+	                  "chartArea": {
+                      "left": "90",
+                      "top": "45",
+                      "width": "65%",
+                      "height": "75%"
+	                  },
+                    "titleTextStyle":{
+                    	"fontSize": 23,
+                    	"color": "#424242"
+                    },
+      							"colors": ["#DC3912", "#3366CC"]
+							}
+            },
+            "preData": [
+		          ["Year", "Sales", "Expenses"],
+		          ["2013",  1000,      400],
+		          ["2014",  1170,      460],
+		          ["2015",  660,       1120],
+		          ["2016",  1030,      540]
+            ],
+            "resolution": {
+              "width": 650,
+              "height": 425
+            },
+            "whichside" : "cols"
+        }
+    }
+}, 
+{
+    "collection": "headers",
+    "type": "text",
+    "category": "expandable",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background-color": "transparent"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"name": "stroke",
+				"html": "<div style=\"padding:8px;font-family:Roboto;background:white;color:black;font-size:60px\">\n\tHeader</div>",
+      	"text": "Header",
+		    "needFreshPNG": "true",
+		    "rotation": "0",
+		    "class": "",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "headersX",
+    "type": "text",
+    "category": "expandable",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#FFFFFF",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background-color": "transparent",
+					"-webkit-box-sizing": "content-box",
+					"-moz-box-sizing": "content-box",
+					"box-sizing": "content-box",
+					"-o-text-overflow": "clip",
+					"text-overflow": "clip",
+					"text-shadow":" 2px 2px 0 #000000 , -2px -2px 0 #000000 , 2px -2px 0 #000000 , -2px 2px 0 #000000"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"name": "stroke",
+				"html": "<div style=\"padding:8px;font-family:Roboto;background:white;color:black;font-size:60px\">\n\tHeader</div>",
+      	"text": "Header",
+		    "needFreshPNG": "true",
+		    "rotation": "0",
+		    "class": "",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "headersx",
+    "type": "text",
+    "category": "expandable",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "transparent",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"-webkit-text-fill-color": "#FFFFFF",
+					"-webkit-text-stroke": "1px #000000",
+					"text-stroke": "1px black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"name": "stroke",
+				"html": "<div style=\"padding:8px;font-family:Roboto;background:white;color:black;font-size:60px\">\n\tHeader</div>",
+      	"text": "Header",
+		    "needFreshPNG": "true",
+		    "rotation": "0",
+		    "class": "",
+		    "mirror": "1"
+      }
+    }
+}, {
+    "collection": "richtext",
+    "type": "text",
+    "category": "richtext",
+    "html": "Lorem ipsum dolor sit amet, iriure laoreet fabellas usu in, vim Lorem ipsum dolor sit amet, iriure laoreet fabellas usu in, vim.  Lorem ipsum dolor sit amet, iriure laoreet fabellas usu in, vim Lorem ipsum dolor sit amet, iriure laoreet fabellas usu in, vim.  Lorem ipsum dolor sit amet, iriure laoreet fabellas usu in, vim Lorem ipsum dolor sit amet, iriure laoreet fabellas usu in, vim",
+    "textedit_content": ".XX.",
+    "textedit_style": "{\n\"width\": \"293px\",\n\"height\": \"132px\",\n\"font-size\": \"14px\",\n\"line-height\": \"144%\"\n}",
+    "name": "Rich Text",
+    "json": {
+      "widget": "Rich Text"
+    }
+}, {
+    "collection": "zagLines",
+    "type": "lines",
+    "category": "zag",
+    "html": "<div class=\"zag_wrapper\">\n <div  class=\"clipartDiv zag zagA topBorder b5\">\n </div>\n <div  class=\"clipartDiv zag  zagB bottomBorder b5\">\n </div>\n</div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": ""
+}, {
+    "collection": "zagLines",
+    "type": "lines",
+    "category": "zag",
+    "html": "<div class=\"zag_wrapper\">\n\n<div  class=\"clipartDiv zag  zagA bottomBorder b5\">\n</div>\n<div  class=\"clipartDiv zag  zagB topBorder b5\">\n</div>\n</div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": ""
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >1\n    </div>\n</div>",
+      	"text": "1",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >2\n    </div>\n</div>",
+      	"text": "2",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >3\n    </div>\n</div>",
+      	"text": "3",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >4\n    </div>\n</div>",
+      	"text": "4",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >5\n    </div>\n</div>",
+      	"text": "5",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >6\n    </div>\n</div>",
+      	"text": "6",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >7\n    </div>\n</div>",
+      	"text": "7",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >8\n    </div>\n</div>",
+      	"text": "8",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >9\n    </div>\n</div>",
+      	"text": "9",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#FFFFFF",
+					"border-radius": "100%",
+					"border-width": "2px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='light isSmall' >\n\t<div >10\n    </div>\n</div>",
+      	"text": "10",
+		    "rotation": "0",
+		    "class": "light, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >1\n    </div>\n</div>",
+      	"text": "1",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >2\n    </div>\n</div>",
+      	"text": "2",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >3\n    </div>\n</div>",
+      	"text": "3",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >4\n    </div>\n</div>",
+      	"text": "4",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >5\n    </div>\n</div>",
+      	"text": "5",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >6\n    </div>\n</div>",
+      	"text": "6",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >7\n    </div>\n</div>",
+      	"text": "7",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >8\n    </div>\n</div>",
+      	"text": "8",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >9\n    </div>\n</div>",
+      	"text": "9",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, 
+{
+    "collection": "numbers",
+    "json": {
+      "style": {
+        "textedit": {
+          "color": "#000000",
+          "font-family": "Roboto",
+          "opacity": "1",
+					"background": "#000000",
+					"border-radius": "100%",
+					"border-width": "0px",
+					"border-style": "solid",
+					"border-color": "black"
+        }
+      },
+      "data":{
+      	"fontname":  "roboto",
+      	"font-size": 150,
+				"html": "<div  class='dark isSmall' >\n\t<div >10\n    </div>\n</div>",
+      	"text": "10",
+		    "rotation": "0",
+		    "class": "dark, IsSmall",
+		    "mirror": "1"
+      }
+    }
+}, {
+    "collection": "web",
+    "type": "widget",
+    "category": "photos",
+    "html": "<img src=\"img/url.png\" />",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "Submit Url",
+    "json": ""
+}, {
+    "collection": "web",
+    "type": "widget",
+    "category": "photos",
+    "html": "<img src=\"img/google_drive_logo2.png\" />",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "Google Drive",
+    "json": ""
+}, {
+    "collection": "shapefour",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "black",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "square border black",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapefour",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "black",
+          "border-radius": "0px",
+          "background-color": "#FFFFFF",
+          "box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-moz-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-o-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-ms-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-webkit-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "square border shadow black",
+      	"aspectratio": true,
+      	"shadow": 4,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapefour",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "square block black",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapefour",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapefour",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "#FFFFFF",
+          "box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-moz-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-o-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-ms-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-webkit-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle shadow black",
+      	"aspectratio": false,
+      	"shadow": 4,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapefour",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle block black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapefour",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "black",
+          "border-radius": "100px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "circle border black",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapefour",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "black",
+          "border-radius": "100px",
+          "background-color": "#FFFFFF",
+          "box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-moz-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-o-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-ms-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "-webkit-box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "box-shadow": "rgba(0, 0, 0, 0.4) 4px 4px 8px",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "circle border shadow black",
+      	"aspectratio": true,
+      	"shadow": 4,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapefour",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "100px",
+          "background-color": "#000000",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "circle block black",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "300px",
+    			"height": "300px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(0 0, 0% 100%, 100% 100%)",
+          "clip-path": "polygon(0 0, 0% 100%, 100% 100%)"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(100% 0, 0% 100%, 100% 100%)",
+          "clip-path": "polygon(100% 0, 0% 100%, 100% 100%)"
+        }
+      },
+      "data":{
+				"name": "tri",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(50% 0, 0% 100%, 100% 100%)",
+          "clip-path": "polygon(50% 0, 0% 100%, 100% 100%)"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(100% 0, 0 0, 0 100%)",
+          "clip-path": "polygon(100% 0, 0 0, 0 100%)"
+        }
+      },
+      "data":{
+				"name": "tri",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(100% 0, 0 0, 100% 100%)",
+          "clip-path": "polygon(100% 0, 0 0, 100% 100%)"
+        }
+      },
+      "data":{
+				"name": "tri",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+          "clip-path": "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
+        }
+      },
+      "data":{
+				"name": "star",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(100% 0, 100% 100%, 50% 10%, 0% 100%, 0% 0%)",
+          "clip-path": "polygon(100% 0, 100% 100%, 50% 10%, 0% 100%, 0% 0%)"
+        }
+      },
+      "data":{
+				"name": "star",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "300px",
+    			"height": "250px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(100% 0, 100% 100%, 0% 100%, 0% 0%)",
+          "clip-path": "polygon(100% 0, 100% 100%, 0% 100%, 0% 0%)"
+        }
+      },
+      "data":{
+				"name": "star",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%)",
+          "clip-path": "polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%)"
+        }
+      },
+      "data":{
+				"name": "star",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%)",
+          "clip-path": "polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%)"
+        }
+      },
+      "data":{
+				"name": "arrow",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)",
+          "clip-path": "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%)",
+          "clip-path": "polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%)"
+        }
+      },
+      "data":{
+				"name": "speech",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%)",
+          "clip-path": "polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%)"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)",
+          "clip-path": "polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)",
+          "clip-path": "polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)",
+          "clip-path": "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)",
+          "clip-path": "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)"
+        }
+      },
+      "data":{
+				"name": "xxx",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
+          "clip-path": "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)"
+        }
+      },
+      "data":{
+				"name": "pentagon",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "polygon",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "200px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "transparent",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-clip-path": "polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 100%, 35% 100%, 35% 50%, 10% 50%)",
+          "clip-path": "polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 100%, 35% 100%, 35% 50%, 10% 50%)"
+        }
+      },
+      "data":{
+				"name": "cross",
+      	"aspectratio": true,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "mask",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#CEC6CE",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-mask-image": "-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "0",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "mask",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#CEC6CE",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-mask-image": "-webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "0",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "mask",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#CEC6CE",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-mask-image": "-webkit-gradient(linear, left bottom, right top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "0",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "mask",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#CEC6CE",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-mask-image": "-webkit-gradient(linear, right bottom,left  top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "0",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "maskX",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#CEC6CE",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1,
+          "background-image": "linear-gradient(to left, rgba(255,255,255,.2), rgba(0,0,0,1))"
+          
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "0",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "mask",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#CEC6CE",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-mask-image": "-webkit-radial-gradient(center center, ellipse cover, rgba(255,255,255,0.2) 0%,rgba(0,0,0,0.6) 100%)"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "0",
+    		"border-style": "solid",
+    		"glow": 60,
+    		"whereglow": "inner"
+      }
+    }
+}, {
+    "collection": "mask",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#CEC6CE",
+          "border-radius": "0px",
+          "background-color": "#000000",
+          "opacity": 1,
+          "-webkit-mask-image": "-webkit-radial-gradient(center center, ellipse cover, rgba(255,255,255,0.6) 0%,rgba(0,0,0,0.2) 100%)"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "0",
+    		"border-style": "solid",
+    		"glow": 60,
+    		"whereglow": "outter"
+      }
+    }
+}, {
+    "collection": "mask",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#CEC6CE",
+          "border-radius": "0px",
+          "opacity": 1,
+          "background-color": "#000000",
+          "background": "linear-gradient(cyan,transparent),linear-gradient(-45deg,magenta,transparent),linear-gradient(45deg,yellow,transparent)",
+          "background-blend-mode": "multiply"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "0",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "mask",
+    "type": "shapes",
+    "category": "shapes",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "200px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#CEC6CE",
+          "border-radius": "0px",
+          "opacity": 1,
+          "background-color": "#000000",
+          "background": "repeating-linear-gradient(transparent,transparent 10px,lightcoral 10px,lightcoral 15px,transparent 15px,transparent 20px,lightcoral 15px,lightcoral 40px,transparent 40px,transparent 45px,lightcoral 45px,lightcoral 50px,transparent 50px,transparent 80px),repeating-linear-gradient(90deg,transparent,transparent 10px,lightcoral 10px,lightcoral 15px,transparent 15px,transparent 20px,lightcoral 15px,lightcoral 40px,transparent 40px,transparent 45px,lightcoral 45px,lightcoral 50px,transparent 50px,transparent 80px),floralwhite",
+          "background-blend-mode": "multiply"
+        }
+      },
+      "data":{
+				"name": "rectangle gradient black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "0",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapeone",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "30px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": false,
+	      		"bottom": false,
+	      		"left": false
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapeone",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "30px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-top-width": "5px",
+          "border-right-width": "5px",
+          "border-bottom-width": "5px",
+          "border-left-width": "5px",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": false,
+	      		"bottom": false,
+	      		"left": false
+      	},
+      	"border-width": "5",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapeone",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "30px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-top-width": "10px",
+          "border-right-width": "10px",
+          "border-bottom-width": "10px",
+          "border-left-width": "10px",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": false,
+	      		"bottom": false,
+	      		"left": false
+      	},
+      	"border-width": "10",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapeone",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "30px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": false,
+	      		"right": true,
+	      		"bottom": false,
+	      		"left": false
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapeone",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "30px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-top-width": "5px",
+          "border-right-width": "5px",
+          "border-bottom-width": "5px",
+          "border-left-width": "5px",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": false,
+	      		"right": true,
+	      		"bottom": false,
+	      		"left": false
+      	},
+      	"border-width": "5",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapeone",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "30px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-top-width": "10px",
+          "border-right-width": "10px",
+          "border-bottom-width": "10px",
+          "border-left-width": "10px",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": false,
+	      		"right": true,
+	      		"bottom": false,
+	      		"left": false
+      	},
+      	"border-width": "10",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapetwo",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": false,
+	      		"bottom": false,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapetwo",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": false,
+	      		"right": false,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapetwo",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": false,
+	      		"left": false
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapetwo",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": false,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": false
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapethree",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": false,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapethree",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": false,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapethree",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": true,
+	      		"left": false
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "shapethree",
+    "type": "shapes",
+    "category": "shapes",
+    "name": "rectangle frame",
+    "json": {
+      "style": {
+    		"element": {
+    			"width": "350px",
+    			"height": "350px"
+    		},
+        "shape": {
+          "width": "100%",
+          "height": "100%",
+          "border-color": "#000000",
+          "border-radius": "0px",
+          "background-color": "transparent",
+          "opacity": 1
+        }
+      },
+      "data":{
+				"name": "rectangle border black",
+      	"aspectratio": false,
+      	"shadow": 0,
+      	"show": {
+	      		"top": true,
+	      		"right": true,
+	      		"bottom": false,
+	      		"left": true
+      	},
+      	"border-width": "1",
+    		"border-style": "solid"
+      }
+    }
+}, {
+    "collection": "dynolines",
+    "type": "lines",
+    "category": "straight",
+    "html": "<div class=\"dynoline\"><div class=\"line \" ></div></div>",
+    "textedit_content": "",
+    "textedit_style": "",
+    "name": "",
+    "json": "{\"kinds\":\"\"}"
+}]

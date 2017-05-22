@@ -1,0 +1,370 @@
+sudo su
+
+
+sudo yum -y remove
+sudo yum -y install php-mcrypt httpd mysql mysql-server php php-gd php-mysql php-devel
+//sudo yum install -y httpd php php-gd
+
+AUTOSTART
+sudo  /sbin/chkconfig httpd on
+sudo   /sbin/chkconfig mysqld on
+
+sudo  /sbin/service httpd start
+sudo   /sbin/service mysqld start
+
+/sbin/service httpd restart
+
+
+/******************************************/
+http://iconof.com/blog/how-to-install-setup-node-js-on-amazon-aws-ec2-complete-guide/
+
+sudo yum install gcc-c++ make
+sudo yum install openssl-devel
+sudo yum install git
+git clone git://github.com/joyent/node.git
+cd node
+
+git checkout v0.11.12
+./configure
+make
+sudo make install
+
+export PATH=/bin/node:$PATH
+/******************************************/
+
+
+git clone https://github.com/isaacs/npm.git
+cd npm
+sudo make install
+
+/******************************************/
+
+cd /var/www/html/s3_connect
+// Start server: nohup node putDataWithNode.js &
+// pgrep node
+
+/******************************************/
+phpmyadmin // http://superuser.com/questions/291230/how-to-install-phpmyadmin-on-linux-ec2-instance
+
+wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.3.6-1.el5.rf.i386.rpm
+sudo rpm -Uvh rpmforge-release-0.3.6-1.el5.rf.i386.rpm 
+sudo yum install phpmyadmin
+
+
+/******************************************/
+the following is changed in /etc/httpd/conf.d/phpmyadmin.conf file to solve permission issue
+
+<Directory /usr/share/phpMyAdmin/>
+   AddDefaultCharset UTF-8
+
+   <IfModule mod_authz_core.c>
+     # Apache 2.4
+     <RequireAny>
+       #Require ip 127.0.0.1
+       #Require ip ::1
+       Require all granted
+     </RequireAny>
+   </IfModule>
+   <IfModule !mod_authz_core.c>
+     # Apache 2.2
+     Order Deny,Allow
+     Deny from All
+     Allow from 127.0.0.1
+     Allow from ::1
+   </IfModule>
+</Directory>
+
+
+also change /usr/share/phpmyadmin/config.inc.php file 
+
+fill in the blank in the blowfish cfg
+/******************************************/
+
+
+mysqladmin -u root password 123qwe
+
+mysql -u root -p123qwe
+create database pictographr_db;
+grant all privileges on pictographr_db.* to jamesming@localhost identified by '123qwe';
+quit;
+
+
+/******************************************/
+PHP ADMIN TO RDS
+make change to /usr/share/phpmyadmin/config.inc.php -- https://www.youtube.com/watch?v=Bz-4wTGD2_Q
+$cfg['Servers'][$i]['host'] = 'pictographr.co9ssfc5meqr.us-west-1.rds.amazonaws.com';
+$cfg['Server']['$i']['port'] = '3306';
+$cfg['Server']['$i']['socket'] = '  ';                    
+$cfg['Servers'][$i]['connect_type'] = 'tcp';                
+$cfg['Servers'][$i]['compress'] = false;
+$cfg['Servers'][$i]['user'] = 'jamesming';
+$cfg['Servers'][$i]['password'] = 'XXXXX';
+
+/******************************************/
+
+
+mysql -u jamesming -p
+/******************************************/
+
+
+http://www.vmadmin.co.uk/linux/44-redhat/209-linuxyumcomptrans
+
+yum install yum-utils
+yum clean all
+/usr/sbin/yum-complete-transaction --cleanup-only
+
+/******************************************/
+yum install -y php54-gd
+
+
+/******************************************/
+cd /var/www/html/s3_connect
+nohup node putDataWithNode.js &
+
+pgrep node
+
+/******************************************************/
+
+https://help.github.com/articles/generating-ssh-keys
+
+cd ~
+ssh-keygen -t rsa -C "jamesming@gmail.com"
+exec ssh-agent bash  // http://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent
+
+/******************************************************/
+
+Enable EC2 to pull from git repository // https://gist.github.com/aronwoost/1105010 
+
+sudo mkdir /var/www/.ssh
+sudo chown -R apache:apache /var/www/.ssh/
+sudo chown -R apache:apache /var/www/pictographr/temp
+
+sudo -Hu apache ssh-keygen -t rsa -C "apacheUser" # chose "no passphrase"
+sudo cat /var/www/.ssh/id_rsa.pub
+# Add the key as a "deploy key" at https://github.com/you/myapp/admin
+
+cd /var/
+sudo chown -R apache:apache www
+cd www
+sudo -Hu apache git clone git@github.com:jamesming/pictographr.git
+
+NOTE -- add the public key in the SSH section of your James Ming profile.
+You can only pull as the apache user now!
+
+TESTING THIS THING
+
+
+Remove index.php for CodeIgniter // http://stackoverflow.com/questions/18634186/remove-index-php-not-working-with-my-live-server-in-code-igniter
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php/$0 [PT,L]
+and change the value of "AllowOverride None" on /etc/httpd/conf/httpd.conf (if you use AMI Linux)
+into "AllowOverride All" in the <Directory "/var/www/html"></Directory> or <Directory "/var/www"></Directory>
+
+after that restart your apache with command like this:
+
+sudo service httpd restart
+
+
+/* ******************************************************** */
+
+pkill -f \
+
+
+
+
+/* IMAGEMAGIK*/
+http://www.gavin-nunns.com/?p=51
+
+remember to answer Y when prompted
+sudo yum install php-pear gcc
+sudo yum install ImageMagick  ImageMagick-devel
+pecl channel-update pecl.php.net
+sudo pecl install imagick
+sudo nano /etc/php.ini # before ;End insert the following line:extension=imagick.so
+sudo service httpd restart
+
+/****/
+yum install libpng-devel
+cd /usr/local/bin
+git clone https://github.com/pornel/pngquant.git
+cd pngquant
+/usr/local/bin/pngquant 
+
+/****/
+
+
+PATH=$PATH:/usr/local/bin
+PATH=/usr/local/bin:$PATH
+
+
+
+
+
+
+
+/* ******************************************************** */ https://mediatemple.net/community/products/dv/204404784/how-do-i-increase-the-php-upload-limits
+
+PHP has several configuration options to limit resources consumed by scripts. By default, PHP is set to allow uploads of files with a size of 2MB or less.
+
+Try increasing the following values in php.ini, for example:
+
+nano /etc/php.ini
+
+memory_limit = 32M
+upload_max_filesize = 24M
+post_max_size = 32M
+There are multiple ways to edit php.ini on your DV server. This KnowledgeBase article outlines how to do so:
+
+How can I edit the php.ini file?
+After making these changes, you may need to restart Apache. You can do so through Plesk or via SSH with the following command:
+
+///etc/init.d/httpd restart
+
+sudo service httpd restart
+
+/* ******************************************************** */
+
+ yum install postfix
+yum erase sendmail
+ 
+configure /etc/postfix/main.cf  use example from // http://www.pauldowman.com/2008/02/17/smtp-mail-from-ec2-web-server-setup/
+hint // https://help.ubuntu.com/community/Postfix
+hint // http://stackoverflow.com/questions/15011663/sasl-login-authentication-failed-invalid-authentication-mechanism-on-rails-usin
+ 
+ 
+ sudo /etc/init.d/postfix restart
+ 
+ //http://docs.aws.amazon.com/ses/latest/DeveloperGuide/postfix.html
+ 
+ configure SMTP 
+ 
+ http://cloud.tekgoblin.com/2013/04/20/aws-guides-how-to-use-amazon-ses-with-postfix/
+ //https://console.aws.amazon.com/ses/home?region=us-east-1
+ 
+ TEST
+
+sendmail "This is the subject line" jamesming@gmail.com
+
+/* ******************************************************** */
+ mysql -h pictographr.co9ssfc5meqr.us-west-1.rds.amazonaws.com -P 3306 -u jamesming -p
+ Jam3sM1n6
+ 
+ 
+ /* ******************************************************** */
+ 
+DigiCert
+
+1) yum install mod24_ssl
+2) edit /etc/httpd/conf.d/ssl.conf(see copy in this directory)
+3) crt files located in:
+
+/etc/pki/tls/certs/www_pictographr_com.crt
+/etc/pki/tls/private/www_pictographr_com.key
+/etc/pki/tls/certs/DigiCertCA.crt
+
+/sbin/service httpd start
+ apachectl configtest
+ 
+ /* ******************************************************** */ 
+ 
+ beta.pictographr.com
+ 
+must take away ssl to everything
+ 
+FOR http://beta.pictographr.com/   remove ssl.conf 
+
+add to /applications/config/config.php :
+	
+	else if($_SERVER['HTTP_HOST'] == 'beta.pictographr.com' ){
+		$config['base_url']	= "http://beta.pictographr.com";
+	}
+
+add to /applications/config/database.php
+
+  case 'beta.pictographr.com':
+		$db['pictographr']['hostname'] = 'localhost';
+		$db['pictographr']['username'] = 'jamesming';
+		$db['pictographr']['password'] = 'Jam3sM1n6';
+	break;
+	
+	
+	
+ 
+ /* ******************************************************** */ 	
+ 
+ cd /c/wamp/www/pictographr-design; git add . ; git commit -m 'update'; git push origin
+	
+	
+ 
+ /* ******************************************************** */ 	
+ 
+ /sbin/service  mysqld start
+ 
+ /* ******************************************************** */ 	
+ //http://www.thegeekstuff.com/2008/09/backup-and-restore-mysql-database-using-mysqldump/
+ 
+ 
+ backup
+ mysqldump -ujamesming -pJam3sM1n6 pictographr_db > backup_pictographr_db.sql
+ 
+ 
+ retore
+ mysql -ujamesming -pJam3sM1n6 pictographr_db < backup_pictographr_db.sql
+ 
+ 
+ // http://crontab-generator.org/
+ 
+ crontab -e
+ */30 * * * * php /var/www/pictographr-design/_source/pullDBProdToBeta.php >/dev/null 2>&1
+ 30 2 * * *  php /var/www/pictographr-design/_source/processStripeQueue.php >/dev/null 2>&1
+ 
+	
+ 
+ /* ******************************************************** */ 	
+ 
+ http://stackoverflow.com/questions/2682115/decimal-vs-int-in-mysql
+ http://stackoverflow.com/questions/6872310/whats-the-best-column-type-for-google-user-id
+ 
+
+ 
+  cd /var/www/pictographr-design/uploads/output; ls -l
+ rm -f -r data*; rm -f -r image*; rm -f -r *.png;rm -f -r *.pdf;
+ 
+ 
+ 
+  
+	
+ 
+ /* ******************************************************** */ 	
+nano /etc/httpd/conf/httpd.conf
+apache log files are located here: /etc/httpd/logs
+ 
+grep CustomLog /etc/httpd/conf/httpd.conf
+less /etc/httpd/logs/error_log
+ 
+ cd /etc/httpd/logs
+ tail /etc/httpd/logs/error_log -n 500|less
+ tail /etc/httpd/logs/access_log -n 500|less
+ 
+ 
+BUG WITH JSON MAX TO SERVER SOLVED
+ http://stackoverflow.com/questions/10303714/php-max-input-vars
+php_value max_input_vars 3000
+php_value suhosin.get.max_vars 3000
+php_value suhosin.post.max_vars 3000
+php_value suhosin.request.max_vars 3000
+
+so I added raise_json_post.conf in the /etc/httpd/conf.d dir cause this line was at the end of httpd.conf
+# Load config files in the "/etc/httpd/conf.d" directory, if any.
+IncludeOptional conf.d/*.conf
+	
+ 
+ /* ******************************************************** */ 
+ 
+ More configuration for httpd.conf found in this dir:
+ cd /etc/httpd/conf.d
+ 
+ sudo service httpd restart

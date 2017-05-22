@@ -1,0 +1,73 @@
+<div id="accountPickerWrapper"   class="organizationModal">
+		<div  class="close-button-wrapper" >
+			<span class="close-button">x</span>
+		</div>
+		<div  class="modal-title-div">
+			<h3>
+				Licensing Setup
+			</h3>
+		</div>
+		<div  id="top-message" ></div>
+		<ul class="nav nav-tabs">
+		  <li ><a id="link-name-1" ></a></li>
+		  <li ><a id="link-name-2" ></a></li>
+			<div  class="moving-line-wrapper" >
+				<div  class="moving-line">
+				</div>
+			</div>
+		</ul>
+		<form action="" method="POST" id="subscribe-form">
+			<div   id="organization-container" class="account-content">
+				<div  class="account-stretched-wrapper" ><!--  // view-source:http://www.imaputz.com/cssStuff/bigFourVersion.html -->
+	
+					<div id="cc_form_wrapper"  class="account-tab-panel">
+						
+						  <span class="payment-errors"></span>
+						
+							<div >
+								<span  id="cc-title" >Information</span><img  id="addcc"  src="img/allcc.png">
+							</div>
+							<div id="cc-name-wrapper" >
+								<img src="img/glyphicons//png/glyphicons_003_user.png"  class="icon" />
+								<input required type="text" class="form-control empty" placeholder="Full Name" /><!-- value="James Ming"  -->
+							</div>
+							<div>
+								<img src="img/glyphicons/png/glyphicons_267_credit_card.png"  class="icon"/>
+								<input required type="text" class="form-control empty" placeholder="Credit Card Number"  data-stripe="number"/><!--   value="4242424242424242" -->
+							</div>
+							<div>
+								<img src="img/glyphicons/png/glyphicons_045_calendar.png"  class="icon"/>
+								<input required type="text" class="form-control empty date" placeholder="Month"  data-stripe="exp-month"/><!--   value="12" -->
+								<input required class="form-control empty  date"  type="text" placeholder="Year"  data-stripe="exp-year"/><!--  value="2018" -->
+								<input required class="form-control empty cvc" placeholder="CVC"   type="text" data-stripe="cvc" /><!--   value="123" -->
+							</div>
+	
+							<div  id="cc-button-wrapper"  >
+							  <button id="continue-button" type="button"  class="btn btn-primary  floatright">Continue</button>
+							</div>		  
+						
+					</div>
+					
+					<div  class="account-tab-panel">
+						<div  class="select_title" >
+							Please choose plan for your organization.
+						</div>
+						<div  id="add_blocks_input_container"   class="input_container">
+							<input type="hidden" id="new_subscription_interval" name="new_subscription_interval" value="">
+							<input type="hidden" id="addSeatCount" name="addSeatCount" value="">
+							<input type="hidden" id="cost" name="cost" value="">
+							<table id="add_blocks_table">
+							</table>						
+						</div>
+						<div  id="subscription-button-wrapper"  >
+							<div  id="cc-button-wrapper"  >
+								<button  id="cc_submit"  type="submit"  class="btn btn-primary  floatright">Subscribe</button>
+							</div>
+						</div>		  
+	
+					</div>
+		
+				</div>
+			</div>
+		</form>
+</div>

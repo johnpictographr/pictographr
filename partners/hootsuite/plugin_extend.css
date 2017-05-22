@@ -1,0 +1,32 @@
+body{
+ overflow-x: hidden;	
+}
+
+#main_container{
+	box-sizing: border-box;
+	width: 100% !important;
+	height: auto !important;
+	margin-left: 0px;
+}
+
+.hideThis{
+	display:none !important;	
+}
+#new_design{
+	width: 100px;
+	height: 17px !important;
+	padding-top: 10px;
+	background-repeat: no-repeat;
+	height: 9px;
+	padding-left: 23px;
+	font-size: 12px;	
+}
+.boxes{
+	background: white;
+	border-bottom: 1px solid #E6E6E6;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.boxes:nth-child(odd){
+	border-right: 1px solid #E6E6E6;	
+}

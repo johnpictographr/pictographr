@@ -1,0 +1,16 @@
+Maintaining fonts.
+
+Stich.php will create sprites of each font category.  It will also create fonts.json.
+
+1) run "http://des.pictographr.com/php/admin/stich.php" in order to get an updated
+fonts.json file in dir: /uploads/output.
+
+2) http://des.pictographr.com/php/admin/fonts_naming.html will pull fonts.json.
+
+3) fonts_naming.html will update fonts_naming.json in dir: /uploads/output whenever
+input fields Label or Family are keyUp. This is done in admin controller.
+
+4) Refresh stich.php so it can pull the latest fonts_naming.json and generate a newer fonts.json.
+
+5) remember to sudo chown -R apache:apache /var/www/pictographr-design/uploads if you move any
+file from local computer to uploads directory.

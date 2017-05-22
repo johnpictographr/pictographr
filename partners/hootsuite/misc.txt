@@ -1,0 +1,47 @@
+https://youtu.be/EF7OguOVX9s
+	
+					tools.crossdom.receive = function(msg) {
+						
+						var msgObj = this.unserialize(msg.data.split(','));
+						
+						if( typeof( msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'retrieveGoogleIdDomain' ){ // ONLY LISTEN FOR MSG FROM PICTOGRAPHR
+							
+							console.log(JSON.stringify(  msgObj   , null, 2 ));
+							
+							if( typeof( msgObj.google_id ) != 'undefined')   app.stubs.google_id = msgObj.google_id;
+							
+							if( msgObj.appInstalled == 'true'){
+								
+									if( msgObj.exist == 'true'){  // user is in database
+										
+									  app.stubs.isGoogleConnected = true;
+										app.stubs.google_id = msgObj.google_id;
+										app.stubs.isPictoUserLinkedToHootSuite = true;
+										app.streamPictoFiles();
+					
+									}else{
+										
+										// console.log('not in pictographr DB');
+										
+										app.getPermissionToLink();
+										
+									};
+								
+							} else{
+								
+									app.getPermissionToLink();
+				
+							};
+							
+						};
+				
+													
+					}
+					
+					tools.crossdom.init('iframe_messaging_conduit', 'https://pictographr.com/partners/iframeSrcPostMsgConduit.html');
+
+						
+						
+						
+						
+						return;

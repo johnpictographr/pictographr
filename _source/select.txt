@@ -1,0 +1,17 @@
+SELECT * FROM `users` WHERE google_id = '104530712385857206971'
+
+
+SELECT * FROM `promos` WHERE code = '2xrc42'
+SELECT * FROM `promos` WHERE code = 'classroom'
+SELECT * FROM `promos` WHERE code = 'teach'
+
+
+SELECT * FROM `promos` WHERE promo_type_id != 0
+SELECT * FROM `promos_users` WHERE promo_id = 25859
+
+
+INSERT INTO `promos` ( `printed`, `location_id`, `user_id`, `redeemed`, `code`, `name`, `market_name`, `track_id`, `market_id`, `market_max_promo`, `market_initial_credits`, `credits`, `multi`, `multi_set_count`, `multi_left_count`, `when`, `reserved_user_id`, `reserved_email`, `reserve_expiration_date`, `updated`, `created`) VALUES
+(0, 0, 0, 0, 'classroom', '', '', 0, 0, 0, 0, 26, 1, 90, 90, '2017-04-28 00:00:00', 0, '', '2017-10-25 00:00:00', '2017-04-29 08:49:59', '2017-04-28 11:30:03');
+
+
+scsk12
